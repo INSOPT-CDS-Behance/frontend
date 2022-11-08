@@ -4,7 +4,7 @@ import Router from './components/common/Router';
 import GlobalStyle from './styles/globalStyle';
 import theme from './styles/theme';
 
-function App() {
+const App = () => {
   return (
     <>
       <GlobalStyle />
@@ -13,5 +13,5 @@ function App() {
       </ThemeProvider>
     </>
   );
-}
+};
 export default App;
