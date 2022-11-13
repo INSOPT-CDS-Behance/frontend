@@ -1,92 +1,155 @@
 import { DefaultTheme } from 'styled-components';
+
 const colors = {
-  ohou_skyblue: '#35C5F0',
-  ohou_white: '#FFFFFF',
-  ohou_gray01: '#F7F9FA',
-  ohou_gray02: '#EDEDED',
-  ohou_gray03: '#DBDBDB',
-  ohou_gray04: '#757575',
-  ohou_gray05: '#424242',
-  ohou_gray06: '#292929',
-  ohou_black: '#000000',
-  ohou_red: '#EE7F7B',
+  behance_blue: '#2456f7',
+  behance_black: '#000000',
+  behance_gray800: '#1f1f1f',
+  behance_gray700: '#333333',
+  behance_gray600: '#474747',
+  behance_gray500: '#5c5c5c',
+  behance_gray400: '#adadad',
+  behance_gray300: '#d6d6d6',
+  behance_gray200: '#ededed',
+  behance_gray100: '#f7f7f7',
+  behance_white: '#ffffff',
 };
 
 const fonts = {
-  ohou_h1: `
+  behance_acumin_pro_black_80: `
+    font-family: AcuminPro-Black;
+    font-size: 80px;
+    font-weight: 900;
     font-style: normal;
-    font-weight: 700;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_medium_32: `
+    font-family: AcuminPro-Medium;
+    font-size: 32px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_regular30: `
+    font-family: AcuminPro-Regular;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_semibold_30: `
+    font-family: AcuminPro-Semibold;
+    font-size: 30px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_black_24: `
+    font-family: AcuminPro-Black;
+    font-size: 24px;
+    font-weight: 900;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_medium_24: `
+    font-family: AcuminPro-Medium;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.2px;
+  `,
+  behance_acumin_pro_semibold_20: `
+    font-family: AcuminPro-Semibold;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_bold_18: `
+    font-family: AcuminPro-Bold;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_semibold_18: `
+    font-family: AcuminPro-Semibold;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_bold_17: `
+    font-family: AcuminPro-Bold;
+    font-size: 17px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_medium_17: `
+    font-family: AcuminPro-Medium;
+    font-size: 17px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_bold_16: `
+    font-family: AcuminPro-Bold;
     font-size: 16px;
-    line-height: 23.17px;
-  `,
-
-  ohou_h2: `
+    font-weight: bold;
     font-style: normal;
-    font-weight: 700;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_regular_16: `
+    font-family: AcuminPro-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  `,
+  behance_acumin_pro_bold_14: `
+    font-family: AcuminPro-Bold;
     font-size: 14px;
-    line-height: 20px;
-    letter-spacing: -0.04em;
-  `,
-
-  ohou_h3: `
+    font-weight: bold;
     font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 19px;
+    line-height: normal;
+    letter-spacing: -0.7px;
   `,
-
-  ohou_h4: `
-    font-style: normal;
-    font-weight: 700;
-    font-size: 11px;
-    line-height: 16px;
-  `,
-
-  ohou_b1: `
-    font-style: normal;
-    font-weight: 400;
+  behance_acumin_pro_regular_14: `
+    font-family: AcuminPro-Regular;
     font-size: 14px;
-    line-height: 120%;
-    letter-spacing: -0.04em;
-  `,
-
-  ohou_b2: `
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 21px;
-    letter-spacing: 0.02em;
+    line-height: normal;
+    letter-spacing: normal;
   `,
-
-  ohou_b3: `
-    font-style: normal;
-    font-weight: 400;
+  behance_acumin_pro_bold_12: `
+    font-family: AcuminPro-Bold;
     font-size: 12px;
-    line-height: 17px;
-    letter-spacing: -0.04em;
-  `,
-
-  ohou_b4: `
+    font-weight: bold;
     font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 16px;
+    line-height: normal;
+    letter-spacing: normal;
   `,
-
-  ohou_b5: `
+  behance_acumin_pro_regular_12: `
+    font-family: AcuminPro-Regular;
+    font-size: 12px;
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 14px;
-    letter-spacing: -0.04em;
-  `,
-
-  ohou_small: `
-    font-style: normal;
-    font-weight: 400;
-    font-size: 9px;
-    line-height: 13px;
-    letter-spacing: -0.04em;
+    line-height: normal;
+    letter-spacing: normal;
   `,
 };
 
