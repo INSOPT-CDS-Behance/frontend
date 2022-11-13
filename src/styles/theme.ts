@@ -143,14 +143,7 @@ const fonts = {
     line-height: normal;
     letter-spacing: normal;
   `,
-  behance_acumin_pro_regular_12: `
-    font-family: AcuminPro-Regular;
-    font-size: 12px;
-    font-weight: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-  `,
+  
 };
 
 const theme: DefaultTheme = {

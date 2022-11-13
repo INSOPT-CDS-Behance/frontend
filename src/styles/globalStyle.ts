@@ -191,11 +191,7 @@ ${reset}
   src:url("../fonts/Acumin-Pro-Thin.ttf")
 
 }
-@font-face{
-  font-family: "AcuminPro-UltraBlack";
-  src:url("../fonts/Acumin-Pro-UltraBlack.ttf")
 
-}
 `;
 
 export default GlobalStyle;

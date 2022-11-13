@@ -32,7 +32,6 @@ declare module 'styled-components' {
       behance_acumin_pro_bold_14: string;
       behance_acumin_pro_regular_14: string;
       behance_acumin_pro_bold_12: string;
-      behance_acumin_pro_regular_12: string;
     };
   }
 }
