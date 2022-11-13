@@ -146,6 +146,56 @@ ${reset}
 * {
     box-sizing: border-box;
     }
+@font-face{
+  font-family: "AcuminPro-Black";
+  src:url("../fonts/Acumin-Pro-Black.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Bold";
+  src:url("../fonts/Acumin-Pro-Bold.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Regular";
+  src:url("../fonts/Acumin-Pro-Book.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-ExtraLight";
+  src:url("../fonts/Acumin-Pro-ExtraLight.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Light";
+  src:url("../fonts/Acumin-Pro-Light.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Medium1";
+  src:url("../fonts/Acumin-Pro-Medium-1.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Medium";
+  src:url("../fonts/Acumin-Pro-Medium.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Semibold";
+  src:url("../fonts/Acumin-Pro-Semibold.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-Thin";
+  src:url("../fonts/Acumin-Pro-Thin.ttf")
+
+}
+@font-face{
+  font-family: "AcuminPro-UltraBlack";
+  src:url("../fonts/Acumin-Pro-UltraBlack.ttf")
+
+}
 `;
 
 export default GlobalStyle;
