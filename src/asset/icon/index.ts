@@ -1,1 +1,2 @@
-export { ReactComponent as ICNoriLogo } from './noriLogoIcon.svg';
+export { ReactComponent as ICDropDown } from './ic_dropdown.svg';
+export { ReactComponent as ICSearch } from './ic_search.svg';
