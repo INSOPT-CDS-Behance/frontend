@@ -17,7 +17,7 @@ const colors = {
 const fonts = {
   behance_acumin_pro_black_80: `
     font-family: AcuminPro-Black;
-    font-size: 80px;
+    font-size: 8rem;
     font-weight: 900;
     font-style: normal;
     line-height: normal;
@@ -25,7 +25,7 @@ const fonts = {
   `,
   behance_acumin_pro_medium_32: `
     font-family: AcuminPro-Medium;
-    font-size: 32px;
+    font-size: 3.2rem;
     font-weight: 500;
     font-style: normal;
     line-height: normal;
@@ -33,7 +33,7 @@ const fonts = {
   `,
   behance_acumin_pro_regular30: `
     font-family: AcuminPro-Regular;
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: normal;
     font-style: normal;
     line-height: normal;
@@ -41,7 +41,7 @@ const fonts = {
   `,
   behance_acumin_pro_semibold_30: `
     font-family: AcuminPro-Semibold;
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 600;
     font-style: normal;
     line-height: normal;
@@ -49,7 +49,7 @@ const fonts = {
   `,
   behance_acumin_pro_black_24: `
     font-family: AcuminPro-Black;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 900;
     font-style: normal;
     line-height: normal;
@@ -57,7 +57,7 @@ const fonts = {
   `,
   behance_acumin_pro_medium_24: `
     font-family: AcuminPro-Medium;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 500;
     font-style: normal;
     line-height: normal;
@@ -65,7 +65,7 @@ const fonts = {
   `,
   behance_acumin_pro_semibold_20: `
     font-family: AcuminPro-Semibold;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
     font-style: normal;
     line-height: normal;
@@ -73,7 +73,7 @@ const fonts = {
   `,
   behance_acumin_pro_bold_18: `
     font-family: AcuminPro-Bold;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     font-style: normal;
     line-height: normal;
@@ -81,7 +81,7 @@ const fonts = {
   `,
   behance_acumin_pro_semibold_18: `
     font-family: AcuminPro-Semibold;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     font-style: normal;
     line-height: normal;
@@ -89,7 +89,7 @@ const fonts = {
   `,
   behance_acumin_pro_bold_17: `
     font-family: AcuminPro-Bold;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-weight: bold;
     font-style: normal;
     line-height: normal;
@@ -97,7 +97,7 @@ const fonts = {
   `,
   behance_acumin_pro_medium_17: `
     font-family: AcuminPro-Medium;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-weight: 500;
     font-style: normal;
     line-height: normal;
@@ -105,7 +105,7 @@ const fonts = {
   `,
   behance_acumin_pro_bold_16: `
     font-family: AcuminPro-Bold;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: bold;
     font-style: normal;
     line-height: normal;
@@ -113,7 +113,7 @@ const fonts = {
   `,
   behance_acumin_pro_regular_16: `
     font-family: AcuminPro-Regular;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: normal;
     font-style: normal;
     line-height: normal;
@@ -121,7 +121,7 @@ const fonts = {
   `,
   behance_acumin_pro_bold_14: `
     font-family: AcuminPro-Bold;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: bold;
     font-style: normal;
     line-height: normal;
@@ -129,7 +129,7 @@ const fonts = {
   `,
   behance_acumin_pro_regular_14: `
     font-family: AcuminPro-Regular;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: normal;
     font-style: normal;
     line-height: normal;
@@ -137,7 +137,7 @@ const fonts = {
   `,
   behance_acumin_pro_bold_12: `
     font-family: AcuminPro-Bold;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: bold;
     font-style: normal;
     line-height: normal;
@@ -145,7 +145,7 @@ const fonts = {
   `,
   behance_acumin_pro_regular_12: `
     font-family: AcuminPro-Regular;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: normal;
     font-style: normal;
     line-height: normal;
