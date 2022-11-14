@@ -36,6 +36,27 @@ const Header = () => {
         </article>
         <ICBtnNext className="next_btn" />
       </StSection>
+      <StNavWrapper>
+        <ul>
+          <li>
+            <ICFavorite />
+            <span>투데이</span>
+          </li>
+          <ICLineCol />
+
+          <li>
+            <ICPerson />
+            <span>팔로잉</span>
+          </li>
+          <ICLineCol />
+
+          <li>
+            <ICStar />
+            <span>내 구독</span>
+          </li>
+          <ICLineCol />
+        </ul>
+      </StNavWrapper>
     </StHeaderWrapper>
   );
 };
@@ -130,5 +151,39 @@ const StSection = styled.section`
     position: absolute;
     right: 7rem;
     margin-top: 0.65rem;
+  }
+`;
+const StNavWrapper = styled.nav`
+  display: flex;
+  justify-content: flex-start;
+
+  width: 100%;
+  margin-top: 7.5625rem;
+
+  & > ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 2rem;
+
+    width: 100%;
+    padding-bottom: 0.1rem;
+
+    border-bottom: solid 0.0625rem ${({ theme }) => theme.colors.behance_gray300};
+
+    & > li {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0rem;
+      gap: 0.625rem;
+
+      padding-bottom: 1.1563rem;
+    }
+    & > li:nth-child(1) {
+      border-bottom: solid 0.1563rem ${({ theme }) => theme.colors.behance_black};
+    }
   }
 `;
