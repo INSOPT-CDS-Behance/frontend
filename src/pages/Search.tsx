@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Img from '../asset/image/searchHomeBackground.svg';
+import background from '../asset/image/searchHomeBackground.svg';
 import CategoryButton from '../components/search/CategoryButton';
 import HrContainer from '../components/search/HrContainer';
 import TitleBoard from '../components/search/TitleBoard';
@@ -22,8 +22,7 @@ const Search = () => {
 export default Search;
 
 const Background = styled.section`
-  background-color: black;
-  background-image: url(../asset/image/searchHomeBackground.svg);
+  background-image: url(${background});
   height: 35rem;
   overflow: hidden;
 `;
