@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICAlertFill, ICMailFill } from '../../asset/icon';
@@ -5,19 +6,22 @@ import { AdobeLogo, BehanceLogo, Profile, ShareButton } from '../../asset/image'
 import PageCategory from './PageCategory';
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <StHeader>
+      {/* 헤더 좌측 */}
       <StLeft>
         <BehanceLogo />
         <PageCategory />
       </StLeft>
 
+      {/* 헤더 우측 */}
       <StRight>
         <ShareButton />
         <StIcons>
           <ICMailFill />
           <ICAlertFill />
-          <Profile />
+          <Profile onClick={() => navigate('/MyPage')} />
         </StIcons>
         <AdobeLogo />
       </StRight>
@@ -31,6 +35,7 @@ const StHeader = styled.header`
   display: flex;
   justify-content: space-between;
 
+  box-sizing: border-box;
   width: 120rem;
   height: 4.375rem;
   margin: 0 0 2.4375rem;
