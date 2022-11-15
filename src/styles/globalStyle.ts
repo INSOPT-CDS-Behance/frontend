@@ -1,5 +1,15 @@
 import { createGlobalStyle, css } from 'styled-components';
 
+import AcuminProBlack from '../fonts/Acumin-Pro-Black.ttf';
+import AcuminProBold from '../fonts/Acumin-Pro-Bold.ttf';
+import AcuminProBook from '../fonts/Acumin-Pro-Book.ttf';
+import AcuminProExtraLight from '../fonts/Acumin-Pro-ExtraLight.ttf';
+import AcuminProLight from '../fonts/Acumin-Pro-Light.ttf';
+import AcuminProMedium from '../fonts/Acumin-Pro-Medium.ttf';
+import AcuminProSemibold from '../fonts/Acumin-Pro-Semibold.ttf';
+import AcuminProThin from '../fonts/Acumin-Pro-Thin.ttf';
+import AcuminProUltraBlack from '../fonts/Acumin-Pro-UltraBlack.ttf';
+
 export const reset = css`
   html,
   body,
@@ -88,7 +98,6 @@ export const reset = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -144,56 +153,52 @@ ${reset}
  
 }
 * {
+  
     box-sizing: border-box;
     }
 @font-face{
-  font-family: "AcuminPro-Black";
-  src:url("../fonts/Acumin-Pro-Black.ttf")
+  font-family: "AcuminProBlack";
+  src: url(${AcuminProBlack}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Bold";
-  src:url("../fonts/Acumin-Pro-Bold.ttf")
+  font-family: "AcuminProBold";
+  src: url(${AcuminProBold}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Regular";
-  src:url("../fonts/Acumin-Pro-Book.ttf")
+  font-family: "AcuminProRegular";
+  src:url(${AcuminProBook}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-ExtraLight";
-  src:url("../fonts/Acumin-Pro-ExtraLight.ttf")
+  font-family: "AcuminProExtraLight";
+  src:url(${AcuminProExtraLight}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Light";
-  src:url("../fonts/Acumin-Pro-Light.ttf")
+  font-family: "AcuminProLight";
+  src:url(${AcuminProLight}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Medium1";
-  src:url("../fonts/Acumin-Pro-Medium-1.ttf")
+  font-family: "AcuminProMedium";
+  src:url(${AcuminProMedium}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Medium";
-  src:url("../fonts/Acumin-Pro-Medium.ttf")
+  font-family: "AcuminProSemibold";
+  src: url(${AcuminProSemibold}) format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Semibold";
-  src:url("../fonts/Acumin-Pro-Semibold.ttf")
+  font-family: "AcuminProThin";
+  src:url(${AcuminProThin})  format("truetype");
 
 }
 @font-face{
-  font-family: "AcuminPro-Thin";
-  src:url("../fonts/Acumin-Pro-Thin.ttf")
-
-}
-@font-face{
-  font-family: "AcuminPro-UltraBlack";
-  src:url("../fonts/Acumin-Pro-UltraBlack.ttf")
+  font-family: "AcuminProUltraBlack";
+  src:url(${AcuminProUltraBlack}) format("truetype");
 
 }
 `;
