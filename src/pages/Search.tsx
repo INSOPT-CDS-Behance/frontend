@@ -4,13 +4,13 @@ import background from '../asset/image/searchHomeBackground.svg';
 import CategoryButton from '../components/search/CategoryButton';
 import HrContainer from '../components/search/HrContainer';
 import TitleBoard from '../components/search/TitleBoard';
-import TransparentNav from '../components/search/TransparentNav';
+import TransparentHeader from '../components/search/TransparentHeader';
 
 const Search = () => {
   return (
     <>
       <Background>
-        <TransparentNav />
+        <TransparentHeader />
         <TitleBoard />
         <CategoryButton />
         <HrContainer />
