@@ -19,49 +19,75 @@ const CategoryButton = () => {
     'Illustrate',
   ];
   return (
-    <>
+    <Body>
+      <IconContainer>
+        <ArrowContainer>
+          <ArrowLeft />
+          <ArrowRight />
+        </ArrowContainer>
+        <HamburgerButton />
+      </IconContainer>
       <GradientContainer>
         <GradientLeft />
         <GradientRight />
       </GradientContainer>
-      <Container>
+      <ButtonContainer>
         {categorys.map((category) => (
           // eslint-disable-next-line react/jsx-key
           <Button>{category}</Button>
         ))}
-      </Container>
-    </>
+      </ButtonContainer>
+    </Body>
   );
 };
 
 export default CategoryButton;
 
-const GradientContainer = styled.div`
-  width: 1920px;
+const Body = styled.section`
+  position: relative;
+`;
+
+const IconContainer = styled.section`
+  width: 120rem;
+  height: 5.625rem;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 3;
+`;
+
+const ArrowContainer = styled.section`
+  width: 112.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const GradientContainer = styled.section`
+  width: 120rem;
   display: flex;
   justify-content: space-between;
   position: absolute;
   z-index: 2;
 `;
 
-const GradientLeft = styled.div`
+const GradientLeft = styled.section`
   width: 21.0625rem;
   background-image: linear-gradient(to right, black, transparent);
   height: 5.625rem;
 `;
-const GradientRight = styled.div`
+const GradientRight = styled.section`
   width: 21.0625rem;
   background-image: linear-gradient(to left, black, transparent);
   height: 5.625rem;
 `;
 
-const Container = styled.section`
-  position: absolute;
-  z-index: 1;
+const ButtonContainer = styled.section`
   overflow: hidden;
   width: 138.375rem;
   margin-left: -9.1875rem;
-  background: linear-gradient(45deg, black, transparent);
+  position: absolute;
+  z-index: 1;
 `;
 
 const Button = styled.button`
