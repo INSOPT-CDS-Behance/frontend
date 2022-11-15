@@ -1,25 +1,37 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable import/no-duplicates */
+// eslint-disable-next-line import/order
+import { url } from 'inspector';
 import styled from 'styled-components';
 
 import { ArrowRight } from '../../asset/icon';
 import { ArrowLeft } from '../../asset/icon';
 // eslint-disable-next-line import/no-duplicates
 import { HamburgerButton } from '../../asset/icon';
+import illustrate from '../../asset/image/illustrate.png';
+import photoshop from '../../asset/image/photoshop.png';
 
-const CategoryButton = () => {
-  const categorys = [
-    'Photoshop',
-    'Photoshop',
-    'Illustrate',
-    'Photoshop',
-    '최고의 Behance',
-    'Illustrate',
-    'Photoshop',
-    'Illustrate',
-    'Illustrate',
+const CategoryButton = (): JSX.Element => {
+  interface Arr {
+    id: number;
+    text: string;
+    color?: string;
+    img?: string | undefined;
+  }
+  const categorys: Arr[] = [
+    { id: 1, text: 'Photoshop', color: 'transparent', img: photoshop },
+    { id: 2, text: 'Photoshop', color: 'transparent', img: photoshop },
+    { id: 3, text: 'Illustrate', color: 'transparent', img: illustrate },
+    { id: 4, text: 'Photoshop', color: 'transparent', img: photoshop },
+    { id: 5, text: '최고의 Behance', color: '#2456f7', img: '#' },
+    { id: 6, text: 'Illustrate', color: 'transparent', img: illustrate },
+    { id: 7, text: 'Photoshop', color: 'transparent', img: photoshop },
+    { id: 8, text: 'Illustrate', color: 'transparent', img: illustrate },
+    { id: 9, text: 'Illustrate', color: 'transparent', img: illustrate },
   ];
   return (
     <Body>
+      {/* <img src={photoshop} alt="#" /> */}
       <IconContainer>
         <ArrowContainer>
           <ArrowLeft />
@@ -33,8 +45,15 @@ const CategoryButton = () => {
       </GradientContainer>
       <ButtonContainer>
         {categorys.map((category) => (
-          // eslint-disable-next-line react/jsx-key
-          <Button>{category}</Button>
+          <Button
+            key={category.id}
+            style={{
+              backgroundColor: category.color,
+              // eslint-disable-next-line @typescript-eslint/no-var-requires
+              backgroundImage: `url(${category.img})`,
+            }}>
+            {category.text}
+          </Button>
         ))}
       </ButtonContainer>
     </Body>
@@ -98,6 +117,7 @@ const Button = styled.button`
   padding: 1.9375rem 1.6875rem 1.875rem;
   border: 1px solid black;
   border-radius: 0.25rem;
+  color: ${({ theme }) => theme.colors.behance_white};
 
   ${({ theme }) => theme.fonts.behance_acumin_pro_black_24};
 `;
