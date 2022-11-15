@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import background from '../asset/image/searchHomeBackground.svg';
 import CategoryButton from '../components/search/CategoryButton';
 import HrContainer from '../components/search/HrContainer';
+import Searchbar from '../components/search/Searchbar';
 import TitleBoard from '../components/search/TitleBoard';
 import TransparentHeader from '../components/search/TransparentHeader';
 
@@ -15,6 +16,7 @@ const Search = () => {
         <CategoryButton />
         <HrContainer />
       </Background>
+      <Searchbar />
     </>
   );
 };
