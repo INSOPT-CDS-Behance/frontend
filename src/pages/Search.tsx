@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
+import CategoryBar from '../components/search/CategoryBar';
 import CategoryButton from '../components/search/CategoryButton';
 import HrContainer from '../components/search/HrContainer';
 import Searchbar from '../components/search/Searchbar';
@@ -17,6 +18,7 @@ const Search = () => {
         <HrContainer />
       </Background>
       <Searchbar />
+      <CategoryBar />
     </>
   );
 };
