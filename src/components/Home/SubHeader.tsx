@@ -9,9 +9,9 @@ import {
   ICFavorite,
   ICLineCol,
   ICPerson,
-  ICSearch,
   ICStar,
 } from '../../asset/icon';
+import SearchInput from './SearchInput';
 const Header = () => {
   return (
     <StHeaderWrapper>
@@ -20,10 +20,7 @@ const Header = () => {
           <span>프로젝트</span>
           <ICDropDown fill="white" />
         </StButton>
-        <StInputWrapper>
-          <ICSearch width="24" height="24" />
-          <input placeholder="Behance 추천 프로젝트 둘러보기" />
-        </StInputWrapper>
+        <SearchInput />
       </form>
       <StSection>
         <article className="add_btn_wrapper">
@@ -81,25 +78,7 @@ const StHeaderWrapper = styled.header`
     display: flex;
 
     width: 100%;
-  }
-`;
-const StInputWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  padding: 0 1rem;
-
-  border: solid 0.0625rem ${({ theme }) => theme.colors.behance_gray400};
-  border-radius: 0 0.3125rem 0.3125rem 0;
-  & > input {
-    width: 100%;
-    padding: 0 1rem;
-
-    border: none;
-
-    ${({ theme }) => theme.fonts.behance_acumin_pro_medium_17};
+    margin-top: 2.4375rem;
   }
 `;
 const StButton = styled.button`

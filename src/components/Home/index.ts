@@ -1,2 +1,2 @@
-export { default as MainHeader } from './MainHeader';
+export { default as SearchInput } from './SearchInput';
 export { default as Header } from './SubHeader';
