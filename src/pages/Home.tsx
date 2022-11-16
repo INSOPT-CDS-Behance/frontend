@@ -1,18 +1,37 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { ICBehance } from '../asset/icon';
 import { ContentPreview, PersonalInfo } from '../components/common';
-import { Header } from '../components/Home';
+import { Header, SearchInput } from '../components/Home';
 import PageCategory from '../components/Home/PageCategory';
 import { HeaderLayout } from '../components/layout';
+
 const Home = () => {
+  const [isSpread, setIsSpread] = useState<boolean>(true);
+  const [pageY, setPageY] = useState(0);
+  const documentRef = useRef(document);
+
+  useEffect(() => {
+    documentRef.current.addEventListener('scroll', handleScroll);
+    return () => documentRef.current.removeEventListener('scroll', handleScroll);
+  }, [pageY]);
+
+  const handleScroll = () => {
+    const { pageYOffset } = window;
+    setPageY(pageYOffset);
+    setIsSpread(pageYOffset <= 410);
+  };
+
   return (
     <>
       <HeaderLayout
         isWhite={true}
         Logo={<ICBehance />}
-        CategoryInfo={<PageCategory />}
-        PersonalInfo={<PersonalInfo />}></HeaderLayout>
+        CategoryInfo={<PageCategory isSpread={isSpread} currentCategory="당신을 위한" />}
+        PersonalInfo={<PersonalInfo />}>
+        {!isSpread && <SearchInput />}
+      </HeaderLayout>
       <StBody>
         <Header />
         <StContentSection>
@@ -27,7 +46,7 @@ const Home = () => {
 
 export default Home;
 const StBody = styled.body`
-  padding-top: 4.375rem;
+  margin-top: 4.375rem;
 `;
 const StContentSection = styled.section`
   display: grid;
