@@ -2,12 +2,12 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { GlassIcon, ICDropdown } from '../../asset/icon';
-// import icColor from '../../asset/icon.icColor.svg';
+import icColor from '../../asset/icon/icColor.svg';
 import icCreative from '../../asset/icon/icCreative.svg';
 import icLink from '../../asset/icon/icLink.svg';
 import icLocation from '../../asset/icon/icLocation.svg';
 import icPersonFill24 from '../../asset/icon/icPersonFill24.svg';
-import icSchool from '../../asset/icon/icShool.svg';
+import icSchool from '../../asset/icon/icSchool.svg';
 import icTool from '../../asset/icon/icTool.svg';
 import theme from '../../styles/theme';
 
@@ -28,15 +28,15 @@ const Searchbar = () => {
   const dropboxs: Arr[] = [
     { id: 1, text: '크리에이티브 분야', src: icCreative },
     { id: 2, text: '도구', src: icTool },
-    // { id: 3, text: '색상', src: icColor },
+    { id: 3, text: '색상', src: icColor },
     { id: 4, text: '위치', src: icLocation },
-    // { id: 5, text: '학교', src: icSchool },
+    { id: 5, text: '학교', src: icSchool },
     { id: 6, text: '소스파일', src: icLink },
     { id: 7, text: '구독', src: icPersonFill24 },
   ];
 
   return (
-    <>
+    <Search>
       <InputContainer>
         <div>
           <Glass />
@@ -52,29 +52,59 @@ const Searchbar = () => {
         </div>
       </InputContainer>
       <DropBoxContainer>
-        {dropboxs.map((dropbox) => (
-          <button key={dropbox.id}>
-            <img src={dropbox.src} alt="드롭박스 아이콘" />
-            {dropbox.text}
-            <ICDropdown />
-          </button>
-        ))}
+        <section>
+          {dropboxs.map((dropbox) => (
+            <button key={dropbox.id}>
+              <img src={dropbox.src} alt="드롭박스 아이콘" />
+              <p>{dropbox.text}</p>
+              <ICDropdown />
+            </button>
+          ))}
+        </section>
+        <section>
+          <p>추천순</p>
+          <ICDropdown />
+        </section>
       </DropBoxContainer>
-    </>
+    </Search>
   );
 };
 
 export default Searchbar;
 
+const Search = styled.section`
+  height: 14.625rem;
+  padding-top: 2.5rem;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.behance_gray300};
+`;
+
 const DropBoxContainer = styled.section`
   margin-top: 2.5rem;
   margin-left: 1.875rem;
-  & > button {
+  display: flex;
+  width: 116.25rem;
+  justify-content: space-between;
+  ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
+
+  & > section {
+    display: flex;
+  }
+  & > section > button {
     margin-right: 1.25rem;
     background-color: transparent;
     border: 1px solid ${({ theme }) => theme.colors.behance_gray400};
     border-radius: 0.3125rem;
-    ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    & > p {
+      margin: 0 0.25rem;
+    }
+  }
+  & > section:nth-child(2) {
+    display: flex;
+    align-items: center;
+    margin-right: 0.75rem;
   }
 `;
 
@@ -86,7 +116,6 @@ const InputContainer = styled.section`
   display: flex;
   justify-content: center;
   height: 4rem;
-  margin-top: 2.5rem;
 
   & > div {
     display: flex;
