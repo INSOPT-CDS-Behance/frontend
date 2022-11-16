@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { ImgDropDown } from '../asset/image';
-import UserInfo from '../asset/image/UserInfo2.svg';
+import UserInfo from '../asset/image/UserInfo.svg';
 import { Header, MoveBoard, Nav } from '../components/MyPage';
 
 const MyPage = () => {
