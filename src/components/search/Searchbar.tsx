@@ -17,7 +17,6 @@ interface Props {
 const Searchbar = () => {
   const [clicked, setClicked] = useState<boolean[]>([true, false, false, false, false, false]);
   const categorys: string[] = ['프로젝트', '이미지', '프로토타입', '스트림', '인물', '무드보드'];
-  const index: boolean[] = [true, false, false, false, false, false];
 
   interface Arr {
     id: number;
