@@ -29,6 +29,7 @@ export default HeaderLayout;
 const StHeader = styled.header<{ isWhite: boolean }>`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   position: fixed;
   top: 0;
@@ -40,6 +41,11 @@ const StHeader = styled.header<{ isWhite: boolean }>`
   margin: 0 0 2.4375rem;
 
   background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.behance_white : theme.colors.behance_black)};
+
+  & > form {
+    width: 68rem;
+    height: 2.625rem;
+  }
 `;
 const StLeft = styled.div`
   display: flex;
