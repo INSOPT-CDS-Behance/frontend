@@ -3,7 +3,15 @@ import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
 import Hover from '../components/common/Hover';
-import { CategoryButton, HrContainer, Preview, Searchbar, TitleBoard, TransparentHeader } from '../components/search';
+import {
+  CategoryButton,
+  HrContainer,
+  Preview,
+  Searchbar,
+  TitleBoard,
+  TransparentHeader,
+  WhiteHeader,
+} from '../components/search';
 
 const Search = () => {
   const [isHover, setIsHover] = useState(false);
@@ -16,7 +24,8 @@ const Search = () => {
 
   return (
     <>
-      <Background>
+      <WhiteHeader />
+      {/* <Background>
         <Header>
           <TransparentHeader />
         </Header>
@@ -25,7 +34,7 @@ const Search = () => {
           <CategoryButton />
           <HrContainer />
         </Section>
-      </Background>
+      </Background> */}
       <Searchbar />
       <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
         {[1, 2, 3, 4, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 2, 2, 2, , 2, , 2, 2, , 2].map((_, idx) => (
