@@ -1,13 +1,6 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable import/no-duplicates */
-// eslint-disable-next-line import/order
-import { url } from 'inspector';
 import styled from 'styled-components';
 
-import { ArrowRight } from '../../asset/icon';
-import { ArrowLeft } from '../../asset/icon';
-// eslint-disable-next-line import/no-duplicates
-import { HamburgerButton } from '../../asset/icon';
+import { ArrowLeft, ArrowRight, HamburgerButton } from '../../asset/icon';
 import illustrate from '../../asset/image/illustrate.png';
 import photoshop from '../../asset/image/photoshop.png';
 
@@ -31,7 +24,6 @@ const CategoryButton = (): JSX.Element => {
   ];
   return (
     <Body>
-      {/* <img src={photoshop} alt="#" /> */}
       <IconContainer>
         <ArrowContainer>
           <ArrowLeft />
@@ -49,7 +41,6 @@ const CategoryButton = (): JSX.Element => {
             key={category.id}
             style={{
               backgroundColor: category.color,
-              // eslint-disable-next-line @typescript-eslint/no-var-requires
               backgroundImage: `url(${category.img})`,
             }}>
             {category.text}

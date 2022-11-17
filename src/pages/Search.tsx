@@ -12,6 +12,7 @@ import {
   TransparentHeader,
   WhiteHeader,
 } from '../components/search';
+import Modal from '../components/search/Modal';
 
 const Search = () => {
   const [isHover, setIsHover] = useState(false);
@@ -56,6 +57,7 @@ const Search = () => {
         ))}
         {isHover && <Hover />}
       </StContentSection>
+      <Modal />
     </>
   );
 };
