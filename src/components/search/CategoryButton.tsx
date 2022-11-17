@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowLeft, ArrowRight, HamburgerButton } from '../../asset/icon';
 import illustrate from '../../asset/image/illustrate.png';
 import photoshop from '../../asset/image/photoshop.png';
+import theme from '../../styles/theme';
+import HamburgerModal from './HamburgerModal';
 
 const CategoryButton = (): JSX.Element => {
   interface Arr {
@@ -22,42 +25,55 @@ const CategoryButton = (): JSX.Element => {
     { id: 8, text: 'Illustrate', color: 'transparent', img: illustrate },
     { id: 9, text: 'Illustrate', color: 'transparent', img: illustrate },
   ];
+
+  const [hamburgerClicked, sethamburgerClicked] = useState(false);
+  const [hamburgerColor, sethamburgerColor] = useState('white');
+
+  const handleHamburgerClick = () => {
+    sethamburgerClicked(true);
+  };
+
   return (
-    <Body>
-      <IconContainer>
-        <ArrowContainer>
-          <ArrowLeft />
-          <ArrowRight />
-        </ArrowContainer>
-        <HamburgerButton />
-      </IconContainer>
-      <GradientContainer>
-        <GradientLeft />
-        <GradientRight />
-      </GradientContainer>
-      <ButtonContainer>
-        {categorys.map((category) => (
-          <Button
-            key={category.id}
-            style={{
-              backgroundColor: category.color,
-              backgroundImage: `url(${category.img})`,
-            }}>
-            {category.text}
-          </Button>
-        ))}
-      </ButtonContainer>
-    </Body>
+    <>
+      {hamburgerClicked && <HamburgerModal />}
+
+      <StCategoryButtonWrapper>
+        <IconWrapper>
+          <ArrowWrapper>
+            <ArrowLeft />
+            <ArrowRight />
+          </ArrowWrapper>
+          <HamburgerButton onClick={handleHamburgerClick} />
+        </IconWrapper>
+        <GradientWrapper>
+          <GradientLeft />
+          <GradientRight />
+        </GradientWrapper>
+        <ButtonWrapper>
+          {categorys.map((category) => (
+            <Button
+              type="button"
+              key={category.id}
+              style={{
+                backgroundColor: category.color,
+                backgroundImage: `url(${category.img})`,
+              }}>
+              {category.text}
+            </Button>
+          ))}
+        </ButtonWrapper>
+      </StCategoryButtonWrapper>
+    </>
   );
 };
 
 export default CategoryButton;
 
-const Body = styled.section`
+const StCategoryButtonWrapper = styled.body`
   position: relative;
 `;
 
-const IconContainer = styled.section`
+const IconWrapper = styled.section`
   width: 120rem;
   height: 5.625rem;
   display: flex;
@@ -66,14 +82,14 @@ const IconContainer = styled.section`
   z-index: 3;
 `;
 
-const ArrowContainer = styled.section`
+const ArrowWrapper = styled.section`
   width: 112.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const GradientContainer = styled.section`
+const GradientWrapper = styled.section`
   width: 120rem;
   display: flex;
   justify-content: space-between;
@@ -92,7 +108,7 @@ const GradientRight = styled.section`
   height: 5.625rem;
 `;
 
-const ButtonContainer = styled.section`
+const ButtonWrapper = styled.section`
   overflow: hidden;
   width: 138.375rem;
   margin-left: -9.1875rem;

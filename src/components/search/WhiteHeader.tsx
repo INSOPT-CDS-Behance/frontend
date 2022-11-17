@@ -1,38 +1,50 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICAlertFill, ICDropdown, ICMailFill } from '../../asset/icon';
 import { AdobeLogo, BehanceLogo, Profile, ShareButton } from '../../asset/image';
+import ButtonModal from './ButtonModal';
 
 const WhiteHeader = () => {
+  const [buttonClicked, setbuttonClicked] = useState<boolean>(false);
+
+  const handlebuttonClick = () => {
+    console.log('zmf');
+    setbuttonClicked(true);
+  };
+
   const navigate = useNavigate();
   return (
-    <StHeader>
-      {/* 헤더 좌측 */}
-      <StLeft>
-        <BehanceLogo fill="black" />
-        <div>
-          <p>탐색</p>
-          <ICDropdown fill="blue" />
-        </div>
-      </StLeft>
+    <>
+      <StHeader>
+        {/* 헤더 좌측 */}
+        <StLeft>
+          <BehanceLogo fill="black" />
+          <div>
+            <p>탐색</p>
+            <ICDropdown fill="blue" />
+          </div>
+        </StLeft>
 
-      <StMiddle>
-        <p>최고의 Behance</p>
-        <ICDropdown fill="white" />
-      </StMiddle>
+        <StMiddle onClick={handlebuttonClick}>
+          <p>최고의 Behance</p>
+          <ICDropdown fill="white" />
+        </StMiddle>
 
-      {/* 헤더 우측 */}
-      <StRight>
-        <ShareButton />
-        <StIcons>
-          <ICMailFill fill="black" />
-          <ICAlertFill fill="black" />
-          <Profile onClick={() => navigate('/MyPage')} />
-        </StIcons>
-        <AdobeLogo fill="black" />
-      </StRight>
-    </StHeader>
+        {/* 헤더 우측 */}
+        <StRight>
+          <ShareButton />
+          <StIcons>
+            <ICMailFill fill="black" />
+            <ICAlertFill fill="black" />
+            <Profile onClick={() => navigate('/MyPage')} />
+          </StIcons>
+          <AdobeLogo fill="black" />
+        </StRight>
+      </StHeader>
+      {buttonClicked && <ButtonModal />}
+    </>
   );
 };
 
@@ -41,6 +53,9 @@ export default WhiteHeader;
 const StHeader = styled.header`
   display: flex;
   justify-content: space-between;
+
+  position: absolute;
+  z-index: 5;
 
   box-sizing: border-box;
   width: 120rem;
@@ -71,7 +86,7 @@ const StLeft = styled.div`
   }
 `;
 
-const StMiddle = styled.div`
+const StMiddle = styled.div<{ setbuttonClicked?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +98,8 @@ const StMiddle = styled.div`
   border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
 
-  background-color: ${({ theme }) => theme.colors.behance_black};
+  background-color: ${({ setbuttonClicked, theme }) =>
+    setbuttonClicked ? theme.colors.behance_blue : theme.colors.behance_black};
   ${({ theme }) => theme.fonts.behance_acumin_pro_black_24};
   color: ${({ theme }) => theme.colors.behance_white};
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
 import Hover from '../components/common/Hover';
+import Modal from '../components/common/Modal';
 import {
   CategoryButton,
   HrContainer,
@@ -12,7 +13,6 @@ import {
   TransparentHeader,
   WhiteHeader,
 } from '../components/search';
-import Modal from '../components/search/Modal';
 
 const Search = () => {
   const [isHover, setIsHover] = useState(false);
@@ -57,7 +57,6 @@ const Search = () => {
         ))}
         {isHover && <Hover />}
       </StContentSection>
-      <Modal />
     </>
   );
 };

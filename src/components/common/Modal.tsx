@@ -50,14 +50,17 @@ const Modal = () => {
 export default Modal;
 
 const StModalWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+
   position: absolute;
   z-index: 6;
 
   top: 0;
   left: 0;
 
-  width: 100%;
-  height: 100%;
+  width: 120rem;
+  height: 500rem;
 
   background-color: rgba(0, 0, 0, 0.5);
 `;
