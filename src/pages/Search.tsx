@@ -17,10 +17,14 @@ const Search = () => {
   return (
     <>
       <Background>
-        <TransparentHeader />
-        <TitleBoard />
-        <CategoryButton />
-        <HrContainer />
+        <Header>
+          <TransparentHeader />
+        </Header>
+        <Section>
+          <TitleBoard />
+          <CategoryButton />
+          <HrContainer />
+        </Section>
       </Background>
       <Searchbar />
       <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
@@ -39,6 +43,18 @@ const Background = styled.section`
   background-image: url(${background});
   height: 35rem;
   overflow: hidden;
+`;
+
+const Header = styled.header`
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+  left: 0;
+  right: 0;
+`;
+
+const Section = styled.section`
+  padding-top: 4.375rem;
 `;
 
 const StContentSection = styled.section`
