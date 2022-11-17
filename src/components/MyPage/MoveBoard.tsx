@@ -21,7 +21,7 @@ const MoveBoard = () => {
   ];
 
   //profile 렌더링 배열 생성
-  const profile = (profileNum: number) => {
+  const handleProfile = (profileNum: number) => {
     const array = [];
     for (let i = 0; i < profileNum; i++) {
       array.push(<StImg src={ImgProfile} className={`img${i}`} alt="유저 프로필" />);
@@ -38,7 +38,7 @@ const MoveBoard = () => {
         {obj.lock === true ? <ICLockOn /> : null}
       </StHeader>
       <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
-      <StProfile>{profile(obj.profileNum)}</StProfile>
+      <StProfile>{handleProfile(obj.profileNum)}</StProfile>
     </StMoveBoard>
   ));
 
