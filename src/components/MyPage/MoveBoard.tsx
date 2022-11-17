@@ -4,6 +4,7 @@ import { ICLockOn } from '../../asset/icon';
 import { ImgMoveBoardShadow } from '../../asset/image';
 import ImgMoveBoard from '../../asset/image/./사진.svg';
 import ImgProfile from '../../asset/image/Profile.svg';
+import Tolltip from './Tolltip';
 
 interface ImoveBoard {
   title: string;
@@ -38,6 +39,7 @@ const MoveBoard = () => {
         {obj.lock === true ? <ICLockOn /> : null}
       </StHeader>
       <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
+      <Tolltip />
       {handleProfile(obj.profileNum)}
     </StMoveBoard>
   ));
