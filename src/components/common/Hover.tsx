@@ -42,6 +42,7 @@ const Container = styled.section`
 
   border-radius: 0.3063rem;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.51) 0%, rgba(0, 0, 0, 0.99) 100%);
+
   position: absolute;
   z-index: 2;
   & Button.category {
