@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
@@ -22,19 +22,33 @@ const Search = () => {
     setIsHover(false);
   };
 
+  const [isSpread, setIsSpread] = useState<boolean>(true);
+  const [pageY, setPageY] = useState(0);
+  const documentRef = useRef(document);
+
+  useEffect(() => {
+    documentRef.current.addEventListener('scroll', handleScroll);
+    return () => documentRef.current.removeEventListener('scroll', handleScroll);
+  }, [pageY]);
+
+  const handleScroll = () => {
+    const { pageYOffset } = window;
+    setPageY(pageYOffset);
+    setIsSpread(pageYOffset <= 350);
+  };
+
   return (
     <>
-      <WhiteHeader />
-      {/* <Background>
-        <Header>
-          <TransparentHeader />
-        </Header>
-        <Section>
+      <Header>{!isSpread && <WhiteHeader />}</Header>
+      <Background>
+        <Header>{isSpread && <TransparentHeader />}</Header>
+        <Body>
           <TitleBoard />
           <CategoryButton />
           <HrContainer />
-        </Section>
-      </Background> */}
+        </Body>
+      </Background>
+
       <Searchbar />
       <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
         {[1, 2, 3, 4, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 2, 2, 2, , 2, , 2, 2, , 2].map((_, idx) => (
@@ -60,9 +74,10 @@ const Header = styled.header`
   /* width: 100% */
   left: 0;
   right: 0;
+  z-index: 5;
 `;
 
-const Section = styled.section`
+const Body = styled.body`
   padding-top: 4.375rem;
 `;
 
