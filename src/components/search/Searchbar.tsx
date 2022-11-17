@@ -12,6 +12,7 @@ import icTool from '../../asset/icon/icTool.svg';
 import ImgHomePreview from '../../asset/image/previewImg.png';
 import theme from '../../styles/theme';
 import { DropboxList } from '../../types/common';
+import Preview from './Preview';
 
 interface Props {
   isClicked: boolean;
@@ -144,7 +145,11 @@ const Searchbar = () => {
           </div>
         </StLeft>
         <hr />
-        <StRight></StRight>
+        <StRight>
+          {[1, 2, 3, 4, 5].map((_, idx) => (
+            <Preview key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
+          ))}
+        </StRight>
         <StHr>
           <hr />
           <hr />
