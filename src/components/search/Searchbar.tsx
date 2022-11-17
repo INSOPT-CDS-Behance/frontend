@@ -20,7 +20,7 @@ interface CategoryProps {
 const Searchbar = () => {
   const [clicked, setClicked] = useState<boolean[]>([true, false, false, false, false, false]);
   const categorys: string[] = ['프로젝트', '이미지', '프로토타입', '스트림', '인물', '무드보드'];
-  const searchRef = useRef('ddd');
+  // const searchRef = useRef('ddd');
   const [placeholder, setplaceholder] = useState('Behance 추천 프로젝트 검색하기');
 
   interface Arr {
@@ -128,6 +128,7 @@ const Searchbar = () => {
           ))}
         </Container>
       </Body>
+      {/* <StSimilarProject></StSimilarProject> */}
     </>
   );
 };
@@ -267,4 +268,14 @@ const Arrow = styled(ArrowRight)`
   z-index: 3;
   margin-top: 2.35rem;
   margin-right: 2.5rem;
+`;
+
+const StSimilarProject = styled.section`
+  display: flex;
+
+  width: 120rem;
+  height: 35rem;
+  margin-bottom: -3rem;
+
+  background-color: ${({ theme }) => theme.colors.behance_black};
 `;

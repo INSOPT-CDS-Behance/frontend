@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 const HrContainer = () => {
   return (
-    <Container>
+    <StHrWrapper>
       <BlueHr />
       <WhiteHr />
-    </Container>
+    </StHrWrapper>
   );
 };
 
 export default HrContainer;
 
-const Container = styled.section`
+const StHrWrapper = styled.section`
   display: flex;
   justify-content: center;
   margin-top: 9.8125rem;

@@ -35,22 +35,23 @@ const Search = () => {
   const handleScroll = () => {
     const { pageYOffset } = window;
     setPageY(pageYOffset);
-    setIsSpread(pageYOffset <= 350);
+    setIsSpread(pageYOffset <= 450);
   };
 
   return (
     <>
-      <Header>{!isSpread && <WhiteHeader />}</Header>
-      <Background>
-        <Header>{isSpread && <TransparentHeader />}</Header>
-        <Body>
+      <StHeader>{!isSpread && <WhiteHeader />}</StHeader>
+      <StBackground>
+        <StHeader>{isSpread && <TransparentHeader />}</StHeader>
+        <StBody>
           <TitleBoard />
           <CategoryButton />
           <HrContainer />
-        </Body>
-      </Background>
+        </StBody>
+      </StBackground>
 
       <Searchbar />
+
       <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
         {[1, 2, 3, 4, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 2, 2, 2, , 2, , 2, 2, , 2].map((_, idx) => (
           <Preview key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
@@ -63,13 +64,13 @@ const Search = () => {
 
 export default Search;
 
-const Background = styled.section`
+const StBackground = styled.section`
   background-image: url(${background});
   height: 35rem;
   overflow: hidden;
 `;
 
-const Header = styled.header`
+const StHeader = styled.header`
   position: fixed;
   top: 0;
   /* width: 100% */
@@ -78,7 +79,7 @@ const Header = styled.header`
   z-index: 5;
 `;
 
-const Body = styled.body`
+const StBody = styled.section`
   padding-top: 4.375rem;
 `;
 

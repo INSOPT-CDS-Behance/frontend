@@ -69,7 +69,7 @@ const CategoryButton = (): JSX.Element => {
 
 export default CategoryButton;
 
-const StCategoryButtonWrapper = styled.body`
+const StCategoryButtonWrapper = styled.section`
   position: relative;
 `;
 
