@@ -11,7 +11,7 @@ const Detail = () => {
       <DetailBlackHeader />
       <DetailWhiteHeader />
       <StDetailWrapper>
-        <StImgScroll />
+        <ImgScroll />
         <div>
           <ProfileFollow />
           <p>팔로우</p>
@@ -25,11 +25,28 @@ const Detail = () => {
           <p>평가</p>
         </div>
       </StDetailWrapper>
+      <StButtonWrapper>
+        <div>
+          <BtnPrev />
+          <p>이전</p>
+        </div>
+        <div>
+          <BtnNext />
+          <p>다음</p>
+        </div>
+      </StButtonWrapper>
     </>
   );
 };
 
 export default Detail;
+
+const StButtonWrapper = styled.section`
+  position: fixed;
+  z-index: 3;
+  color: ${({ theme }) => theme.colors.behance_white};
+  ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
+`;
 
 const StDetailWrapper = styled.section`
   display: flex;
@@ -41,20 +58,22 @@ const StDetailWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 
     position: fixed;
+    z-index: 2;
 
     margin-top: 3.5625rem;
     margin-left: 97rem;
+
+    color: ${({ theme }) => theme.colors.behance_white};
+    ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
 
     & > p {
       margin-bottom: 1.6875rem;
       margin-top: 0.8125rem;
       color: ${({ theme }) => theme.colors.behance_white};
+      ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
     }
   }
-`;
-
-const StImgScroll = styled(ImgScroll)`
-  width: 300rem;
 `;
