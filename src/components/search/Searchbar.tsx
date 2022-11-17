@@ -146,6 +146,7 @@ const Searchbar = () => {
         </StLeft>
         <hr />
         <StRight>
+          <div></div>
           {[1, 2, 3, 4, 5].map((_, idx) => (
             <Thumbnail key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
           ))}
@@ -392,6 +393,19 @@ const StRight = styled.div`
   margin: -9.625rem 0 0 1.5rem;
   ${({ theme }) => theme.fonts.behance_acumin_pro_bold_16};
   color: ${({ theme }) => theme.colors.behance_white};
+
+  & > div {
+    position: absolute;
+    z-index: 3;
+    float: right;
+
+    width: 9.375rem;
+    height: 24.25rem;
+    margin-top: 10rem;
+    margin-left: 87.625rem;
+
+    background-image: linear-gradient(to left, black, transparent);
+  }
 `;
 
 const StHr = styled.section`
