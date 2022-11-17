@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICEdit, ICLockOn } from '../../asset/icon';
@@ -15,6 +16,8 @@ interface ImoveBoard {
 
 const MoveBoard = () => {
   const [hoverTarget, setHoverTarget] = useState('');
+  const navigate = useNavigate();
+
   const moveBoardList: ImoveBoard[] = [
     { title: 'Feature design', category: '산업 디자인', lock: true, profileNum: 3 },
     { title: 'Animation reference', category: '그래픽 디자인', lock: false, profileNum: 1 },
@@ -31,11 +34,19 @@ const MoveBoard = () => {
     return array;
   };
 
+  //이벤트 핸들링
   const handleMousehover = (e: React.MouseEvent) => {
     setHoverTarget(e.currentTarget.id);
   };
   const handleMouseLeave = () => {
     setHoverTarget('');
+  };
+  const handleOnClick = (e: React.MouseEvent) => {
+    e.stopPropagation;
+    const moveBoardId = e.currentTarget.parentElement;
+    console.log(moveBoardId);
+
+    navigate(`/Edit`);
   };
 
   const moveBoard: JSX.Element[] = moveBoardList.map((obj, index) => (
@@ -53,8 +64,8 @@ const MoveBoard = () => {
       </StHeader>
 
       <StHoverShadow className={hoverTarget === `moveBoard${index}` ? 'view' : ''} />
-      <StEdit className={hoverTarget === `moveBoard${index}` ? 'view' : ''}>
-        <ICEdit width="16px" height="16px" />
+      <StEdit className={hoverTarget === `moveBoard${index}` ? 'view' : ''} onClick={(e) => handleOnClick(e)}>
+        <ICEdit width="1rem" height="1rem" />
       </StEdit>
 
       <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
