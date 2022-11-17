@@ -36,7 +36,7 @@ const StHeaderWrapper = styled.header`
     display: flex;
     align-items: center;
 
-    margin-left: 14.25rem;
+    margin-left: 14.3125rem;
 
     color: ${({ theme }) => theme.colors.behance_white};
     & > div {
