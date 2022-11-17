@@ -1,4 +1,3 @@
-export { default as CategoryBar } from './CategoryBar';
 export { default as CategoryButton } from './CategoryButton';
 export { default as HrContainer } from './HrContainer';
 export { default as Preview } from './Preview';
