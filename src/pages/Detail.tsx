@@ -5,10 +5,11 @@ import DetailWhiteHeader from '../components/Detail/DetailWhiteHeader';
 
 const Detail = () => {
   return (
-    <>
+    <StDetailWrapper>
       <DetailBlackHeader />
       <DetailWhiteHeader />
-    </>
+
+    </StDetailWrapper>
   );
 };
 

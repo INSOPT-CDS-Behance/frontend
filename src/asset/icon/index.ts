@@ -8,5 +8,6 @@ export { ReactComponent as Share } from './Group 171.svg';
 export { ReactComponent as Test } from './Group 172.svg';
 export { ReactComponent as ProfileFollow } from './Group 181.svg';
 export { ReactComponent as ICDropdown } from './ic-dropdown.svg';
+export { ReactComponent as Logo } from './logo.svg';
 export { ReactComponent as ICNoriLogo } from './noriLogoIcon.svg';
 export { ReactComponent as Profile } from './profile.svg';
