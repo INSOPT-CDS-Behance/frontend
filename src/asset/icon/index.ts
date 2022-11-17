@@ -1,1 +1,12 @@
+export { ReactComponent as BadgeBehance } from './badge_behance.svg';
+export { ReactComponent as BtnClose } from './btn_close.svg';
+export { ReactComponent as BtnNext } from './btn_next.svg';
+export { ReactComponent as BtnPrev } from './btn_prev.svg';
+export { ReactComponent as Feedback } from './Group 169.svg';
+export { ReactComponent as Save } from './Group 170.svg';
+export { ReactComponent as Share } from './Group 171.svg';
+export { ReactComponent as Test } from './Group 172.svg';
+export { ReactComponent as ProfileFollow } from './Group 181.svg';
+export { ReactComponent as ICDropdown } from './ic-dropdown.svg';
 export { ReactComponent as ICNoriLogo } from './noriLogoIcon.svg';
+export { ReactComponent as Profile } from './profile.svg';
