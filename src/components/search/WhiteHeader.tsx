@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -10,11 +10,12 @@ const WhiteHeader = () => {
   const [buttonClicked, setbuttonClicked] = useState<boolean>(false);
 
   const handlebuttonClick = () => {
-    console.log('zmf');
     setbuttonClicked(true);
+    console.log(buttonClicked);
   };
 
   const navigate = useNavigate();
+
   return (
     <>
       <StHeader>
@@ -100,12 +101,15 @@ const StMiddle = styled.div<{ setbuttonClicked?: boolean }>`
 
   background-color: ${({ setbuttonClicked, theme }) =>
     setbuttonClicked ? theme.colors.behance_blue : theme.colors.behance_black};
+
   ${({ theme }) => theme.fonts.behance_acumin_pro_black_24};
   color: ${({ theme }) => theme.colors.behance_white};
 
   & > p {
     margin-right: 0.5rem;
   }
+
+  cursor: pointer;
 `;
 
 const StRight = styled.div`
