@@ -10,6 +10,7 @@ export { ReactComponent as ICHomePreview } from './ic_home_preview.svg';
 export { ReactComponent as ICPerson } from './ic_person_fill_24.svg';
 export { ReactComponent as ICRecommand } from './ic_recommend.svg';
 export { ReactComponent as ICSearch } from './ic_search.svg';
+export { ReactComponent as ICSearchBarHover } from './ic_searchHover.svg';
 export { ReactComponent as ICStar } from './ic_star_fill_24.svg';
 export { ReactComponent as ICVisible } from './ic_visible_fill.svg';
 export { ReactComponent as ICAlertFill } from './IcAlertFill.svg';
