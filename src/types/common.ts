@@ -11,3 +11,9 @@ export interface CategoryList {
   color?: string;
   imgSrc?: string;
 }
+
+export interface DropboxList {
+  id: number;
+  text: string;
+  src: string;
+}

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
-import { ArrowRight, GlassIcon, ICDropdown } from '../../asset/icon';
+import { ArrowRight, GlassIcon, ICClose, ICDropdown, ICOpenLink } from '../../asset/icon';
 import icColor from '../../asset/icon/icColor.svg';
 import icCreative from '../../asset/icon/icCreative.svg';
 import icLink from '../../asset/icon/icLink.svg';
@@ -9,7 +9,9 @@ import icLocation from '../../asset/icon/icLocation.svg';
 import icPersonFill24 from '../../asset/icon/icPersonFill24.svg';
 import icSchool from '../../asset/icon/icSchool.svg';
 import icTool from '../../asset/icon/icTool.svg';
+import ImgHomePreview from '../../asset/image/previewImg.png';
 import theme from '../../styles/theme';
+import { DropboxList } from '../../types/common';
 
 interface Props {
   isClicked: boolean;
@@ -23,13 +25,7 @@ const Searchbar = () => {
   // const searchRef = useRef('ddd');
   const [placeholder, setplaceholder] = useState('Behance 추천 프로젝트 검색하기');
 
-  interface Arr {
-    id: number;
-    text: string;
-    src: string;
-  }
-
-  const dropboxs: Arr[] = [
+  const dropboxList: DropboxList[] = [
     { id: 1, text: '크리에이티브 분야', src: icCreative },
     { id: 2, text: '도구', src: icTool },
     { id: 3, text: '색상', src: icColor },
@@ -101,7 +97,7 @@ const Searchbar = () => {
         </InputContainer>
         <DropBoxContainer>
           <section>
-            {dropboxs.map((dropbox) => (
+            {dropboxList.map((dropbox) => (
               <button key={dropbox.id}>
                 <img src={dropbox.src} alt="드롭박스 아이콘" />
                 <p>{dropbox.text}</p>
@@ -128,7 +124,32 @@ const Searchbar = () => {
           ))}
         </Container>
       </Body>
-      {/* <StSimilarProject></StSimilarProject> */}
+      <StSimilarProjectWrapper>
+        <StLeft>
+          <div>
+            <p>다음과 유사</p>
+            <button type="button">
+              <p>지우기</p>
+              <ICClose />
+            </button>
+          </div>
+          <img src={ImgHomePreview} alt="썸네일 이미지" />
+          <div>
+            <p>여러 소유자</p>
+            <ICDropdown fill="white" />
+          </div>
+          <div>
+            <ICOpenLink fill="${({ theme }) => theme.colors.behance_gray500}" />
+            <p>전체 프로젝트 보기</p>
+          </div>
+        </StLeft>
+        <hr />
+        <StRight></StRight>
+        <StHr>
+          <hr />
+          <hr />
+        </StHr>
+      </StSimilarProjectWrapper>
     </>
   );
 };
@@ -270,7 +291,7 @@ const Arrow = styled(ArrowRight)`
   margin-right: 2.5rem;
 `;
 
-const StSimilarProject = styled.section`
+const StSimilarProjectWrapper = styled.section`
   display: flex;
 
   width: 120rem;
@@ -278,4 +299,113 @@ const StSimilarProject = styled.section`
   margin-bottom: -3rem;
 
   background-color: ${({ theme }) => theme.colors.behance_black};
+
+  & > hr {
+    width: 0.0625rem;
+    height: 25rem;
+
+    margin-top: 3rem;
+    margin-left: 2.3125rem;
+
+    flex-grow: 0;
+    transform: rotate(-180deg);
+
+    background-color: ${({ theme }) => theme.colors.behance_gray500};
+  }
+`;
+
+const StLeft = styled.article`
+  width: 18.75rem;
+  height: 25rem;
+  margin: 3rem 0 0 1.875rem;
+
+  color: ${({ theme }) => theme.colors.behance_white};
+
+  & > img {
+    width: 18.75rem;
+    height: 12.5rem;
+  }
+
+  & > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+
+    ${({ theme }) => theme.fonts.behance_acumin_pro_bold_17};
+
+    & > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 6.125rem;
+      height: 2.25rem;
+
+      border: 1px solid transparent;
+      border-radius: 6.25rem;
+
+      ${({ theme }) => theme.fonts.behance_acumin_pro_bold_14};
+      color: ${({ theme }) => theme.colors.behance_white};
+      background-color: ${({ theme }) => theme.colors.behance_gray700};
+
+      & > p {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  & > div:nth-child(3) {
+    display: flex;
+    align-items: center;
+
+    margin-top: 1.25rem;
+    ${({ theme }) => theme.fonts.behance_acumin_pro_bold_17};
+    & > p {
+      margin-right: 0.25rem;
+    }
+  }
+  & > div:nth-child(4) {
+    display: flex;
+    align-items: center;
+
+    margin-top: 5.1875rem;
+
+    ${({ theme }) => theme.fonts.behance_acumin_pro_bold_14};
+
+    & > p {
+      margin-left: 0.5rem;
+      color: ${({ theme }) => theme.colors.behance_gray500};
+    }
+  }
+`;
+
+const StRight = styled.article`
+  display: flex;
+`;
+
+const StHr = styled.section`
+  display: flex;
+  justify-content: flex-start;
+
+  margin-top: 32.875rem;
+  margin-left: -22.9375rem;
+
+  & > hr:nth-child(1) {
+    border: 1px solid;
+    background-color: ${({ theme }) => theme.colors.behance_blue};
+    position: absolute;
+    z-index: 2;
+    width: 30rem;
+    height: 0.125rem;
+    margin: 0;
+  }
+  & > hr:nth-child(2) {
+    border: 1px solid;
+    background-color: ${({ theme }) => theme.colors.behance_white};
+    width: 120rem;
+    height: 0.125rem;
+    margin: 0;
+  }
 `;
