@@ -45,9 +45,9 @@ const StHeader = styled.header`
   box-sizing: border-box;
   width: 120rem;
   height: 4.375rem;
-  background-color: ${({ theme }) => theme.colors.behance_white};
-  border-bottom: 0.125rem solid rgba(217, 217, 217, 0.1);
 
+  background-color: ${({ theme }) => theme.colors.behance_white};
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.behance_gray300};
 `;
 
 const StLeft = styled.div`
@@ -80,7 +80,7 @@ const StMiddle = styled.div`
   height: 2.625rem;
   margin-top: 0.875rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
 
   background-color: ${({ theme }) => theme.colors.behance_black};
