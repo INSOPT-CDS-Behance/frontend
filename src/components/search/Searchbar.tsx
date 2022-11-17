@@ -12,7 +12,7 @@ import icTool from '../../asset/icon/icTool.svg';
 import ImgHomePreview from '../../asset/image/previewImg.png';
 import theme from '../../styles/theme';
 import { DropboxList } from '../../types/common';
-import Preview from './Preview';
+import Thumbnail from './Thumbnail';
 
 interface Props {
   isClicked: boolean;
@@ -147,7 +147,7 @@ const Searchbar = () => {
         <hr />
         <StRight>
           {[1, 2, 3, 4, 5].map((_, idx) => (
-            <Preview key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
+            <Thumbnail key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
           ))}
         </StRight>
         <StHr>
@@ -301,7 +301,6 @@ const StSimilarProjectWrapper = styled.section`
 
   width: 120rem;
   height: 35rem;
-  margin-bottom: -3rem;
 
   background-color: ${({ theme }) => theme.colors.behance_black};
 
@@ -386,8 +385,13 @@ const StLeft = styled.article`
   }
 `;
 
-const StRight = styled.article`
-  display: flex;
+const StRight = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  margin: -9.625rem 0 0 1.5rem;
+  ${({ theme }) => theme.fonts.behance_acumin_pro_bold_16};
+  color: ${({ theme }) => theme.colors.behance_white};
 `;
 
 const StHr = styled.section`
@@ -395,7 +399,9 @@ const StHr = styled.section`
   justify-content: flex-start;
 
   margin-top: 32.875rem;
-  margin-left: -22.9375rem;
+
+  position: absolute;
+  z-index: 2;
 
   & > hr:nth-child(1) {
     border: 1px solid;
