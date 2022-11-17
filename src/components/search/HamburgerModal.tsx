@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
 import categoryImg from '../../asset/image/categoryImg.png';
+import { CategoryList } from '../../types/common';
 
 const Modal = () => {
-  interface CategoryList {
-    id: number;
-    text: string;
-    color?: string;
-    imgSrc?: string;
-  }
   const categorylist: CategoryList[] = [
     { id: 1, text: '최고의 Behance', color: '#2456f7', imgSrc: '#' },
     { id: 2, text: '그래픽 디자인', color: 'transparent', imgSrc: categoryImg },
