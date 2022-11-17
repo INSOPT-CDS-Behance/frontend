@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -12,6 +13,8 @@ interface IMoveBoardEdit {
 
 const Edit = () => {
   const navigate = useNavigate();
+  const [isLocked, setIsLocked] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const moveBoardEditList: IMoveBoardEdit[] = [
     { title: '무드보드 이름', value: 'Furniture Design', class: 'inputName' },
@@ -26,6 +29,12 @@ const Edit = () => {
       <StInput value={obj.value} />
     </StInputContainer>
   ));
+
+  const handleClickToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDisabled(!isDisabled);
+    setIsLocked(!isLocked);
+  };
 
   return (
     <>
@@ -45,7 +54,7 @@ const Edit = () => {
 
             <StToggleContainer>
               <StInputTitle>비공개 여부</StInputTitle>
-              <StToggleBt>
+              <StToggleBt className={isLocked ? 'lock' : ''} onClick={(e) => handleClickToggle(e)}>
                 <StToggleBtCircle />
               </StToggleBt>
             </StToggleContainer>
@@ -53,7 +62,9 @@ const Edit = () => {
 
           <StBottom>
             <StDeleteBt>무드보드 삭제</StDeleteBt>
-            <StSaveBt>저장</StSaveBt>
+            <StSaveBt disabled={isDisabled} className={isDisabled ? 'disabled' : ''}>
+              저장
+            </StSaveBt>
           </StBottom>
         </StEditBoard>
       </StEditContainer>
@@ -198,7 +209,10 @@ const StToggleBt = styled.button`
   border: none;
   border-radius: 1.2188rem;
   background-color: ${({ theme }) => theme.colors.behance_blue};
-
+  &.lock {
+    justify-content: flex-start;
+    background-color: #e8e8e8;
+  }
   cursor: pointer;
 `;
 
@@ -255,11 +269,14 @@ const StSaveBt = styled.button`
   border: none;
   border-radius: 1.625rem;
 
+  background-color: ${({ theme }) => theme.colors.behance_blue};
   color: ${({ theme }) => theme.colors.behance_white};
-  background-color: ${({ theme }) => theme.colors.behance_gray300};
   ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_18};
 
-  & {
-    cursor: pointer;
+  cursor: pointer;
+
+  &.disabled {
+    background-color: ${({ theme }) => theme.colors.behance_gray300};
+    cursor: auto;
   }
 `;

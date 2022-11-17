@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ImgDropDown } from '../asset/image';
@@ -14,6 +15,7 @@ const MyPage = () => {
         저장일 순<ImgDropDown id="dropDown" />
       </StDropDown>
       <MoveBoard />
+      <Outlet />
     </StContainer>
   );
 };
