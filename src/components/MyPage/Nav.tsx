@@ -8,12 +8,12 @@ const Nav = () => {
   const categoryListGray: string[] = ['인사이트', '초안']; //우측 회색 카테고리
 
   const categoryBlack: JSX.Element[] = categoryListBlack.map((category, index) => (
-    <StCategory isClicked={clicked[index]} id="categoryBlack" key={index}>
+    <StCategory isClicked={clicked[index]} className="categoryBlack" key={index}>
       {category}
     </StCategory>
   ));
   const categoryGray: JSX.Element[] = categoryListGray.map((category, index) => (
-    <StCategory isClicked={false} id="categoryGray" key={index}>
+    <StCategory isClicked={false} className="categoryGray" key={index}>
       {category}
     </StCategory>
   ));
@@ -55,10 +55,10 @@ const StCategory = styled.button<{ isClicked: boolean }>`
 
   cursor: pointer;
 
-  &#categoryBlack {
+  &.categoryBlack {
     color: ${({ isClicked, theme }) => (isClicked ? theme.colors.behance_white : theme.colors.behance_black)};
   }
-  &#categoryGray {
+  &.categoryGray {
     color: ${({ isClicked, theme }) => (isClicked ? theme.colors.behance_white : theme.colors.behance_gray500)};
   }
 `;
