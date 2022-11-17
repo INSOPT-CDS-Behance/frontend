@@ -3,30 +3,42 @@ import styled from 'styled-components';
 import { ICLockOn } from '../../asset/icon';
 import { ImgMoveBoardShadow } from '../../asset/image';
 import ImgMoveBoard from '../../asset/image/./사진.svg';
+import ImgProfile from '../../asset/image/Profile.svg';
 
 interface ImoveBoard {
   title: string;
   category: string;
   lock: boolean;
+  profileNum: number;
 }
 
 const MoveBoard = () => {
   const moveBoardList: ImoveBoard[] = [
-    { title: 'Feature design', category: '산업 디자인', lock: true },
-    { title: 'Animation reference', category: '그래픽 디자인', lock: false },
-    { title: 'Financial reference', category: 'UI/UX', lock: false },
-    { title: 'AR glasses', category: '산업 디자인', lock: true },
+    { title: 'Feature design', category: '산업 디자인', lock: true, profileNum: 3 },
+    { title: 'Animation reference', category: '그래픽 디자인', lock: false, profileNum: 1 },
+    { title: 'Financial reference', category: 'UI/UX', lock: false, profileNum: 1 },
+    { title: 'AR glasses', category: '산업 디자인', lock: true, profileNum: 2 },
   ];
+
+  //profile 렌더링 배열 생성
+  const profile = (profileNum: number) => {
+    const array = [];
+    for (let i = 0; i < profileNum; i++) {
+      array.push(<StImg src={ImgProfile} className={`img${i}`} alt="유저 프로필" />);
+    }
+    return array;
+  };
 
   const moveBoard: JSX.Element[] = moveBoardList.map((obj, index) => (
     <StMoveBoard key={index}>
-      <img src={ImgMoveBoard} alt="ImgMoveBoard" />
+      <img src={ImgMoveBoard} className="moveBoard" alt="무브 보드 썸네일" />
       <ImgMoveBoardShadow />
       <StHeader>
         <StTitleMoveBoard key={index}>{obj.title}</StTitleMoveBoard>
         {obj.lock === true ? <ICLockOn /> : null}
       </StHeader>
       <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
+      <StProfile>{profile(obj.profileNum)}</StProfile>
     </StMoveBoard>
   ));
 
@@ -60,8 +72,26 @@ const StHeader = styled.div`
 const StMoveBoard = styled.article`
   position: relative;
 
-  & > img {
+  & > img.moveBoard {
     position: absolute;
+    z-index: -1;
+  }
+`;
+
+const StProfile = styled.div``;
+
+const StImg = styled.img`
+  position: absolute;
+  bottom: 22px;
+  &.img0 {
+    left: 16px;
+    z-index: 1;
+  }
+  &.img1 {
+    left: 42px;
+  }
+  &.img2 {
+    left: 67px;
     z-index: -1;
   }
 `;
