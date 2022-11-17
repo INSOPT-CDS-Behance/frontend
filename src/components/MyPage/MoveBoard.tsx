@@ -38,7 +38,7 @@ const MoveBoard = () => {
         {obj.lock === true ? <ICLockOn /> : null}
       </StHeader>
       <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
-      <StProfile>{handleProfile(obj.profileNum)}</StProfile>
+      {handleProfile(obj.profileNum)}
     </StMoveBoard>
   ));
 
@@ -78,20 +78,18 @@ const StMoveBoard = styled.article`
   }
 `;
 
-const StProfile = styled.div``;
-
 const StImg = styled.img`
   position: absolute;
-  bottom: 22px;
+  bottom: 1.375rem;
   &.img0 {
-    left: 16px;
+    left: 1rem;
     z-index: 1;
   }
   &.img1 {
-    left: 42px;
+    left: 2.625rem;
   }
   &.img2 {
-    left: 67px;
+    left: 4.1875rem;
     z-index: -1;
   }
 `;
