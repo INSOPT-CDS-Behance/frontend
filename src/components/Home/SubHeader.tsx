@@ -20,7 +20,7 @@ const Header = () => {
           <span>프로젝트</span>
           <ICDropDown fill="white" />
         </StButton>
-        <SearchInput />
+        <SearchInput isSpread={true} />
       </form>
       <StSection>
         <article className="add_btn_wrapper">

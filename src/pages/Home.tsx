@@ -30,7 +30,7 @@ const Home = () => {
         Logo={<ICBehance />}
         CategoryInfo={<PageCategory isSpread={isSpread} currentCategory="당신을 위한" />}
         PersonalInfo={<PersonalInfo />}>
-        {!isSpread && <SearchInput />}
+        {!isSpread && <SearchInput isSpread={isSpread} />}
       </HeaderLayout>
       <StBody>
         <Header />
