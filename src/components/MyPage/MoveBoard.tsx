@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ICLockOn } from '../../asset/icon';
@@ -14,6 +15,30 @@ interface ImoveBoard {
 }
 
 const MoveBoard = () => {
+  const [hoverTarget, setHoverTarget] = useState('');
+  const [hovered, setHovered] = useState(false);
+  const [hoveredLong, setHoveredLong] = useState(false);
+
+  const handleMousehover = (e: React.MouseEvent) => {
+    setHoverTarget(e.currentTarget.id);
+    setHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setHoverTarget('');
+    setHovered(false);
+  };
+
+  const handleTolltip = () => {
+    setHoveredLong(true);
+  };
+  useEffect(() => {
+    const timer: any = hovered && setTimeout(handleTolltip, 3000);
+    return () => {
+      setHoveredLong(false);
+      clearTimeout(timer);
+    };
+  }, [hovered]);
+
   const moveBoardList: ImoveBoard[] = [
     { title: 'Feature design', category: '산업 디자인', lock: true, profileNum: 3 },
     { title: 'Animation reference', category: '그래픽 디자인', lock: false, profileNum: 1 },
@@ -31,7 +56,11 @@ const MoveBoard = () => {
   };
 
   const moveBoard: JSX.Element[] = moveBoardList.map((obj, index) => (
-    <StMoveBoard key={index}>
+    <StMoveBoard
+      key={index}
+      onMouseEnter={(e) => handleMousehover(e)}
+      onMouseLeave={() => handleMouseLeave()}
+      id={`moveBoard${index}`}>
       <img src={ImgMoveBoard} className="moveBoard" alt="무브 보드 썸네일" />
       <ImgMoveBoardShadow />
       <StHeader>
@@ -39,7 +68,7 @@ const MoveBoard = () => {
         {obj.lock === true ? <ICLockOn /> : null}
       </StHeader>
       <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
-      <Tolltip />
+      {hoveredLong ? hoverTarget === `moveBoard${index}` ? <Tolltip moveBoardId={index} /> : null : null}
       {handleProfile(obj.profileNum)}
     </StMoveBoard>
   ));

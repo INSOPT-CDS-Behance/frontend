@@ -4,9 +4,9 @@ import { ImgTolltipContainer } from '../../asset/image';
 import ImgCamera from '../../asset/image/camera.svg';
 import ImgProfile from '../../asset/image/Group 107.svg';
 
-const Tolltip = () => {
+const Tolltip = ({ moveBoardId }: { moveBoardId: number }) => {
   return (
-    <StContainer>
+    <StContainer id={`tolltip+${moveBoardId}`}>
       <ImgTolltipContainer className="tolltip" />
       <StBackContainer>
         {[1, 2, 3, 4, 5, 6].map((data) => (
