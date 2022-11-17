@@ -31,6 +31,7 @@ const MoveBoard = () => {
   const handleTolltip = () => {
     setHoveredLong(true);
   };
+
   useEffect(() => {
     const timer: any = hovered && setTimeout(handleTolltip, 3000);
     return () => {
@@ -112,6 +113,7 @@ const StMoveBoard = styled.article`
 const StImg = styled.img`
   position: absolute;
   bottom: 1.375rem;
+
   &.img0 {
     left: 1rem;
     z-index: 1;

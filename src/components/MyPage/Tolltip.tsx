@@ -42,16 +42,16 @@ const StContainer = styled.section`
 
   & > .tolltip {
     position: absolute;
-    z-index: 2;
-
     left: 0;
     top: 5.1875rem;
+
+    z-index: 2;
   }
   & > .profile {
     position: absolute;
-    z-index: 2;
-
     top: 15.5625rem;
+
+    z-index: 2;
   }
 `;
 
@@ -61,17 +61,17 @@ const StBackContainer = styled.div`
   flex-wrap: wrap;
 
   position: absolute;
+  top: 6.5625rem;
 
   z-index: 2;
-  top: 6.5625rem;
 
   padding: 0 1rem;
 `;
 
 const StName = styled.h1`
   position: absolute;
-  z-index: 2;
   top: 22.9375rem;
+  z-index: 2;
 
   color: ${({ theme }) => theme.colors.behance_black};
   ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_20};
@@ -84,8 +84,10 @@ const StContent = styled.h2`
     position: absolute;
     top: 25.1875rem;
     z-index: 2;
+
     color: #707070;
   }
+
   &.numberInfo {
     color: #969696;
   }
@@ -103,14 +105,13 @@ const StInfoContainer = styled.div`
 `;
 
 const StInfo = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 0.25rem;
 
   z-index: 2;
-
-  display: flex;
-  flex-direction: column;
 `;
 
 const StNumber = styled.p`
@@ -121,10 +122,10 @@ const StNumber = styled.p`
 `;
 
 const StContour = styled.span`
+  z-index: 2;
+
   width: 0.0625rem;
   height: 2.3438rem;
-
-  z-index: 2;
 
   background-color: ${({ theme }) => theme.colors.behance_gray300};
 `;
