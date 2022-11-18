@@ -60,5 +60,5 @@ const StContentWrapper = styled.div`
 const StContentSection = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin: 0 1.875rem;
+  justify-items: center;
 `;
