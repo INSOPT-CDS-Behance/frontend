@@ -2,16 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface Props {
-  isClicked: boolean;
-}
-
 const PageCategory = () => {
   const navigate = useNavigate();
   const [clicked, setClicked] = useState<boolean[]>([true, false, false, false, false]);
 
-  const Categorys: string[] = ['당신을 위한', '탐색', '라이브스트림', '채용', '직업'];
-  const CategoryLinks: string[] = ['/', '/Search', '', '', '']; //이동 Url
+  const categoryList: string[] = ['당신을 위한', '탐색', '라이브스트림', '채용', '직업'];
+  const categoryLinkList: string[] = ['/', '/Search', '', '', '']; //이동 Url
 
   const handleCategory = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = Number(e.currentTarget.id);
@@ -23,11 +19,11 @@ const PageCategory = () => {
     newArr[id] = true;
     setClicked(newArr);
     // 클릭된 카테고리 페이지로 이동
-    navigate(CategoryLinks[id]);
+    navigate(categoryLinkList[id]);
   };
 
   // 카테고리 버튼 렌더링 함수
-  const CategoryList: JSX.Element[] = Categorys.map((category, index) => (
+  const CategoryList: JSX.Element[] = categoryList.map((category, index) => (
     <StCategory
       key={index}
       id={index + ''}
@@ -45,16 +41,15 @@ const PageCategory = () => {
 export default PageCategory;
 
 const StContainer = styled.div`
-  height: 100%;
-
   display: flex;
   flex-direction: row;
-
   gap: 1.5rem;
+
+  height: 100%;
 `;
 
 //Category 버튼
-const StCategory = styled.button<Props>`
+const StCategory = styled.button<{ isClicked: boolean }>`
   height: 100%;
 
   border: none;
@@ -66,6 +61,6 @@ const StCategory = styled.button<Props>`
   cursor: pointer;
 
   // 클릭되었을 때 border, 글자색 검정색으로 변환
-  border-color: ${(props) => props.isClicked && props.theme.colors.behance_black};
-  color: ${(props) => props.isClicked && props.theme.colors.behance_black};
+  border-color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_black};
+  color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_black};
 `;
