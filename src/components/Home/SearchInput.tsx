@@ -22,7 +22,7 @@ const SearchInput = (props: SearchInputProps) => {
 
 export default SearchInput;
 
-const StInputWrapper = styled.form`
+const StInputWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
