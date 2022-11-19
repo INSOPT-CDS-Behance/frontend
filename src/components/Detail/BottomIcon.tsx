@@ -29,7 +29,7 @@ const StButtonWrapper = styled.section`
   width: 120rem;
   padding: 0 1.875rem;
 
-  margin-top: 55.3125rem;
+  margin-top: 50rem;
 
   color: ${({ theme }) => theme.colors.behance_white};
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
