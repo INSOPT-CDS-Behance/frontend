@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ImgScroll from '../asset/image/img_scroll.png';
 import BottomIcon from '../components/Detail/BottomIcon';
 import DetailBlackHeader from '../components/Detail/DetailBlackHeader';
+import DetailHover from '../components/Detail/DetailHover';
 import DetailWhiteHeader from '../components/Detail/DetailWhiteHeader';
 import RightIcon from '../components/Detail/RightIcon';
 
@@ -43,6 +44,7 @@ const Detail = () => {
           <StImg src={ImgScroll} alt="#" />
         </StImgWrapper>
       </StBody>
+      <DetailHover />
     </>
   );
 };
