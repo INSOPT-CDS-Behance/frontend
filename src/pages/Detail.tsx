@@ -54,7 +54,7 @@ export default Detail;
 const StHeaderWrapper = styled.header`
   position: fixed;
   top: 0;
-  /* width: 100% */
+
   left: 0;
   right: 0;
   z-index: 5;
@@ -65,7 +65,7 @@ const StBody = styled.section`
 `;
 
 const StImg = styled.img`
-  width: 82.6875rem;
+  width: 91.375rem;
 `;
 
 const StImgWrapper = styled.section`

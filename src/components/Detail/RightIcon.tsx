@@ -39,7 +39,7 @@ const StIconWrapper = styled.section`
     z-index: 2;
 
     margin-top: 3.5625rem;
-    margin-left: 97rem;
+    margin-left: 99.5625rem;
 
     color: ${({ theme }) => theme.colors.behance_white};
     ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
