@@ -9,10 +9,7 @@ const Hover = () => {
   const [projectClicked, setprojectClicked] = useState(false);
 
   const handleProjectClick = () => {
-    setprojectClicked(true);
-  };
-  const handleXClick = () => {
-    setprojectClicked(false);
+    setprojectClicked((prev) => !prev);
   };
 
   return (
@@ -22,7 +19,7 @@ const Hover = () => {
           <StLeft>
             <div>
               <p>다음과 유사</p>
-              <button type="button" onClick={handleXClick}>
+              <button type="button" onClick={handleProjectClick}>
                 <p>지우기</p>
                 <ICClose />
               </button>
@@ -51,27 +48,29 @@ const Hover = () => {
         </StSimilarProjectWrapper>
       )}
 
-      <Container>
-        <Button className="category">산업 디자인</Button>
-        <Button className="eyeOffButton">
+      <StContainer>
+        <StButton type="button" className="category">
+          산업디자인
+        </StButton>
+        <StButton type="button" className="eyeOffButton">
           <EyeOff />
-        </Button>
+        </StButton>
         <p>KID CAM</p>
         <footer>
-          <Button className="icGlass" onClick={handleProjectClick}>
+          <StButton type="button" className="icGlass" onClick={handleProjectClick}>
             <Glass />
             <p>유사프로젝트</p>
-          </Button>
-          <Button className="folder">
+          </StButton>
+          <StButton type="button" className="folder">
             <Folder />
             <p>저장</p>
-          </Button>
-          <Button className="thumbsup">
+          </StButton>
+          <StButton type="button" className="thumbsup">
             <ThumbsUp />
             <p>추천</p>
-          </Button>
+          </StButton>
         </footer>
-      </Container>
+      </StContainer>
     </>
   );
 };
@@ -83,7 +82,7 @@ const Glass = styled(ICGlass)`
   margin-left: -0.25rem;
 `;
 
-const Container = styled.section`
+const StContainer = styled.section`
   width: 21.25rem;
   height: 17.1875rem;
   margin-top: 2.5rem;
@@ -93,7 +92,7 @@ const Container = styled.section`
 
   position: absolute;
   z-index: 2;
-  
+
   & > p {
     ${({ theme }) => theme.fonts.behance_acumin_pro_bold_14};
     color: ${({ theme }) => theme.colors.behance_white};
@@ -106,7 +105,7 @@ const Container = styled.section`
   }
 `;
 
-const Button = styled.button`
+const StButton = styled.button`
   padding: 0.5rem 0.8125rem 0.25rem 0.75rem;
   border: 1px solid transparent;
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_12};

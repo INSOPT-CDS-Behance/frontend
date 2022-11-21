@@ -7,13 +7,13 @@ export interface ContentPrivewData {
 
 export interface CategoryList {
   id: number;
-  text: string;
+  title: string;
   color: string;
   imgSrc: string;
 }
 
 export interface DropboxList {
   id: number;
-  text: string;
+  title: string;
   src: string;
 }

@@ -65,15 +65,15 @@ const Search = () => {
 export default Search;
 
 const StBackground = styled.section`
-  background-image: url(${background});
   height: 35rem;
+
   overflow: hidden;
+  background-image: url(${background});
 `;
 
 const StHeader = styled.header`
   position: fixed;
   top: 0;
-  /* width: 100% */
   left: 0;
   right: 0;
   z-index: 5;
@@ -86,5 +86,6 @@ const StBody = styled.section`
 const StContentSection = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+
   margin: 1.8125rem 1.875rem;
 `;

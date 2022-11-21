@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const HrContainer = () => {
   return (
     <StHrWrapper>
-      <BlueHr />
-      <WhiteHr />
+      <StBlueHr />
+      <StWhiteHr />
     </StHrWrapper>
   );
 };
@@ -17,20 +17,23 @@ const StHrWrapper = styled.section`
   margin-top: 9.8125rem;
 `;
 
-const BlueHr = styled.hr`
-  border: 1px solid;
-  background-color: ${({ theme }) => theme.colors.behance_blue};
+const StBlueHr = styled.hr`
   position: absolute;
   z-index: 2;
+
   width: 30rem;
   height: 0.125rem;
   margin: 0;
+
+  border: 1px solid;
+  background-color: ${({ theme }) => theme.colors.behance_blue};
 `;
 
-const WhiteHr = styled.hr`
-  border: 1px solid;
-  background-color: ${({ theme }) => theme.colors.behance_white};
+const StWhiteHr = styled.hr`
   width: 120rem;
   height: 0.125rem;
   margin: 0;
+
+  border: 1px solid;
+  background-color: ${({ theme }) => theme.colors.behance_white};
 `;
