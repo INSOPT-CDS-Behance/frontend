@@ -7,8 +7,8 @@ import theme from './styles/theme';
 const App = () => {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Router />
       </ThemeProvider>
     </>
