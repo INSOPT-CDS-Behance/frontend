@@ -65,11 +65,6 @@ const StDetailHoverWrapper = styled.nav`
       color: white;
     }
   }
-  /* & > section:nth-child(2) {
-    position: fixed;
-    margin-top: 1rem;
-    /* z-index: 4; */
-  } */
 `;
 
 const StHoverButton = styled.div`
