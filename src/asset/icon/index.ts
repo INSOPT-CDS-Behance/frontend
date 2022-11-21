@@ -1,3 +1,6 @@
+export { ReactComponent as ICEdit } from './edit.svg';
+export { ReactComponent as ICClose } from './ic_close.svg';
+export { ReactComponent as ICLockOn } from './Lock on.svg';
 export { ReactComponent as ICMailFill } from './IcMailFill.svg';
 export { ReactComponent as ICBtnLiveContent } from './_btn_live contents.svg';
 export { ReactComponent as ICArrow } from './Arrow_down.svg';
