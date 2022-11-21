@@ -49,7 +49,7 @@ const MoveBoard = () => {
     navigate(`/Edit`);
   };
 
-  const moveBoard: JSX.Element[] = moveBoardList.map((obj, index) => (
+  const moveBoard: JSX.Element[] = moveBoardList.map(({ title, lock, category, profileNum }, index) => (
     <StMoveBoard
       key={index}
       onMouseEnter={(e) => handleMousehover(e)}
@@ -59,8 +59,8 @@ const MoveBoard = () => {
       <ImgMoveBoardShadow />
 
       <StHeader>
-        <StTitleMoveBoard key={index}>{obj.title}</StTitleMoveBoard>
-        {obj.lock === true ? <ICLockOn /> : null}
+        <StTitleMoveBoard key={index}>{title}</StTitleMoveBoard>
+        {lock === true ? <ICLockOn /> : null}
       </StHeader>
 
       <StHoverShadow className={hoverTarget === `moveBoard${index}` ? 'view' : ''} />
@@ -68,8 +68,8 @@ const MoveBoard = () => {
         <ICEdit width="1rem" height="1rem" />
       </StEdit>
 
-      <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
-      {handleProfile(obj.profileNum)}
+      <StCategoryMoveBoard key={index}>{category}</StCategoryMoveBoard>
+      {handleProfile(profileNum)}
     </StMoveBoard>
   ));
 
@@ -90,7 +90,7 @@ const StContainer = styled.section`
   margin-left: 31.9375rem;
 `;
 
-const StHeader = styled.div`
+const StHeader = styled.header`
   display: flex;
   align-items: center;
   gap: 0.4375rem;
@@ -148,22 +148,16 @@ const StEdit = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-
     position: absolute;
     top: 0.8125rem;
     right: 0.75rem;
-
     width: 2.375rem;
     height: 2.375rem;
-
     border: none;
     border-radius: 0.25rem;
-
     background-color: ${({ theme }) => theme.colors.behance_white};
-
     cursor: pointer;
   }
-
   display: none;
 `;
 
@@ -172,10 +166,8 @@ const StHoverShadow = styled.div`
     position: absolute;
     left: 0;
     top: 0;
-
     width: 26.875rem;
     height: 21.125rem;
-
     background-color: ${({ theme }) => theme.colors.behance_black};
     opacity: 0.5;
   }
