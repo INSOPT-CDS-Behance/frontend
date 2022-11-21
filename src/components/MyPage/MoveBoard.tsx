@@ -29,16 +29,16 @@ const MoveBoard = () => {
     return array;
   };
 
-  const moveBoard: JSX.Element[] = moveBoardList.map((obj, index) => (
+  const moveBoard: JSX.Element[] = moveBoardList.map(({ title, lock, category, profileNum }, index) => (
     <StMoveBoard key={index}>
       <img src={ImgMoveBoard} className="moveBoard" alt="무브 보드 썸네일" />
       <ImgMoveBoardShadow />
       <StHeader>
-        <StTitleMoveBoard key={index}>{obj.title}</StTitleMoveBoard>
-        {obj.lock === true ? <ICLockOn /> : null}
+        <StTitleMoveBoard key={index}>{title}</StTitleMoveBoard>
+        {lock === true ? <ICLockOn /> : null}
       </StHeader>
-      <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
-      {handleProfile(obj.profileNum)}
+      <StCategoryMoveBoard key={index}>{category}</StCategoryMoveBoard>
+      {handleProfile(profileNum)}
     </StMoveBoard>
   ));
 
