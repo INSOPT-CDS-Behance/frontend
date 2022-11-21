@@ -234,7 +234,7 @@ const StToggleBtCircle = styled.span`
 `;
 
 /* 하단 */
-const StBottom = styled.div`
+const StBottom = styled.footer`
   display: flex;
   justify-content: space-between;
 

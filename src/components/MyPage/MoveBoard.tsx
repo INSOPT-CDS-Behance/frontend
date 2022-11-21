@@ -7,7 +7,7 @@ import { ImgMoveBoardShadow } from '../../asset/image';
 import ImgMoveBoard from '../../asset/image/./사진.svg';
 import ImgProfile from '../../asset/image/Profile.svg';
 
-interface ImoveBoard {
+interface MoveBoardData {
   title: string;
   category: string;
   lock: boolean;
@@ -15,10 +15,10 @@ interface ImoveBoard {
 }
 
 const MoveBoard = () => {
-  const [hoverTarget, setHoverTarget] = useState('');
+  const [hoverTarget, setHoverTarget] = useState<string>('');
   const navigate = useNavigate();
 
-  const moveBoardList: ImoveBoard[] = [
+  const moveBoardList: MoveBoardData[] = [
     { title: 'Feature design', category: '산업 디자인', lock: true, profileNum: 3 },
     { title: 'Animation reference', category: '그래픽 디자인', lock: false, profileNum: 1 },
     { title: 'Financial reference', category: 'UI/UX', lock: false, profileNum: 1 },
@@ -50,11 +50,7 @@ const MoveBoard = () => {
   };
 
   const moveBoard: JSX.Element[] = moveBoardList.map(({ title, lock, category, profileNum }, index) => (
-    <StMoveBoard
-      key={index}
-      onMouseEnter={(e) => handleMousehover(e)}
-      onMouseLeave={() => handleMouseLeave()}
-      id={`moveBoard${index}`}>
+    <StMoveBoard key={index} onMouseEnter={handleMousehover} onMouseLeave={handleMouseLeave} id={`moveBoard${index}`}>
       <img src={ImgMoveBoard} className="moveBoard" alt="무브 보드 썸네일" />
       <ImgMoveBoardShadow />
 

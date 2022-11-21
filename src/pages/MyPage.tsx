@@ -11,7 +11,7 @@ const MyPage = () => {
       <Header />
       <img src={UserInfo} alt="유저 정보" /> {/* svg로 불러왔을 때 다른 이미지로 대체되는 문제 생겨서 img로 해결 */}
       <Nav />
-      <StDropDown>
+      <StDropDown type="button">
         저장일 순<ImgDropDown id="dropDown" />
       </StDropDown>
       <MoveBoard />
