@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import Detail from '../../pages/Detail';
 import Error404 from '../../pages/Error404';
 import Main from '../../pages/Main';
 import MyPage from '../../pages/MyPage';
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path="/MyPage" element={<MyPage />}></Route>
         <Route path="/Edit" element={<Edit />} />
         <Route path="*" element={<Error404 />} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );
