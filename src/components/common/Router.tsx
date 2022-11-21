@@ -2,12 +2,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Detail from '../../pages/Detail';
 import Error404 from '../../pages/Error404';
-import Search from '../../pages/Search';
-import MyPage from '../../pages/MyPage';
-import Edit from '../MyPage/Edit';
 import Home from '../../pages/Home';
-
-
+import MyPage from '../../pages/MyPage';
+import Search from '../../pages/Search';
+import Edit from '../MyPage/Edit';
 const Router = () => {
   return (
     <BrowserRouter>

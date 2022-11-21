@@ -4,14 +4,23 @@ import styled from 'styled-components';
 import { ICBehance } from '../asset/icon';
 import { ContentPreview, PersonalInfo } from '../components/common';
 import { Header, SearchInput } from '../components/Home';
-import Hover from '../components/Home/Hover';
 import PageCategory from '../components/Home/PageCategory';
 import { HeaderLayout } from '../components/layout';
+import { getProject } from '../utils/lib/project';
 
 const Home = () => {
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState(0);
   const documentRef = useRef(document);
+
+  useEffect(() => {
+    const getContentList = async () => {
+      const data = await getProject();
+      console.log(data);
+    };
+
+    getContentList();
+  }, []);
 
   useEffect(() => {
     documentRef.current.addEventListener('scroll', handleScroll);
