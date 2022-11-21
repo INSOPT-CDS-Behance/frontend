@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,6 +6,7 @@ import { ICEdit, ICLockOn } from '../../asset/icon';
 import { ImgMoveBoardShadow } from '../../asset/image';
 import ImgMoveBoard from '../../asset/image/./사진.svg';
 import ImgProfile from '../../asset/image/Profile.svg';
+import Tolltip from './Tolltip';
 
 interface MoveBoardData {
   title: string;
@@ -16,6 +17,32 @@ interface MoveBoardData {
 
 const MoveBoard = () => {
   const [hoverTarget, setHoverTarget] = useState<string>('');
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [hoveredLong, setHoveredLong] = useState<boolean>(false);
+
+  const handleMousehover = (e: React.MouseEvent) => {
+    setHoverTarget(e.currentTarget.id);
+    setHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setHoverTarget('');
+    setHovered(false);
+  };
+
+  const handleTolltip = () => {
+    setHoveredLong(true);
+  };
+
+  useEffect(() => {
+    if (hovered) {
+      const timer: NodeJS.Timeout = setTimeout(handleTolltip, 3000);
+      return () => {
+        setHoveredLong(false);
+        clearTimeout(timer);
+      };
+    }
+  }, [hovered]);
+
   const navigate = useNavigate();
 
   const moveBoardList: MoveBoardData[] = [
@@ -35,12 +62,6 @@ const MoveBoard = () => {
   };
 
   //이벤트 핸들링
-  const handleMousehover = (e: React.MouseEvent) => {
-    setHoverTarget(e.currentTarget.id);
-  };
-  const handleMouseLeave = () => {
-    setHoverTarget('');
-  };
   const handleOnClick = (e: React.MouseEvent) => {
     e.stopPropagation;
     const moveBoardId = e.currentTarget.parentElement;
@@ -56,7 +77,7 @@ const MoveBoard = () => {
 
       <StHeader>
         <StTitleMoveBoard key={index}>{title}</StTitleMoveBoard>
-        {lock === true ? <ICLockOn /> : null}
+        {lock === true && <ICLockOn />}
       </StHeader>
 
       <StHoverShadow className={hoverTarget === `moveBoard${index}` ? 'view' : ''} />
@@ -65,6 +86,7 @@ const MoveBoard = () => {
       </StEdit>
 
       <StCategoryMoveBoard key={index}>{category}</StCategoryMoveBoard>
+      {hoveredLong && hoverTarget === `moveBoard${index}` && <Tolltip moveBoardId={index} />}
       {handleProfile(profileNum)}
     </StMoveBoard>
   ));
