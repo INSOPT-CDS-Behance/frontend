@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ICLockOn } from '../../asset/icon';
+import { ICEdit, ICLockOn } from '../../asset/icon';
 import { ImgMoveBoardShadow } from '../../asset/image';
 import ImgMoveBoard from '../../asset/image/./사진.svg';
 import ImgProfile from '../../asset/image/Profile.svg';
 import Tolltip from './Tolltip';
 
-interface ImoveBoard {
+interface MoveBoardData {
   title: string;
   category: string;
   lock: boolean;
@@ -15,9 +16,9 @@ interface ImoveBoard {
 }
 
 const MoveBoard = () => {
-  const [hoverTarget, setHoverTarget] = useState('');
-  const [hovered, setHovered] = useState(false);
-  const [hoveredLong, setHoveredLong] = useState(false);
+  const [hoverTarget, setHoverTarget] = useState<string>('');
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [hoveredLong, setHoveredLong] = useState<boolean>(false);
 
   const handleMousehover = (e: React.MouseEvent) => {
     setHoverTarget(e.currentTarget.id);
@@ -33,14 +34,18 @@ const MoveBoard = () => {
   };
 
   useEffect(() => {
-    const timer: any = hovered && setTimeout(handleTolltip, 3000);
-    return () => {
-      setHoveredLong(false);
-      clearTimeout(timer);
-    };
+    if (hovered) {
+      const timer: NodeJS.Timeout = setTimeout(handleTolltip, 3000);
+      return () => {
+        setHoveredLong(false);
+        clearTimeout(timer);
+      };
+    }
   }, [hovered]);
 
-  const moveBoardList: ImoveBoard[] = [
+  const navigate = useNavigate();
+
+  const moveBoardList: MoveBoardData[] = [
     { title: 'Feature design', category: '산업 디자인', lock: true, profileNum: 3 },
     { title: 'Animation reference', category: '그래픽 디자인', lock: false, profileNum: 1 },
     { title: 'Financial reference', category: 'UI/UX', lock: false, profileNum: 1 },
@@ -56,21 +61,33 @@ const MoveBoard = () => {
     return array;
   };
 
-  const moveBoard: JSX.Element[] = moveBoardList.map((obj, index) => (
-    <StMoveBoard
-      key={index}
-      onMouseEnter={(e) => handleMousehover(e)}
-      onMouseLeave={() => handleMouseLeave()}
-      id={`moveBoard${index}`}>
+  //이벤트 핸들링
+  const handleOnClick = (e: React.MouseEvent) => {
+    e.stopPropagation;
+    const moveBoardId = e.currentTarget.parentElement;
+    console.log(moveBoardId);
+
+    navigate(`/Edit`);
+  };
+
+  const moveBoard: JSX.Element[] = moveBoardList.map(({ title, lock, category, profileNum }, index) => (
+    <StMoveBoard key={index} onMouseEnter={handleMousehover} onMouseLeave={handleMouseLeave} id={`moveBoard${index}`}>
       <img src={ImgMoveBoard} className="moveBoard" alt="무브 보드 썸네일" />
       <ImgMoveBoardShadow />
+
       <StHeader>
-        <StTitleMoveBoard key={index}>{obj.title}</StTitleMoveBoard>
-        {obj.lock === true ? <ICLockOn /> : null}
+        <StTitleMoveBoard key={index}>{title}</StTitleMoveBoard>
+        {lock === true && <ICLockOn />}
       </StHeader>
-      <StCategoryMoveBoard key={index}>{obj.category}</StCategoryMoveBoard>
-      {hoveredLong ? hoverTarget === `moveBoard${index}` ? <Tolltip moveBoardId={index} /> : null : null}
-      {handleProfile(obj.profileNum)}
+
+      <StHoverShadow className={hoverTarget === `moveBoard${index}` ? 'view' : ''} />
+      <StEdit className={hoverTarget === `moveBoard${index}` ? 'view' : ''} onClick={(e) => handleOnClick(e)}>
+        <ICEdit width="1rem" height="1rem" />
+      </StEdit>
+
+      <StCategoryMoveBoard key={index}>{category}</StCategoryMoveBoard>
+      {hoveredLong && hoverTarget === `moveBoard${index}` && <Tolltip moveBoardId={index} />}
+      {handleProfile(profileNum)}
     </StMoveBoard>
   ));
 
@@ -91,12 +108,13 @@ const StContainer = styled.section`
   margin-left: 31.9375rem;
 `;
 
-const StHeader = styled.div`
+const StHeader = styled.header`
   display: flex;
   align-items: center;
   gap: 0.4375rem;
 
   position: absolute;
+  z-index: 1;
   top: 1.375rem;
   left: 1.0625rem;
 `;
@@ -116,14 +134,15 @@ const StImg = styled.img`
 
   &.img0 {
     left: 1rem;
-    z-index: 1;
+    z-index: 2;
   }
   &.img1 {
     left: 2.625rem;
+    z-index: 1;
   }
   &.img2 {
     left: 4.1875rem;
-    z-index: -1;
+    z-index: 0;
   }
 `;
 
@@ -139,4 +158,35 @@ const StCategoryMoveBoard = styled.h2`
 
   color: ${({ theme }) => theme.colors.behance_white};
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14}
+`;
+
+/****** hover시 나타나는 요소들 ******/
+const StEdit = styled.button`
+  &.view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0.8125rem;
+    right: 0.75rem;
+    width: 2.375rem;
+    height: 2.375rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: ${({ theme }) => theme.colors.behance_white};
+    cursor: pointer;
+  }
+  display: none;
+`;
+
+const StHoverShadow = styled.div`
+  &.view {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 26.875rem;
+    height: 21.125rem;
+    background-color: ${({ theme }) => theme.colors.behance_black};
+    opacity: 0.5;
+  }
 `;

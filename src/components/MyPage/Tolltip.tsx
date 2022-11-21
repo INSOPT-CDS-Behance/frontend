@@ -4,7 +4,11 @@ import { ImgTolltipContainer } from '../../asset/image';
 import ImgCamera from '../../asset/image/camera.svg';
 import ImgProfile from '../../asset/image/Group 107.svg';
 
-const Tolltip = ({ moveBoardId }: { moveBoardId: number }) => {
+interface TolltipProps {
+  moveBoardId: number;
+}
+
+const Tolltip = ({ moveBoardId }: TolltipProps) => {
   return (
     <StContainer id={`tolltip+${moveBoardId}`}>
       <ImgTolltipContainer className="tolltip" />
@@ -45,13 +49,13 @@ const StContainer = styled.section`
     left: 0;
     top: 5.1875rem;
 
-    z-index: 2;
+    z-index: 3;
   }
   & > .profile {
     position: absolute;
     top: 15.5625rem;
 
-    z-index: 2;
+    z-index: 3;
   }
 `;
 
@@ -63,7 +67,7 @@ const StBackContainer = styled.div`
   position: absolute;
   top: 6.5625rem;
 
-  z-index: 2;
+  z-index: 3;
 
   padding: 0 1rem;
 `;
@@ -71,7 +75,7 @@ const StBackContainer = styled.div`
 const StName = styled.h1`
   position: absolute;
   top: 22.9375rem;
-  z-index: 2;
+  z-index: 3;
 
   color: ${({ theme }) => theme.colors.behance_black};
   ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_20};
@@ -83,7 +87,7 @@ const StContent = styled.h2`
   &.moveBoardProvided {
     position: absolute;
     top: 25.1875rem;
-    z-index: 2;
+    z-index: 3;
 
     color: #707070;
   }
@@ -93,7 +97,7 @@ const StContent = styled.h2`
   }
 `;
 
-const StInfoContainer = styled.div`
+const StInfoContainer = styled.section`
   display: flex;
   align-items: center;
 
@@ -111,7 +115,7 @@ const StInfo = styled.div`
 
   gap: 0.25rem;
 
-  z-index: 2;
+  z-index: 3;
 `;
 
 const StNumber = styled.p`
@@ -122,7 +126,7 @@ const StNumber = styled.p`
 `;
 
 const StContour = styled.span`
-  z-index: 2;
+  z-index: 3;
 
   width: 0.0625rem;
   height: 2.3438rem;
