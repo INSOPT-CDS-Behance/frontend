@@ -93,50 +93,7 @@ const Container = styled.section`
 
   position: absolute;
   z-index: 2;
-  & Button.category {
-    background-color: rgba(255, 255, 255, 0.3);
-    margin-left: 0.75rem;
-    margin-top: 0.75rem;
-    ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
-  }
-  & Button.eyeOffButton {
-    margin-left: 11.6rem;
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-  & Button.icGlass {
-    margin-left: 0.75rem;
-    display: flex;
-    text-align: center;
-
-    background-color: rgba(255, 255, 255, 0.3);
-    & > p {
-      margin-left: 0.25rem;
-      margin-top: -0.1rem;
-    }
-    & :hover {
-      cursor: pointer;
-    }
-  }
-  & Button.folder {
-    margin-left: 5rem;
-    display: flex;
-
-    background-color: rgba(255, 255, 255, 0.3);
-    & > p {
-      margin-left: 0.25rem;
-      margin-top: -0.1rem;
-    }
-  }
-  & Button.thumbsup {
-    margin-left: 0.5rem;
-    display: flex;
-
-    background-color: rgba(255, 255, 255, 0.3);
-    & > p {
-      margin-left: 0.25rem;
-      margin-top: -0.1rem;
-    }
-  }
+  
   & > p {
     ${({ theme }) => theme.fonts.behance_acumin_pro_bold_14};
     color: ${({ theme }) => theme.colors.behance_white};
@@ -155,6 +112,51 @@ const Button = styled.button`
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_12};
   color: ${({ theme }) => theme.colors.behance_white};
   border-radius: 1.25rem;
+
+  & .category {
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-left: 0.75rem;
+    margin-top: 0.75rem;
+    ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
+  }
+  & .eyeOffButton {
+    margin-left: 11.6rem;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  & .icGlass {
+    margin-left: 0.75rem;
+    display: flex;
+    text-align: center;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    & > p {
+      margin-left: 0.25rem;
+      margin-top: -0.1rem;
+    }
+    & :hover {
+      cursor: pointer;
+    }
+  }
+  & .folder {
+    margin-left: 5rem;
+    display: flex;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    & > p {
+      margin-left: 0.25rem;
+      margin-top: -0.1rem;
+    }
+  }
+  & .thumbsup {
+    margin-left: 0.5rem;
+    display: flex;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    & > p {
+      margin-left: 0.25rem;
+      margin-top: -0.1rem;
+    }
+  }
 `;
 
 const StSimilarProjectWrapper = styled.section`

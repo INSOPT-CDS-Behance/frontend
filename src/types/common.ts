@@ -8,8 +8,8 @@ export interface ContentPrivewData {
 export interface CategoryList {
   id: number;
   text: string;
-  color?: string;
-  imgSrc?: string;
+  color: string;
+  imgSrc: string;
 }
 
 export interface DropboxList {

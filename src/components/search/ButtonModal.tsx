@@ -29,11 +29,9 @@ const Modal = () => {
       <StModal>
         <p>최고의 크리에이티브 분야로 이루어진 갤러리</p>
         <div>
-          {categorylist.map((category) => (
-            <button
-              key={category.id}
-              style={{ backgroundColor: category.color, backgroundImage: `url(${category.imgSrc})` }}>
-              {category.text}
+          {categorylist.map(({ id, text, color, imgSrc }) => (
+            <button key={id} style={{ backgroundColor: color, backgroundImage: `url(${imgSrc})` }}>
+              {text}
             </button>
           ))}
         </div>

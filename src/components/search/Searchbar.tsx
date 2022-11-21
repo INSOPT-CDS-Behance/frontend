@@ -80,8 +80,8 @@ const Searchbar = () => {
 
   return (
     <>
-      <Search>
-        <InputContainer>
+      <StSearchWrapper>
+        <StInputContainer>
           <div>
             <Glass />
             <Input type="text" placeholder={placeholder} categoryIsClicked={true} />
@@ -93,8 +93,8 @@ const Searchbar = () => {
               </Button>
             ))}
           </div>
-        </InputContainer>
-        <DropBoxContainer>
+        </StInputContainer>
+        <StDropBoxContainer>
           <section>
             {dropboxList.map((dropbox) => (
               <button key={dropbox.id}>
@@ -108,34 +108,34 @@ const Searchbar = () => {
             <p>추천순</p>
             <ICDropdown />
           </section>
-        </DropBoxContainer>
-      </Search>
-      <Body>
+        </StDropBoxContainer>
+      </StSearchWrapper>
+      <StCategoryWrapper>
         <section>
           <Arrow />
           <Gradient />
         </section>
-        <Container>
+        <StCategory>
           {Categorys.map((category, i) => (
             <CategoryButton key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
               {category}
             </CategoryButton>
           ))}
-        </Container>
-      </Body>
+        </StCategory>
+      </StCategoryWrapper>
     </>
   );
 };
 
 export default Searchbar;
 
-const Search = styled.section`
+const StSearchWrapper = styled.section`
   height: 14.625rem;
   padding-top: 2.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.behance_gray300};
 `;
 
-const DropBoxContainer = styled.section`
+const StDropBoxContainer = styled.section`
   margin-top: 2.5rem;
   margin-left: 1.875rem;
   display: flex;
@@ -169,7 +169,7 @@ const Glass = styled(GlassIcon)`
   margin: 1rem 1.25rem 0 2.125rem;
 `;
 
-const InputContainer = styled.section`
+const StInputContainer = styled.section`
   display: flex;
   justify-content: center;
   height: 4rem;
@@ -217,7 +217,7 @@ const Button = styled.button<Props>`
   background-color: ${(props) => props.isClicked && props.theme.colors.behance_black};
   color: ${(props) => props.isClicked && props.theme.colors.behance_white};
 `;
-const Body = styled.section`
+const StCategoryWrapper = styled.section`
   position: relative;
   & > section {
     display: flex;
@@ -225,7 +225,7 @@ const Body = styled.section`
   }
 `;
 
-const Container = styled.section`
+const StCategory = styled.article`
   margin-left: 2.0625rem;
   margin-right: 4.375rem;
   position: relative;
