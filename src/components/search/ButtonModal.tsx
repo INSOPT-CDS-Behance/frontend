@@ -5,23 +5,23 @@ import { CategoryList } from '../../types/common';
 
 const Modal = () => {
   const categorylist: CategoryList[] = [
-    { id: 1, text: '최고의 Behance', color: '#2456f7', imgSrc: '#' },
-    { id: 2, text: '그래픽 디자인', color: 'transparent', imgSrc: categoryImg },
-    { id: 3, text: '포토그래피', color: 'transparent', imgSrc: categoryImg },
-    { id: 4, text: '일러스트레이션', color: 'transparent', imgSrc: categoryImg },
-    { id: 5, text: '3D Art', color: 'transparent', imgSrc: categoryImg },
-    { id: 6, text: 'UI/UX', color: 'transparent', imgSrc: categoryImg },
-    { id: 7, text: '모션', color: 'transparent', imgSrc: categoryImg },
-    { id: 8, text: '건축', color: 'transparent', imgSrc: categoryImg },
-    { id: 9, text: '제품 디자인', color: 'transparent', imgSrc: categoryImg },
-    { id: 10, text: '패션', color: 'transparent', imgSrc: categoryImg },
-    { id: 11, text: '광고', color: 'transparent', imgSrc: categoryImg },
-    { id: 12, text: '미술', color: 'transparent', imgSrc: categoryImg },
-    { id: 13, text: '공예', color: 'transparent', imgSrc: categoryImg },
-    { id: 14, text: '게임 디자인', color: 'transparent', imgSrc: categoryImg },
-    { id: 15, text: '사운드', color: 'transparent', imgSrc: categoryImg },
-    { id: 16, text: 'Creative Challenges', color: 'transparent', imgSrc: categoryImg },
-    { id: 17, text: '모든 프로젝트', color: 'transparent', imgSrc: categoryImg },
+    { id: 1, title: '최고의 Behance', color: '#2456f7', imgSrc: '#' },
+    { id: 2, title: '그래픽 디자인', color: 'transparent', imgSrc: categoryImg },
+    { id: 3, title: '포토그래피', color: 'transparent', imgSrc: categoryImg },
+    { id: 4, title: '일러스트레이션', color: 'transparent', imgSrc: categoryImg },
+    { id: 5, title: '3D Art', color: 'transparent', imgSrc: categoryImg },
+    { id: 6, title: 'UI/UX', color: 'transparent', imgSrc: categoryImg },
+    { id: 7, title: '모션', color: 'transparent', imgSrc: categoryImg },
+    { id: 8, title: '건축', color: 'transparent', imgSrc: categoryImg },
+    { id: 9, title: '제품 디자인', color: 'transparent', imgSrc: categoryImg },
+    { id: 10, title: '패션', color: 'transparent', imgSrc: categoryImg },
+    { id: 11, title: '광고', color: 'transparent', imgSrc: categoryImg },
+    { id: 12, title: '미술', color: 'transparent', imgSrc: categoryImg },
+    { id: 13, title: '공예', color: 'transparent', imgSrc: categoryImg },
+    { id: 14, title: '게임 디자인', color: 'transparent', imgSrc: categoryImg },
+    { id: 15, title: '사운드', color: 'transparent', imgSrc: categoryImg },
+    { id: 16, title: 'Creative Challenges', color: 'transparent', imgSrc: categoryImg },
+    { id: 17, title: '모든 프로젝트', color: 'transparent', imgSrc: categoryImg },
   ];
 
   return (
@@ -29,11 +29,11 @@ const Modal = () => {
       <StModal>
         <p>최고의 크리에이티브 분야로 이루어진 갤러리</p>
         <div>
-{categorylist.map(({id,text,color, imgSrc}) => (
-            <button
-              key={id}
-              style={{ backgroundColor: color, backgroundImage: `url(${imgSrc})` }}>
-              {text}
+
+          {categorylist.map(({ id, title, color, imgSrc }) => (
+            <button type="button" key={id} style={{ backgroundColor: color, backgroundImage: `url(${imgSrc})` }}>
+              {title}
+
             </button>
           ))}
         </div>

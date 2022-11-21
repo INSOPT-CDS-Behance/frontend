@@ -10,33 +10,21 @@ import icPersonFill24 from '../../asset/icon/icPersonFill24.svg';
 import icSchool from '../../asset/icon/icSchool.svg';
 import icTool from '../../asset/icon/icTool.svg';
 import theme from '../../styles/theme';
+import { DropboxList } from '../../types/common';
 
-interface Props {
-  isClicked: boolean;
-}
-interface CategoryProps {
-  categoryIsClicked: boolean;
-}
 const Searchbar = () => {
   const [clicked, setClicked] = useState<boolean[]>([true, false, false, false, false, false]);
   const categorys: string[] = ['프로젝트', '이미지', '프로토타입', '스트림', '인물', '무드보드'];
-  const searchRef = useRef('ddd');
   const [placeholder, setplaceholder] = useState('Behance 추천 프로젝트 검색하기');
 
-  interface Arr {
-    id: number;
-    text: string;
-    src: string;
-  }
-
-  const dropboxs: Arr[] = [
-    { id: 1, text: '크리에이티브 분야', src: icCreative },
-    { id: 2, text: '도구', src: icTool },
-    { id: 3, text: '색상', src: icColor },
-    { id: 4, text: '위치', src: icLocation },
-    { id: 5, text: '학교', src: icSchool },
-    { id: 6, text: '소스파일', src: icLink },
-    { id: 7, text: '구독', src: icPersonFill24 },
+  const dropboxList: DropboxList[] = [
+    { id: 1, title: '크리에이티브 분야', src: icCreative },
+    { id: 2, title: '도구', src: icTool },
+    { id: 3, title: '색상', src: icColor },
+    { id: 4, title: '위치', src: icLocation },
+    { id: 5, title: '학교', src: icSchool },
+    { id: 6, title: '소스파일', src: icLink },
+    { id: 7, title: '구독', src: icPersonFill24 },
   ];
 
   const [categoryclicked, setcategoryClicked] = useState<boolean[]>([
@@ -85,26 +73,26 @@ const Searchbar = () => {
 
   return (
     <>
-      <Search>
-        <InputContainer>
-          <div>
-            <Glass />
-            <Input type="text" placeholder={placeholder} categoryIsClicked={true} />
-          </div>
+      <StSearchWrapper>
+        <StInputContainer>
+          <form>
+            <StGlass />
+            <StInput type="text" placeholder={placeholder} categoryIsClicked={true} />
+          </form>
           <div>
             {categorys.map((category, index) => (
-              <Button key={index} isClicked={clicked[index]}>
+              <StButton type="button" key={index} isClicked={clicked[index]}>
                 {category}
-              </Button>
+              </StButton>
             ))}
           </div>
-        </InputContainer>
-        <DropBoxContainer>
+        </StInputContainer>
+        <StDropBoxContainer>
           <section>
-            {dropboxs.map((dropbox) => (
-              <button key={dropbox.id}>
+            {dropboxList.map((dropbox) => (
+              <button type="button" key={dropbox.id}>
                 <img src={dropbox.src} alt="드롭박스 아이콘" />
-                <p>{dropbox.text}</p>
+                <p>{dropbox.title}</p>
                 <ICDropdown />
               </button>
             ))}
@@ -113,34 +101,34 @@ const Searchbar = () => {
             <p>추천순</p>
             <ICDropdown />
           </section>
-        </DropBoxContainer>
-      </Search>
-      <Body>
+        </StDropBoxContainer>
+      </StSearchWrapper>
+      <StCategoryWrapper>
         <section>
-          <Arrow />
-          <Gradient />
+          <StArrow />
+          <StGradient />
         </section>
-        <Container>
+        <StCategory>
           {Categorys.map((category, i) => (
-            <CategoryButton key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
+            <StCategoryButton type="button" key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
               {category}
-            </CategoryButton>
+            </StCategoryButton>
           ))}
-        </Container>
-      </Body>
+        </StCategory>
+      </StCategoryWrapper>
     </>
   );
 };
 
 export default Searchbar;
 
-const Search = styled.section`
+const StSearchWrapper = styled.section`
   height: 14.625rem;
   padding-top: 2.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.behance_gray300};
 `;
 
-const DropBoxContainer = styled.section`
+const StDropBoxContainer = styled.article`
   margin-top: 2.5rem;
   margin-left: 1.875rem;
   display: flex;
@@ -170,47 +158,52 @@ const DropBoxContainer = styled.section`
   }
 `;
 
-const Glass = styled(GlassIcon)`
+const StGlass = styled(GlassIcon)`
   margin: 1rem 1.25rem 0 2.125rem;
 `;
 
-const InputContainer = styled.section`
+const StInputContainer = styled.article`
   display: flex;
   justify-content: center;
   height: 4rem;
 
-  & > div {
+  & > form {
     display: flex;
-  }
 
-  & > div:nth-child(1) {
-    border: 0.0625rem solid black;
     width: 78.8125rem;
+    border: 0.0625rem solid black;
+
     background-color: ${({ theme }) => theme.colors.behance_gray100};
     border-radius: 6.25rem 0 0 6.25rem;
   }
-  & > div:nth-child(2) {
-    border: 0.0625rem solid black;
-    width: 37.4375rem;
-    border-radius: 0 6.25rem 6.25rem 0;
+
+  & > div {
     align-items: center;
     padding-left: 1.4375rem;
+
+    width: 37.4375rem;
+
+    border: 0.0625rem solid black;
+    border-radius: 0 6.25rem 6.25rem 0;
   }
 `;
 
-const Input = styled.input<CategoryProps>`
-  ${({ theme }) => theme.fonts.behance_acumin_pro_medium_24};
-  color: ${({ theme }) => theme.colors.behance_gray400};
-  color: ${(props) => props.categoryIsClicked && props.theme.colors.behance_black};
-  ${(props) => props.categoryIsClicked && props.theme.fonts.behance_acumin_pro_medium_24};
-  border: 0.0625rem solid transparent;
+const StInput = styled.input<{ categoryIsClicked: boolean }>`
   width: 19.375rem;
+
+  border: 0.0625rem solid transparent;
   background-color: transparent;
+
+  ${({ theme }) => theme.fonts.behance_acumin_pro_medium_24};
+  color: ${({ categoryIsClicked, theme }) =>
+    categoryIsClicked ? theme.colors.behance_black : theme.colors.behance_gray400};
+  ${({ categoryIsClicked, theme }) => categoryIsClicked && theme.fonts.behance_acumin_pro_medium_24};
+
   & :focus {
     outline: none;
   }
 `;
-const Button = styled.button<Props>`
+const StButton = styled.button<{ isClicked: boolean }>`
   padding: 0.625rem 0.75rem;
   border: 0.0625rem solid transparent;
   background-color: transparent;
@@ -219,52 +212,60 @@ const Button = styled.button<Props>`
   border-radius: 6.25rem;
   height: 2.5rem;
 
-  background-color: ${(props) => props.isClicked && props.theme.colors.behance_black};
-  color: ${(props) => props.isClicked && props.theme.colors.behance_white};
+  background-color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_black};
+  color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_white};
 `;
-const Body = styled.section`
+
+const StCategoryWrapper = styled.section`
   position: relative;
+
   & > section {
     display: flex;
     justify-content: flex-end;
   }
 `;
 
-const Container = styled.section`
+const StCategory = styled.article`
+  position: relative;
+
   margin-left: 2.0625rem;
   margin-right: 4.375rem;
-  position: relative;
 `;
 
-const CategoryButton = styled.button<CategoryProps>`
-  ${({ theme }) => theme.fonts.behance_acumin_pro_bold_17};
-  color: ${({ theme }) => theme.colors.behance_white};
+const StCategoryButton = styled.button<{ categoryIsClicked: boolean }>`
   width: 7.8125rem;
   height: 3rem;
   padding: 1rem 1.5rem 0.75rem 1.5rem;
-  border-radius: 6.25rem;
-  border: 1px solid transparent;
-  margin-right: 1rem;
-  background-color: ${({ theme }) => theme.colors.behance_black};
-  background-color: ${(props) => props.categoryIsClicked && props.theme.colors.behance_blue};
 
+  border: 1px solid transparent;
+  border-radius: 6.25rem;
+  margin-right: 1rem;
   margin-top: 2.5625rem;
+
+  ${({ theme }) => theme.fonts.behance_acumin_pro_bold_17};
+  color: ${({ theme }) => theme.colors.behance_white};
+
+  background-color: ${({ categoryIsClicked, theme }) =>
+    categoryIsClicked ? theme.colors.behance_blue : theme.colors.behance_black};
 
   cursor: pointer;
 `;
 
-const Gradient = styled.section`
+const StGradient = styled.article`
   position: absolute;
   z-index: 2;
+
   width: 13.125rem;
-  background-image: linear-gradient(to left, white, transparent);
   height: 5.625rem;
   margin-top: 1.25rem;
+
+  background-image: linear-gradient(to left, white, transparent);
 `;
 
-const Arrow = styled(ArrowRight)`
+const StArrow = styled(ArrowRight)`
   position: absolute;
   z-index: 3;
+
   margin-top: 2.35rem;
   margin-right: 2.5rem;
 `;

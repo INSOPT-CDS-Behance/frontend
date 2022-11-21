@@ -7,11 +7,10 @@ import { AdobeLogo, BehanceLogo, Profile, ShareButton } from '../../asset/image'
 import ButtonModal from './ButtonModal';
 
 const WhiteHeader = () => {
-  const [buttonClicked, setbuttonClicked] = useState<boolean>(false);
+  const [isbuttonClicked, setisbuttonClicked] = useState<boolean>(false);
 
   const handlebuttonClick = () => {
-    setbuttonClicked(true);
-    console.log(buttonClicked);
+    setisbuttonClicked((prev) => !prev);
   };
 
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const WhiteHeader = () => {
           <AdobeLogo fill="black" />
         </StRight>
       </StHeader>
-      {buttonClicked && <ButtonModal />}
+      {isbuttonClicked && <ButtonModal />}
     </>
   );
 };
@@ -66,7 +65,7 @@ const StHeader = styled.header`
   border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.behance_gray300};
 `;
 
-const StLeft = styled.div`
+const StLeft = styled.nav`
   display: flex;
   align-items: center;
   margin-left: 1.9rem;
@@ -87,7 +86,7 @@ const StLeft = styled.div`
   }
 `;
 
-const StMiddle = styled.div<{ setbuttonClicked?: boolean }>`
+const StMiddle = styled.nav<{ isbuttonClicked?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,8 +98,8 @@ const StMiddle = styled.div<{ setbuttonClicked?: boolean }>`
   border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
 
-  background-color: ${({ setbuttonClicked, theme }) =>
-    setbuttonClicked ? theme.colors.behance_blue : theme.colors.behance_black};
+  background-color: ${({ isbuttonClicked, theme }) =>
+    isbuttonClicked ? theme.colors.behance_blue : theme.colors.behance_black};
 
   ${({ theme }) => theme.fonts.behance_acumin_pro_black_24};
   color: ${({ theme }) => theme.colors.behance_white};
@@ -112,7 +111,7 @@ const StMiddle = styled.div<{ setbuttonClicked?: boolean }>`
   cursor: pointer;
 `;
 
-const StRight = styled.div`
+const StRight = styled.nav`
   display: flex;
   align-items: center;
   margin-right: 1.8813rem;
