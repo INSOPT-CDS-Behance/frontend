@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import {
+  ICArrow,
   ICBtnAdd,
   ICBtnLiveContent,
   ICBtnNext,
@@ -8,9 +9,9 @@ import {
   ICFavorite,
   ICLineCol,
   ICPerson,
-  ICSearch,
   ICStar,
 } from '../../asset/icon';
+import SearchInput from './SearchInput';
 const Header = () => {
   return (
     <StHeaderWrapper>
@@ -19,10 +20,7 @@ const Header = () => {
           <span>프로젝트</span>
           <ICDropDown fill="white" />
         </StButton>
-        <StInputWrapper>
-          <ICSearch width="24" height="24" />
-          <input placeholder="Behance 추천 프로젝트 둘러보기" />
-        </StInputWrapper>
+        <SearchInput isSpread={true} />
       </form>
       <StSection>
         <article className="add_btn_wrapper">
@@ -56,6 +54,10 @@ const Header = () => {
           </li>
           <ICLineCol />
         </ul>
+        <button>
+          추천순
+          <ICArrow />
+        </button>
       </StNavWrapper>
     </StHeaderWrapper>
   );
@@ -70,32 +72,13 @@ const StHeaderWrapper = styled.header`
   align-items: center;
 
   width: 100%;
-  height: rem;
   padding: 0 1.875rem;
 
   & > form {
     display: flex;
 
     width: 100%;
-  }
-`;
-const StInputWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  padding: 0 1rem;
-
-  border: solid 0.0625rem ${({ theme }) => theme.colors.behance_gray400};
-  border-radius: 0 0.3125rem 0.3125rem 0;
-  & > input {
-    width: 100%;
-    padding: 0 1rem;
-
-    border: none;
-
-    ${({ theme }) => theme.fonts.behance_acumin_pro_medium_17};
+    margin-top: 2.4375rem;
   }
 `;
 const StButton = styled.button`
@@ -155,22 +138,19 @@ const StSection = styled.section`
 `;
 const StNavWrapper = styled.nav`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   width: 100%;
   margin-top: 7.5625rem;
+  padding-bottom: 0.1rem;
 
+  border-bottom: solid 0.0625rem ${({ theme }) => theme.colors.behance_gray300};
   & > ul {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
     gap: 2rem;
-
-    width: 100%;
-    padding-bottom: 0.1rem;
-
-    border-bottom: solid 0.0625rem ${({ theme }) => theme.colors.behance_gray300};
 
     & > li {
       display: flex;
@@ -185,5 +165,20 @@ const StNavWrapper = styled.nav`
     & > li:nth-child(1) {
       border-bottom: solid 0.1563rem ${({ theme }) => theme.colors.behance_black};
     }
+  }
+  & > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 7.1875rem;
+    height: 2.6875rem;
+
+    border: solid 0.0625rem ${({ theme }) => theme.colors.behance_blue};
+    border-radius: 0.3125rem;
+    background-color: ${({ theme }) => theme.colors.behance_white};
+    color: ${({ theme }) => theme.colors.behance_blue};
+    ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
   }
 `;
