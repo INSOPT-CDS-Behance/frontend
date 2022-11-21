@@ -2,10 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface Props {
-  isClicked: boolean;
-}
-
 const TransparentCategory = () => {
   const navigate = useNavigate();
   const [clicked, setClicked] = useState<boolean[]>([false, true, false, false, false]);
@@ -52,17 +48,17 @@ const StContainer = styled.div`
 `;
 
 //Category 버튼
-const StCategory = styled.button<Props>`
+const StCategory = styled.button<{ isClicked: boolean }>`
   height: 4.375rem;
 
   border: none;
   border-bottom: 0.125rem solid transparent;
   padding: 0;
   background: none;
-  color: ${({ theme }) => theme.colors.behance_gray500}; // 기본 글자색
+
+  background-color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_white}; // 기본 글자색
+  color: ${({ isClicked, theme }) =>
+    isClicked ? theme.colors.behance_white : theme.colors.behance_gray500}; // 기본 글자색
   ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_20}
   cursor: pointer;
-  // 클릭되었을 때 border, 글자색 검정색으로 변환
-  border-color: ${(props) => props.isClicked && props.theme.colors.behance_white};
-  color: ${(props) => props.isClicked && props.theme.colors.behance_white};
 `;

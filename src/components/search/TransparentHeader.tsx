@@ -34,30 +34,37 @@ export default TransparentHeader;
 const StHeader = styled.header`
   display: flex;
   justify-content: space-between;
-  box-sizing: border-box;
+
   width: 120rem;
   height: 4.375rem;
+
+  box-sizing: border-box;
+
   color: ${({ theme }) => theme.colors.behance_white};
   border-bottom: 0.125rem solid rgba(217, 217, 217, 0.1);
 `;
 
-const StLeft = styled.div`
+const StLeft = styled.section`
   display: flex;
   align-items: center;
+
   margin-left: 1.9rem;
   padding: 0;
   gap: 2rem;
+
   & > :first-child {
     cursor: pointer;
   }
 `;
 
-const StRight = styled.div`
+const StRight = styled.section`
   display: flex;
   align-items: center;
+
   margin-right: 1.8813rem;
   padding: 0;
   gap: 2rem;
+
   & > :first-child {
     cursor: pointer;
   }
@@ -67,6 +74,7 @@ const StIcons = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
   & > * {
     cursor: pointer;
   }
