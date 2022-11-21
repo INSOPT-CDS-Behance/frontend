@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components';
 
+import AcuminProBlack from '../fonts/Acumin-Pro-Black.ttf';
 import AcuminProBold from '../fonts/Acumin-Pro-Bold.ttf';
 import AcuminProBook from '../fonts/Acumin-Pro-Book.ttf';
 import AcuminProExtraLight from '../fonts/Acumin-Pro-ExtraLight.ttf';
@@ -8,7 +9,6 @@ import AcuminProMedium from '../fonts/Acumin-Pro-Medium.ttf';
 import AcuminProSemibold from '../fonts/Acumin-Pro-Semibold.ttf';
 import AcuminProThin from '../fonts/Acumin-Pro-Thin.ttf';
 import AcuminProUltraBlack from '../fonts/Acumin-Pro-UltraBlack.ttf';
-import AcuminProBlack from '../fontsAcumin-Pro-Black.ttf';
 
 export const reset = css`
   html,

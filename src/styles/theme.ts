@@ -73,7 +73,7 @@ const fonts = {
   `,
   behance_acumin_pro_bold_18: css`
     font-family: AcuminProBold;
-    font-size: 1.8rem;
+    font-size: 1.125rem;
     font-weight: bold;
     font-style: normal;
     line-height: normal;
