@@ -59,7 +59,7 @@ const StContainer = styled.section`
   margin-left: 31.9375rem;
 `;
 
-const StHeader = styled.div`
+const StHeader = styled.header`
   display: flex;
   align-items: center;
   gap: 0.4375rem;
