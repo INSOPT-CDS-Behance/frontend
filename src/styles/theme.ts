@@ -1,3 +1,5 @@
+import './globalStyle';
+
 import { DefaultTheme } from 'styled-components';
 
 const colors = {
