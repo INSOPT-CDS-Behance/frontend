@@ -8,7 +8,7 @@ import AcuminProMedium from '../fonts/Acumin-Pro-Medium.ttf';
 import AcuminProSemibold from '../fonts/Acumin-Pro-Semibold.ttf';
 import AcuminProThin from '../fonts/Acumin-Pro-Thin.ttf';
 import AcuminProUltraBlack from '../fonts/Acumin-Pro-UltraBlack.ttf';
-import AcuminProBlack from '../fontsAcumin-Pro-Black.ttf';
+import AcuminProBlack from '../fonts/fontsAcumin-Pro-Black.ttf';
 
 export const reset = css`
   html,
