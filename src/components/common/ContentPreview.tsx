@@ -1,15 +1,30 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
 import ImgHomePreview from '../../asset/image/previewImg.png';
-import { ContentPrivewData } from '../../types/common';
+import { ContentPrviewData } from '../../types/common';
+import Hover from '../Home/Hover';
 
-const ContentPreview = (props: ContentPrivewData) => {
-  const { profileImg, name, recommandCount, visibleCount } = props;
+interface ContentPreviewProps {
+  contentPrviewData: ContentPrviewData;
+  isHomePage: boolean;
+}
+const ContentPreview = (props: ContentPreviewProps) => {
+  const { contentPrviewData, isHomePage } = props;
+  const { profileImg, name, recommandCount, visibleCount } = contentPrviewData;
 
+  const [isHover, setIsHover] = useState<boolean>(false);
+  const handleHover = () => {
+    setIsHover(true);
+  };
+  const handleHoverOut = () => {
+    setIsHover(false);
+  };
   return (
-    <StContentPreviewWrapper>
+    <StContentPreviewWrapper onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
       <img src={ImgHomePreview} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      {isHomePage && isHover && <Hover />}
       <StContentInfoWrapper>
         <p className="info_user">
           <img src={ImgHomePreview} alt="user_profile" />
@@ -37,6 +52,7 @@ const StContentPreviewWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   width: 21.25rem;
   margin-top: 3rem;
