@@ -1,3 +1,4 @@
+export { ReactComponent as ICMailFill } from './IcMailFill.svg';
 export { ReactComponent as ICBtnLiveContent } from './_btn_live contents.svg';
 export { ReactComponent as ICArrow } from './Arrow_down.svg';
 export { ReactComponent as ICBtnAdd } from './btn_add_big.svg';
