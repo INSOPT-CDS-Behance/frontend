@@ -6,7 +6,7 @@ const DetailWhiteHeader = () => {
   return (
     <StHeaderWrapper>
       <StLogo />
-      <p>Musinsa Virtual Room</p>
+      <h1>Musinsa Virtual Room</h1>
     </StHeaderWrapper>
   );
 };
@@ -24,7 +24,7 @@ const StHeaderWrapper = styled.header`
   border: 1px solid black;
   background-color: ${({ theme }) => theme.colors.behance_white};
 
-  & > p {
+  & > h1 {
     margin-left: 5rem;
     color: ${({ theme }) => theme.colors.behance_black};
     ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_20};

@@ -5,18 +5,18 @@ import { Feedback, ProfileFollow, Save, Share, Test } from '../../asset/icon';
 const RightIcon = () => {
   return (
     <StIconWrapper>
-      <div>
+      <nav>
         <ProfileFollow />
-        <p>팔로우</p>
+        <h1>팔로우</h1>
         <Feedback />
-        <p>피드백</p>
+        <h1>피드백</h1>
         <Save />
-        <p>저장</p>
+        <h1>저장</h1>
         <Share />
-        <p>공유</p>
+        <h1>공유</h1>
         <Test />
-        <p>평가</p>
-      </div>
+        <h1>평가</h1>
+      </nav>
     </StIconWrapper>
   );
 };
@@ -29,7 +29,7 @@ const StIconWrapper = styled.section`
 
   background-color: ${({ theme }) => theme.colors.behance_black};
 
-  & > div {
+  & > nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +44,7 @@ const StIconWrapper = styled.section`
     color: ${({ theme }) => theme.colors.behance_white};
     ${({ theme }) => theme.fonts.behance_acumin_pro_regular_14};
 
-    & > p {
+    & > h1 {
       margin-bottom: 1.6875rem;
       margin-top: 0.8125rem;
       color: ${({ theme }) => theme.colors.behance_white};
