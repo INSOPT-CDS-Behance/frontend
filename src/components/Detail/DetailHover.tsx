@@ -18,22 +18,22 @@ const DetailHover = () => {
     <StDetailHoverWrapper>
       {isMouseHover && <HoverButton />}
       <section>
-        <StHoverButton onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <StHoverButton type='button' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
           <ICPicture />
           <p>기타유사항목</p>
         </StHoverButton>
-        <div>
+        <button type='button'>
           <ICSave />
           <p>저장</p>
-        </div>
-        <div>
+        </button>
+        <button type='button'>
           <ICInformation />
           <p>정보</p>
-        </div>
-        <div>
+        </button>
+        <button type='button'>
           <ICLink />
           <p>퍼머링크</p>
-        </div>
+        </button>
       </section>
     </StDetailHoverWrapper>
   );
@@ -52,7 +52,7 @@ const StDetailHoverWrapper = styled.nav`
     justify-content: space-around;
 
     /* width: 36rem; */
-    & > div {
+    & > button {
       display: flex;
 
       width: 10.375rem;
@@ -67,7 +67,7 @@ const StDetailHoverWrapper = styled.nav`
   }
 `;
 
-const StHoverButton = styled.div`
+const StHoverButton = styled.button`
   display: flex;
 
   width: 10.375rem;
