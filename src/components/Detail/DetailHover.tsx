@@ -1,15 +1,27 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ICInformation, ICLink, ICPicture, ICSave } from '../../asset/icon';
+import { HoverButton, ICInformation, ICLink, ICPicture, ICSave } from '../../asset/icon';
 
 const DetailHover = () => {
+  const [isMouseHover, setIsMouseHover] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsMouseHover(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsMouseHover(false);
+  };
+
   return (
     <StDetailHoverWrapper>
+      {isMouseHover && <HoverButton />}
       <section>
-        <div>
+        <StHoverButton onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
           <ICPicture />
           <p>기타유사항목</p>
-        </div>
+        </StHoverButton>
         <div>
           <ICSave />
           <p>저장</p>
@@ -23,7 +35,6 @@ const DetailHover = () => {
           <p>퍼머링크</p>
         </div>
       </section>
-      <section></section>
     </StDetailHoverWrapper>
   );
 };
@@ -34,16 +45,42 @@ const StDetailHoverWrapper = styled.nav`
   position: fixed;
   z-index: 3;
 
-  & > section {
+  margin: 2.0625rem 0 0 15.875rem;
+
+  & > section:nth-child(1) {
     display: flex;
     justify-content: space-around;
 
-    width: 36rem;
+    /* width: 36rem; */
+    & > div {
+      display: flex;
+
+      width: 10.375rem;
+      padding: 1rem;
+
+      border: 1px solid transparent;
+      border-radius: 5rem;
+
+      background: rgba(52, 52, 52, 0.7);
+      color: white;
+    }
   }
-  & > section > div {
-    border: 1px solid transparent;
-    border-radius: 5rem;
-    background-color: black;
-    padding: 1rem;
-  }
+  /* & > section:nth-child(2) {
+    position: fixed;
+    margin-top: 1rem;
+    /* z-index: 4; */
+  } */
+`;
+
+const StHoverButton = styled.div`
+  display: flex;
+
+  width: 10.375rem;
+  padding: 1rem;
+
+  border: 1px solid transparent;
+  border-radius: 5rem;
+
+  background: rgba(52, 52, 52, 0.7);
+  color: white;
 `;

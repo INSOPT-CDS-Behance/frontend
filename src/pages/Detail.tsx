@@ -24,6 +24,16 @@ const Detail = () => {
     setIsSpread(pageYOffset <= 350);
   };
 
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHover(false);
+  };
+
   return (
     <>
       <StHeaderWrapper>
@@ -39,12 +49,12 @@ const Detail = () => {
       <StBody>
         <RightIcon />
         <BottomIcon />
+        {isHover && <DetailHover />}
 
         <StImgWrapper>
-          <StImg src={ImgScroll} alt="#" />
+          <StImg src={ImgScroll} alt="#" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
         </StImgWrapper>
       </StBody>
-      <DetailHover />
     </>
   );
 };

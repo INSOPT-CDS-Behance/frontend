@@ -6,6 +6,7 @@ export { ReactComponent as Feedback } from './Group 169.svg';
 export { ReactComponent as Save } from './Group 170.svg';
 export { ReactComponent as Share } from './Group 171.svg';
 export { ReactComponent as Test } from './Group 172.svg';
+export { ReactComponent as HoverButton } from './Group 177.svg';
 export { ReactComponent as ProfileFollow } from './Group 181.svg';
 export { ReactComponent as ICInformation } from './ic_information.svg';
 export { ReactComponent as ICLink } from './ic_link.svg';
