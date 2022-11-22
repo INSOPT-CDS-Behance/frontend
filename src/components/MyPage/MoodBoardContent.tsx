@@ -14,7 +14,7 @@ interface MoodBoardDataProps {
   hoveredLong: boolean;
 }
 
-const MoodBoard = (props: MoodBoardDataProps) => {
+const MoodBoardContent = (props: MoodBoardDataProps) => {
   const { MoodBoardData, setHovered, hoveredLong } = props;
   const { id, title, category, lock, profileNum, project } = MoodBoardData;
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ const MoodBoard = (props: MoodBoardDataProps) => {
   );
 };
 
-export default MoodBoard;
+export default MoodBoardContent;
 
 const StHeader = styled.header`
   display: flex;

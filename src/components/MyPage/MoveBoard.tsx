@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { getMoodBoard } from '../../utils/lib/moveboard';
-import MoodBoard from './MoodBoard';
+import MoodBoardContent from './MoodBoardContent';
 
 interface MoodBoardServerData {
   id: number;
@@ -47,7 +47,7 @@ const MoveBoard = () => {
   }, [hovered]);
 
   const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name, project }) => (
-    <MoodBoard
+    <MoodBoardContent
       key={id}
       MoodBoardData={{ id: id, title: name, category: '미정', lock: is_public, profileNum: 3, project: project }}
       setHovered={setHovered}
