@@ -8,7 +8,10 @@ interface MoodBoardServerData {
   id: number;
   is_public: boolean;
   name: string;
-  project?: object[];
+  project: {
+    id: number;
+    image: string;
+  }[];
   user_id?: number;
 }
 
@@ -43,10 +46,10 @@ const MoveBoard = () => {
     }
   }, [hovered]);
 
-  const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name }) => (
+  const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name, project }) => (
     <MoodBoard
       key={id}
-      MoodBoardData={{ id: id, title: name, category: '미정', lock: is_public, profileNum: 3 }}
+      MoodBoardData={{ id: id, title: name, category: '미정', lock: is_public, profileNum: 3, project: project }}
       setHovered={setHovered}
       hoveredLong={hoveredLong}
     />

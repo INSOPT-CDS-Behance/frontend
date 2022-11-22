@@ -4,4 +4,8 @@ export interface MoodBoardData {
   category: string;
   lock: boolean;
   profileNum: number;
+  project: {
+    id: number;
+    image: string;
+  }[];
 }

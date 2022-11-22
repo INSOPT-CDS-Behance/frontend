@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { ICEdit, ICLockOn } from '../../asset/icon';
 import { ImgMoveBoardShadow } from '../../asset/image';
-import ImgMoveBoard from '../../asset/image/./사진.svg';
 import ImgProfile from '../../asset/image/Profile.svg';
 import { MoodBoardData } from '../../types/mypage';
 import Tolltip from './Tolltip';
@@ -17,7 +16,7 @@ interface MoodBoardDataProps {
 
 const MoodBoard = (props: MoodBoardDataProps) => {
   const { MoodBoardData, setHovered, hoveredLong } = props;
-  const { id, title, category, lock, profileNum } = MoodBoardData;
+  const { id, title, category, lock, profileNum, project } = MoodBoardData;
   const navigate = useNavigate();
 
   const [hoverTarget, setHoverTarget] = useState<string>('');
@@ -50,7 +49,12 @@ const MoodBoard = (props: MoodBoardDataProps) => {
 
   return (
     <StMoveBoard onMouseEnter={handleMousehover} onMouseLeave={handleMouseLeave} id={`moveBoard${id}`}>
-      <img src={ImgMoveBoard} className="moveBoard" alt="무브 보드 썸네일" />
+      <StImgContainer>
+        <img src={project[0].image} className="moveBoard" alt="무브 보드 썸네일" />
+        <img src={project[1].image} className="moveBoard" alt="무브 보드 썸네일" />
+        <img src={project[0].image} className="moveBoard" alt="무브 보드 썸네일" />
+        <img src={project[1].image} className="moveBoard" alt="무브 보드 썸네일" />
+      </StImgContainer>
       <ImgMoveBoardShadow />
 
       <StHeader>
@@ -85,10 +89,20 @@ const StHeader = styled.header`
 
 const StMoveBoard = styled.article`
   position: relative;
+`;
 
-  & > img.moveBoard {
-    position: absolute;
-    z-index: -1;
+const StImgContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  width: 430px;
+  height: 338px;
+
+  position: absolute;
+  z-index: -1;
+
+  & > img {
+    width: 215px;
+    height: 169px;
   }
 `;
 
