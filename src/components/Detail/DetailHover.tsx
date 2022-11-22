@@ -18,19 +18,19 @@ const DetailHover = () => {
     <StDetailHoverWrapper>
       {isMouseHover && <HoverButton />}
       <section>
-        <StHoverButton type='button' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <StHoverButton type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
           <ICPicture />
           <p>기타유사항목</p>
         </StHoverButton>
-        <button type='button'>
+        <button type="button">
           <ICSave />
           <p>저장</p>
         </button>
-        <button type='button'>
+        <button type="button">
           <ICInformation />
           <p>정보</p>
         </button>
-        <button type='button'>
+        <button type="button">
           <ICLink />
           <p>퍼머링크</p>
         </button>
