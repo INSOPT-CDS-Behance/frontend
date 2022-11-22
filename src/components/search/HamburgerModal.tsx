@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import categoryImg from '../../asset/image/categoryImg.png';
 import { CategoryList } from '../../types/common';
 
-const Modal = () => {
+const HamburgerModal = () => {
   const categorylist: CategoryList[] = [
     { id: 1, title: '최고의 Behance', color: '#2456f7', imgSrc: '#' },
     { id: 2, title: '그래픽 디자인', color: 'transparent', imgSrc: categoryImg },
@@ -40,7 +40,7 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default HamburgerModal;
 
 const StModalWrapper = styled.section`
   position: absolute;
