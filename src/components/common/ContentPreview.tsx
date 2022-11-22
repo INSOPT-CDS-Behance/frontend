@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
-import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ContentPrviewData } from '../../types/common';
+import { LikeStatus } from '../../types/project';
+import { postProjectLike } from '../../utils/lib/project';
 import Hover from '../Home/Hover';
 
 interface ContentPreviewProps {
@@ -12,30 +13,53 @@ interface ContentPreviewProps {
 }
 const ContentPreview = (props: ContentPreviewProps) => {
   const { contentPrviewData, isHomePage } = props;
-  const { profileImg, name, recommandCount, visibleCount } = contentPrviewData;
+  const { projectId, profileImg, name, recommandCount, visibleCount } = contentPrviewData;
 
+  const [likeCount, setLikeCount] = useState<number>(0);
   const [isHover, setIsHover] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLikeCount(recommandCount);
+  }, []);
+
   const handleHover = () => {
     setIsHover(true);
   };
   const handleHoverOut = () => {
     setIsHover(false);
   };
+
+  const postLike = async () => {
+    try {
+      const { data } = await postProjectLike({ projectId: projectId, userId: 2 });
+      const { status, message } = data as LikeStatus;
+      if (status) {
+        switch (message) {
+          case '좋아요 취소 성공':
+            setLikeCount(likeCount - 1);
+            break;
+          case '좋아요 성공':
+            setLikeCount(likeCount + 1);
+            break;
+        }
+      }
+    } catch (e) {}
+  };
   return (
     <StContentPreviewWrapper onMouseEnter={handleHover} onMouseLeave={handleHoverOut}>
-      <img src={ImgHomePreview} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
       {isHomePage && isHover && <Hover />}
       <StContentInfoWrapper>
         <p className="info_user">
-          <img src={ImgHomePreview} alt="user_profile" />
+          <img src={profileImg} alt="user_profile" />
           <span>{name}</span>
         </p>
         <div className="reaction">
-          <p className="reaction__recommand">
+          <p role="presentation" onClick={postLike} className="reaction__recommand">
             <ICRecommand fill={'#5d5d5d'} width="16" height="16" />
-            <span>{recommandCount}</span>
+            <span>{likeCount}</span>
           </p>
-          <p className="reaction__visible">
+          <p role="presentation" onClick={postLike} className="reaction__visible">
             <ICVisible fill={'#5d5d5d'} width="16" height="16" />
             <span>{visibleCount}</span>
           </p>
