@@ -1,5 +1,5 @@
 import { reqAPI } from '.';
 
-export const getMoveBoard = async () => {
-  return reqAPI.get(`/moveboard`);
+export const getMoodBoard = async () => {
+  return reqAPI.get(`/moodboard`);
 };

@@ -1,9 +1,11 @@
+// import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ImgDropDown } from '../asset/image';
+import * as image from '../asset/image';
 import UserInfo from '../asset/image/UserInfo.svg';
 import { Header, MoveBoard, Nav } from '../components/MyPage';
+// import { getMoodBoard } from '../utils/lib/moveboard';
 
 const MyPage = () => {
   return (
@@ -12,7 +14,7 @@ const MyPage = () => {
       <img src={UserInfo} alt="유저 정보" /> {/* svg로 불러왔을 때 다른 이미지로 대체되는 문제 생겨서 img로 해결 */}
       <Nav />
       <StDropDown type="button">
-        저장일 순<ImgDropDown id="dropDown" />
+        저장일 순<image.ImgDropDown id="dropDown" />
       </StDropDown>
       <MoveBoard />
       <Outlet />
