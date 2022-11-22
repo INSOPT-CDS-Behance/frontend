@@ -15,7 +15,7 @@ interface MoodBoardServerData {
   user_id?: number;
 }
 
-const MoveBoard = () => {
+const MoodBoard = () => {
   const [hovered, setHovered] = useState<boolean>(false);
   const [hoveredLong, setHoveredLong] = useState<boolean>(false);
 
@@ -58,7 +58,7 @@ const MoveBoard = () => {
   return <StContainer>{moveBoard}</StContainer>;
 };
 
-export default MoveBoard;
+export default MoodBoard;
 
 const StContainer = styled.section`
   display: flex;
