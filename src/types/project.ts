@@ -4,6 +4,7 @@ export interface ProjectData {
   image: string;
   likeCount: number;
   viewCount: number;
+  onClick(): void;
 }
 
 export interface DetailData {

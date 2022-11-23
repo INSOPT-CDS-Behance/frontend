@@ -18,10 +18,6 @@ import SimilarProject from '../components/Search/SimilarProject';
 import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
-interface OnClickProps {
-  onClick(): void;
-}
-
 const Search = () => {
   const navigate = useNavigate();
   const [isSpread, setIsSpread] = useState<boolean>(true);
@@ -72,9 +68,6 @@ const Search = () => {
       <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
           <Preview
-            onClick={() => {
-              handleDetail(id);
-            }}
             key={idx}
             isHomePage={true}
             contentPreviewData={{
@@ -84,6 +77,9 @@ const Search = () => {
               recommandCount: likeCount,
               visibleCount: viewCount,
             }}
+            // onClick={() => {
+            //   handleDetail(id);
+            // }}
           />
         ))}
       </StContentSection>
