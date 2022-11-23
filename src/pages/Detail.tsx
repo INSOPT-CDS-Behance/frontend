@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ImgScroll from '../asset/image/img_scroll.png';
@@ -7,8 +8,11 @@ import DetailBlackHeader from '../components/Detail/DetailBlackHeader';
 import DetailHover from '../components/Detail/DetailHover';
 import DetailWhiteHeader from '../components/Detail/DetailWhiteHeader';
 import RightIcon from '../components/Detail/RightIcon';
+import { DetailData } from '../types/project';
+import { getProjectId } from '../utils/lib/project';
 
 const Detail = () => {
+  const userId = useParams();
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState<number>(0);
   const documentRef = useRef(document);
@@ -34,6 +38,19 @@ const Detail = () => {
     setIsHover(false);
   };
 
+  const [contentList, setContentList] = useState<DetailData[]>([]);
+
+  useEffect(() => {
+    const getContentList = async () => {
+      const { data } = await getProjectId(`${userId}`);
+      const getDetailData = data.data as DetailData[];
+      setContentList(getDetailData);
+    };
+
+    console.log(contentList);
+    getContentList();
+  }, []);
+
   return (
     <>
       <StHeaderWrapper>
@@ -52,7 +69,7 @@ const Detail = () => {
         {isHover && <DetailHover />}
 
         <StImgWrapper>
-          <StImg src={ImgScroll} alt="#" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
+          <StImg src={contentList[2].image} alt="#" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
         </StImgWrapper>
       </StBody>
     </>

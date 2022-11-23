@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
@@ -18,6 +19,7 @@ import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
 const Search = () => {
+  const navigate = useNavigate();
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState(0);
   const documentRef = useRef(document);
@@ -45,6 +47,10 @@ const Search = () => {
     getContentList();
   }, []);
 
+  const handleDetail = (id: number) => {
+    navigate(`/${id}`);
+  };
+
   return (
     <>
       <StHeader>{!isSpread && <WhiteHeader />}</StHeader>
@@ -62,6 +68,9 @@ const Search = () => {
       <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
           <Preview
+            // click={() => {
+            //   navigate(`/${id}`);
+            // }}
             key={idx}
             isHomePage={true}
             contentPreviewData={{
