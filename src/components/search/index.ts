@@ -1,6 +1,7 @@
 export { default as ButtonModal } from '../Search/ButtonModal';
 export { default as CategoryBar } from '../Search/CategoryBar';
 export { default as CategoryButton } from '../Search/CategoryButton';
+export { default as HamburgerModal } from '../Search/HamBurgerModal';
 export { default as HrContainer } from '../Search/HrContainer';
 export { default as Thumbnail } from '../Search/LeftThumbnail';
 export { default as Preview } from '../Search/Preview';
@@ -9,4 +10,3 @@ export { default as TitleBoard } from '../Search/TitleBoard';
 export { default as TransparentCategory } from '../Search/TransparentCategory';
 export { default as TransparentHeader } from '../Search/TransparentHeader';
 export { default as WhiteHeader } from '../Search/WhiteHeader';
-export { default as HamburgerModal } from './HamBurgerModal';

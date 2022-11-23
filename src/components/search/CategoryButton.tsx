@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ArrowLeft, ArrowRight, HamburgerButton } from '../../asset/icon';
+import { ArrowLeft, ArrowRight, BlueHamburgerButton, HamburgerButton } from '../../asset/icon';
 import illustrate from '../../asset/image/illustrate.png';
 import photoshop from '../../asset/image/photoshop.png';
 import theme from '../../styles/theme';
@@ -21,7 +21,7 @@ const CategoryButton = (): JSX.Element => {
     { id: 9, title: 'Illustrate', color: 'transparent', imgSrc: illustrate },
   ];
 
-  const [hamburgerClicked, sethamburgerClicked] = useState(false);
+  const [hamburgerClicked, sethamburgerClicked] = useState<boolean>(false);
 
   const handleHamburgerClick = () => {
     sethamburgerClicked((prev) => !prev);
@@ -29,6 +29,14 @@ const CategoryButton = (): JSX.Element => {
 
   return (
     <>
+      <StHamBurgerButtonWrapper>
+        {!hamburgerClicked ? (
+          <HamburgerButton onClick={handleHamburgerClick} />
+        ) : (
+          <StBlueHamburgerButton onClick={handleHamburgerClick} />
+        )}
+      </StHamBurgerButtonWrapper>
+
       {hamburgerClicked && <HamburgerModal />}
 
       <StCategoryButtonWrapper>
@@ -37,11 +45,6 @@ const CategoryButton = (): JSX.Element => {
             <ArrowLeft />
             <ArrowRight />
           </StArrowWrapper>
-          {hamburgerClicked ? (
-            <HamburgerButton onClick={handleHamburgerClick} fill="blue" />
-          ) : (
-            <HamburgerButton onClick={handleHamburgerClick} fill="white" />
-          )}
         </StIconWrapper>
         <StGradientWrapper>
           <StGradientLeft />
@@ -66,6 +69,16 @@ const CategoryButton = (): JSX.Element => {
 };
 
 export default CategoryButton;
+
+const StHamBurgerButtonWrapper = styled.section`
+  position: absolute;
+  z-index: 6;
+  margin-left: 114.6875rem;
+`;
+
+const StBlueHamburgerButton = styled(BlueHamburgerButton)`
+  margin-top: 1rem;
+`;
 
 const StCategoryButtonWrapper = styled.section`
   position: relative;

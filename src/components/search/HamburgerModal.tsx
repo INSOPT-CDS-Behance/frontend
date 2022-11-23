@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { BlueHamburgerButton } from '../../asset/icon';
 import categoryImg from '../../asset/image/categoryImg.png';
 import { CategoryList } from '../../types/common';
 
@@ -25,22 +26,32 @@ const HamburgerModal = () => {
   ];
 
   return (
-    <StModalWrapper>
-      <StModal>
-        <p>최고의 크리에이티브 분야로 이루어진 갤러리</p>
-        <div>
-          {categorylist.map(({ id, color, imgSrc, title }) => (
-            <button type="button" key={id} style={{ backgroundColor: color, backgroundImage: `url(${imgSrc})` }}>
-              {title}
-            </button>
-          ))}
-        </div>
-      </StModal>
-    </StModalWrapper>
+    <>
+      {/* <StBlueHamburgerButton /> */}
+      <StModalWrapper>
+        <StModal>
+          <p>최고의 크리에이티브 분야로 이루어진 갤러리</p>
+          <div>
+            {categorylist.map(({ id, color, imgSrc, title }) => (
+              <button type="button" key={id} style={{ backgroundColor: color, backgroundImage: `url(${imgSrc})` }}>
+                {title}
+              </button>
+            ))}
+          </div>
+        </StModal>
+      </StModalWrapper>
+    </>
   );
 };
 
 export default HamburgerModal;
+
+const StBlueHamburgerButton = styled(BlueHamburgerButton)`
+  position: absolute;
+  z-index: 5;
+
+  margin-left: 114.6875rem;
+`;
 
 const StModalWrapper = styled.section`
   position: absolute;
