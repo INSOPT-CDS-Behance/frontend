@@ -1,20 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICClose } from '../../asset/icon';
 import MyPage from '../../pages/MyPage';
+import { LikeStatus } from '../../types/common';
+import { patchMoodBoard } from '../../utils/lib/moveboard';
 
 const Edit = () => {
+  const navigate = useNavigate();
+
   const params = useParams();
-  const project_id = params.id;
+  const project_id = Number(params.id);
 
   const { state } = useLocation();
-  console.log(state);
-
-  const navigate = useNavigate();
-  const [isLocked, setIsLocked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
+  const [isLocked, setIsLocked] = useState<boolean>(state.lock);
+
+  const handleClickToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDisabled(!isDisabled);
+    setIsLocked(!isLocked);
+  };
 
   // input 요소들 렌더링
   const moveBoardEdit: JSX.Element[] = [
@@ -28,10 +35,28 @@ const Edit = () => {
     </StInputContainer>
   ));
 
-  const handleClickToggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsDisabled(!isDisabled);
-    setIsLocked(!isLocked);
+  const handleOnClick = async () => {
+    try {
+      console.log(project_id, isLocked);
+      const { data } = await patchMoodBoard({ id: project_id, is_public: isLocked });
+      const { status, message } = data as LikeStatus;
+      if (status) {
+        console.log(message);
+        switch (message) {
+          case '무드보드 편집 성공':
+            navigate('/mypage');
+            break;
+          case '무드보드 편집을 실패':
+            setIsLocked(!isLocked);
+            break;
+          case '필요한 값이 없습니다':
+            setIsLocked(!isLocked);
+            break;
+        }
+      }
+    } catch (e) {
+      console.log('오류');
+    }
   };
 
   return (
@@ -60,7 +85,7 @@ const Edit = () => {
 
           <StBottom>
             <StDeleteBt>무드보드 삭제</StDeleteBt>
-            <StSaveBt disabled={isDisabled} className={isDisabled ? 'disabled' : ''}>
+            <StSaveBt disabled={isDisabled} className={isDisabled ? 'disabled' : ''} onClick={handleOnClick}>
               저장
             </StSaveBt>
           </StBottom>
@@ -199,17 +224,18 @@ const StInput = styled.input`
 const StToggleBt = styled.button`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   width: 5.125rem;
   height: 2.4375rem;
 
   border: none;
   border-radius: 1.2188rem;
-  background-color: ${({ theme }) => theme.colors.behance_blue};
+
+  background-color: #e8e8e8;
   &.lock {
-    justify-content: flex-start;
-    background-color: #e8e8e8;
+    justify-content: flex-end;
+    background-color: ${({ theme }) => theme.colors.behance_blue};
   }
   cursor: pointer;
 `;

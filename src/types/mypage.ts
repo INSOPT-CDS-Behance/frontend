@@ -22,3 +22,8 @@ export interface MoodBoardServerData {
   subtitle: string;
   user_id?: number;
 }
+
+export interface EditMoodBoard {
+  id: number;
+  is_public: boolean;
+}
