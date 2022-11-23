@@ -44,7 +44,7 @@ const Edit = () => {
       <StEditContainer>
         <StEditBoard>
           <StCloseBt>
-            <ICClose className="closeBt" onClick={() => navigate('/MyPage')} />
+            <ICClose className="closeBt" fill="black" onClick={() => navigate('/MyPage')} />
           </StCloseBt>
 
           <StEditHeader>이 무드보드 편집</StEditHeader>
@@ -78,7 +78,7 @@ export default Edit;
 const StShadow = styled.div`
   position: absolute;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 
   width: 120rem;
   height: 67.5rem;
@@ -94,7 +94,7 @@ const StEditContainer = styled.section`
 
   position: absolute;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 
   width: 120rem;
   height: 67.5rem;
