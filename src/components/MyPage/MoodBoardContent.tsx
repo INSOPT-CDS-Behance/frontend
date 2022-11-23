@@ -41,10 +41,10 @@ const MoodBoardContent = (props: MoodBoardDataProps) => {
   //이벤트 핸들링
   const handleOnClick = (e: React.MouseEvent) => {
     e.stopPropagation;
-    const moveBoardId = e.currentTarget.parentElement;
-    console.log(moveBoardId);
+    // const moveBoardId = e.currentTarget.parentElement;
+    // console.log(moveBoardId);
 
-    navigate(`/Edit`);
+    navigate(`/Edit/${id}`);
   };
 
   return (
@@ -62,7 +62,7 @@ const MoodBoardContent = (props: MoodBoardDataProps) => {
       </StHeader>
 
       <StHoverShadow className={hoverTarget === `moveBoard${id}` ? 'view' : ''} />
-      <StEdit className={hoverTarget === `moveBoard${id}` ? 'view' : ''} onClick={(e) => handleOnClick(e)}>
+      <StEdit className={hoverTarget === `moveBoard${id}` ? 'view' : ''} onClick={(id) => handleOnClick(id)}>
         <ICEdit width="1rem" height="1rem" />
       </StEdit>
 
