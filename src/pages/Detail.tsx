@@ -62,7 +62,7 @@ const Detail = () => {
   };
 
   return (
-    <>
+    <StDetailWrapper>
       <StHeaderWrapper>
         {isSpread ? (
           <DetailBlackHeader />
@@ -92,11 +92,15 @@ const Detail = () => {
           <StImg src={scrollImg} alt="메인이미지" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver} />
         </StImgWrapper>
       </StBody>
-    </>
+    </StDetailWrapper>
   );
 };
 
 export default Detail;
+
+const StDetailWrapper = styled.section`
+  width: 120rem;
+`;
 
 const StHeaderWrapper = styled.header`
   position: fixed;
