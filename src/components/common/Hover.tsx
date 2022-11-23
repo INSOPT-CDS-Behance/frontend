@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { EyeOff, Folder, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } from '../../asset/icon';
 import ImgHomePreview from '../../asset/image/previewImg.png';
-import Thumbnail from '../search/Thumbnail';
+import Thumbnail from '../Search/Thumbnail';
 
 const Hover = () => {
   const [projectClicked, setprojectClicked] = useState(false);

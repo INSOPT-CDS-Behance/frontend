@@ -1,18 +1,20 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
 import ImgHomePreview from '../../asset/image/previewImg.png';
-import { ContentPrviewData } from '../../types/common';
+import { ContentPreviewProps, PreviewData } from '../../types/common';
 
-const Preview = (props: ContentPrviewData) => {
-  const { profileImg, name, recommandCount, visibleCount } = props;
+const Preview = (props: ContentPreviewProps) => {
+  const { contentPreviewData, isHomePage } = props;
+  const { projectId, profileImg, name, recommandCount, visibleCount } = contentPreviewData;
 
   return (
     <StContentPreviewWrapper>
-      <img src={ImgHomePreview} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
       <StContentInfoWrapper>
         <p className="info_user">
-          <img src={ImgHomePreview} alt="user_profile" />
+          <img src={profileImg} alt="user_profile" />
           <span>{name}</span>
         </p>
         <div className="reaction">

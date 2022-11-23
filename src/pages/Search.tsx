@@ -12,7 +12,9 @@ import {
   TitleBoard,
   TransparentHeader,
   WhiteHeader,
-} from '../components/search';
+} from '../components/Search';
+import { ProjectData } from '../types/project';
+import { getProject } from '../utils/lib/project';
 
 const Search = () => {
   const [isHover, setIsHover] = useState(false);
@@ -38,6 +40,18 @@ const Search = () => {
     setIsSpread(pageYOffset <= 450);
   };
 
+  const [contentList, setContentList] = useState<ProjectData[]>([]);
+
+  useEffect(() => {
+    const getContentList = async () => {
+      const { data } = await getProject();
+      const getProjectData = data.data as ProjectData[];
+      setContentList(getProjectData);
+    };
+
+    getContentList();
+  }, []);
+
   return (
     <>
       <StHeader>{!isSpread && <WhiteHeader />}</StHeader>
@@ -53,8 +67,18 @@ const Search = () => {
       <Searchbar />
 
       <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
-        {[1, 2, 3, 4, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 2, 2, 2, , 2, , 2, 2, , 2].map((_, idx) => (
-          <Preview key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
+        {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
+          <Preview
+            key={idx}
+            isHomePage={true}
+            contentPreviewData={{
+              projectId: id,
+              profileImg: image,
+              name: writer,
+              recommandCount: likeCount,
+              visibleCount: viewCount,
+            }}
+          />
         ))}
         {isHover && <Hover />}
       </StContentSection>
