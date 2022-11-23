@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { ICClose } from '../../asset/icon';
 import MyPage from '../../pages/MyPage';
 import { LikeStatus } from '../../types/common';
-import { patchMoodBoard } from '../../utils/lib/moveboard';
+import { patchMoodBoard } from '../../utils/lib/moodboard';
 
 const Edit = () => {
   const navigate = useNavigate();

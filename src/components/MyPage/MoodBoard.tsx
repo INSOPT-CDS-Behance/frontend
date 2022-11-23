@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { MoodBoardServerData } from '../../types/mypage';
-import { getMoodBoard } from '../../utils/lib/moveboard';
+import { getMoodBoard } from '../../utils/lib/moodboard';
 import MoodBoardContent from './MoodBoardContent';
 
 const MoodBoard = () => {
@@ -34,6 +34,10 @@ const MoodBoard = () => {
       };
     }
   }, [hovered]);
+
+  moodBoardList.sort((a: MoodBoardServerData, b: MoodBoardServerData): number => {
+    return a.id - b.id;
+  });
 
   const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name, project, profile_count, subtitle }) => (
     <MoodBoardContent
