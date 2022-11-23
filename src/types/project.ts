@@ -12,3 +12,7 @@ export interface DetailData {
   image: string;
   isLiked: true;
 }
+
+export interface Img {
+  image: string;
+}

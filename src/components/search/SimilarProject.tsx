@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ArrowRight, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } from '../../asset/icon';
+import { ArrowRight, ICClose, ICDropdown, ICOpenLink } from '../../asset/icon';
 import { ProjectData } from '../../types/project';
 import { getProject } from '../../utils/lib/project';
 import Thumbnail from './Thumbnail';
@@ -23,7 +23,7 @@ const SimilarProject = () => {
     };
 
     getContentList();
-  }, []);
+  }, [contentList]);
 
   return (
     <>
@@ -37,7 +37,7 @@ const SimilarProject = () => {
                 <ICClose />
               </button>
             </div>
-            <img src={contentList[0].image} alt="썸네일 이미지" />
+            {/* <img src={contentList[0].image} alt="썸네일 이미지" /> */}
             <div>
               <p>여러 소유자</p>
               <ICDropdown fill="white" />
