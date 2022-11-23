@@ -226,16 +226,14 @@ const StCategoryWrapper = styled.section`
 `;
 
 const StCategory = styled.article`
-  position: relative;
-
   margin-left: 2.0625rem;
-  margin-right: 4.375rem;
 `;
 
 const StCategoryButton = styled.button<{ categoryIsClicked: boolean }>`
   width: 7.8125rem;
   height: 3rem;
-  padding: 1rem 1.5rem 0.75rem 1.5rem;
+  /* padding: 1rem 1.5rem 0.75rem 1.5rem; */
+  padding: 1rem 0 1.5rem 0;
 
   border: 1px solid transparent;
   border-radius: 6.25rem;

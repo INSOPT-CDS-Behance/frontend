@@ -4,14 +4,24 @@ import styled from 'styled-components';
 import { ICRecommand, ICVisible } from '../../asset/icon';
 import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ContentPreviewProps, PreviewData } from '../../types/common';
+import Hover from '../common/Hover';
 
 const Preview = (props: ContentPreviewProps) => {
   const { contentPreviewData, isHomePage } = props;
   const { projectId, profileImg, name, recommandCount, visibleCount } = contentPreviewData;
 
+  const [isHover, setIsHover] = useState(false);
+  const handleHover = () => {
+    setIsHover(true);
+  };
+  const handleHoverOut = () => {
+    setIsHover(false);
+  };
+
   return (
-    <StContentPreviewWrapper>
+    <StContentPreviewWrapper onMouseOver={handleHover} onMouseOut={handleHoverOut}>
       <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      {isHomePage && isHover && <Hover />}
       <StContentInfoWrapper>
         <p className="info_user">
           <img src={profileImg} alt="user_profile" />

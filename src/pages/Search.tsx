@@ -17,14 +17,6 @@ import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
 const Search = () => {
-  const [isHover, setIsHover] = useState(false);
-  const handleHover = () => {
-    setIsHover(true);
-  };
-  const handleHoverOut = () => {
-    setIsHover(false);
-  };
-
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState(0);
   const documentRef = useRef(document);
@@ -66,7 +58,7 @@ const Search = () => {
 
       <Searchbar />
 
-      <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
+      <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
           <Preview
             key={idx}
@@ -80,7 +72,6 @@ const Search = () => {
             }}
           />
         ))}
-        {isHover && <Hover />}
       </StContentSection>
     </>
   );
