@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { BtnNext, BtnPrev } from '../asset/icon';
+import { BtnNext, BtnPrev, HoverButton } from '../asset/icon';
 import ImgScroll from '../asset/image/img_scroll.png';
 import BottomIcon from '../components/Detail/BottomIcon';
 import DetailBlackHeader from '../components/Detail/DetailBlackHeader';
@@ -14,12 +14,14 @@ import { getProjectId } from '../utils/lib/project';
 
 const Detail = () => {
   const navigate = useNavigate();
+  const [userId, setUserId] = useState(2);
   // const { state } = useLocation();
   // const userId = state.id;
-  const userId = 2;
+  // const userId = 2;
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState<number>(0);
   const documentRef = useRef(document);
+  const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
     documentRef.current.addEventListener('scroll', handleScroll);
@@ -29,6 +31,7 @@ const Detail = () => {
   const handleScroll = () => {
     const { pageYOffset } = window;
     setPageY(pageYOffset);
+    setProgress(pageY / 60);
     setIsSpread(pageYOffset <= 350);
   };
 
@@ -43,7 +46,6 @@ const Detail = () => {
   useEffect(() => {
     const getContentList = async () => {
       const { data } = await getProjectId(`${userId}`);
-      console.log(data);
       const getImgData = data.data.image;
       setscrollImg(getImgData);
     };
@@ -52,13 +54,13 @@ const Detail = () => {
   }, []);
 
   const handleNextPage = (id: number) => {
-    const newId = id + 1;
-    navigate(`/search/${newId}`, { state: { id: newId } });
+    setUserId(id + 1);
+    navigate(`/search/${userId}`, { state: { id: userId } });
   };
 
   const handlePrevPage = (id: number) => {
-    const newId = id - 1;
-    navigate(`/search/${newId}`, { state: { id: newId } });
+    setUserId(id - 1);
+    navigate(`/search/${userId}`, { state: { id: userId } });
   };
 
   return (
@@ -69,7 +71,9 @@ const Detail = () => {
         ) : (
           <>
             <DetailWhiteHeader />
-            <hr />
+            <StProgressBar progress={progress}>
+              <div></div>
+            </StProgressBar>
           </>
         )}
       </StHeaderWrapper>
@@ -85,8 +89,7 @@ const Detail = () => {
             <p>다음</p>
           </div>
         </StButtonWrapper>
-        {/* {isHover && <DetailHover />} */}
-        <DetailHover />
+        {isHover && <DetailHover />}
 
         <StImgWrapper>
           <StImg src={scrollImg} alt="메인이미지" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver} />
@@ -109,6 +112,21 @@ const StHeaderWrapper = styled.header`
   left: 0;
   right: 0;
   z-index: 5;
+`;
+
+const StProgressBar = styled.div<{ progress: number }>`
+  width: 120rem;
+  height: 0.3125rem;
+
+  margin: 0;
+  border-color: ${({ theme }) => theme.colors.behance_blue};
+
+  & > div {
+    width: ${({ progress }) => progress}rem;
+    height: 0.3125rem;
+
+    background-color: ${({ theme }) => theme.colors.behance_blue};
+  }
 `;
 
 const StBody = styled.section`

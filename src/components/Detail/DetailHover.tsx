@@ -7,14 +7,13 @@ const DetailHover = () => {
   const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
 
   const handleMouseOver = () => {
-    setIsDetailHover((prev) => !prev);
-    console.log('dasfdasf');
+    setIsDetailHover(true);
   };
 
   return (
     <StDetailHoverWrapper>
       <section>
-        <StHoverButton type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver} className="etc">
+        <StHoverButton type="button" className="etc" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver}>
           <ICPicture />
           <p>기타유사항목</p>
         </StHoverButton>
