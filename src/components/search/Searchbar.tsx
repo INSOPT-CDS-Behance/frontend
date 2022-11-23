@@ -232,7 +232,6 @@ const StCategory = styled.article`
 const StCategoryButton = styled.button<{ categoryIsClicked: boolean }>`
   width: 7.8125rem;
   height: 3rem;
-  /* padding: 1rem 1.5rem 0.75rem 1.5rem; */
   padding: 1rem 0 1.5rem 0;
 
   border: 1px solid transparent;

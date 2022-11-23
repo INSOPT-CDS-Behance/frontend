@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import background from '../asset/image/searchHomeBackground.svg';
 import Hover from '../components/common/Hover';
 import Modal from '../components/common/Modal';
+import SimilarProject from '../components/common/SimilarProject';
 import {
   CategoryButton,
   HrContainer,
@@ -73,6 +74,7 @@ const Search = () => {
           />
         ))}
       </StContentSection>
+      <SimilarProject />
     </>
   );
 };

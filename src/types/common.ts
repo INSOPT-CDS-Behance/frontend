@@ -30,3 +30,7 @@ export interface ContentPreviewProps {
   contentPreviewData: PreviewData;
   isHomePage: boolean;
 }
+
+export interface ThumbnailProps {
+  previewData: PreviewData;
+}
