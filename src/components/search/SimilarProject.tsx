@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { ArrowRight, ICClose, ICDropdown, ICOpenLink } from '../../asset/icon';
 import { ProjectData } from '../../types/project';
 import { getProject } from '../../utils/lib/project';
-import Thumbnail from './Thumbnail';
+import Thumbnail from './LeftThumbnail';
 
 const SimilarProject = () => {
   const [projectClicked, setprojectClicked] = useState<boolean>(true);
@@ -84,12 +84,8 @@ export default SimilarProject;
 const StSimilarProjectWrapper = styled.section`
   display: flex;
 
-  position: absolute;
-  z-index: 3;
-
   width: 120rem;
   height: 35rem;
-  margin-bottom: 35rem;
 
   background-color: ${({ theme }) => theme.colors.behance_black};
 

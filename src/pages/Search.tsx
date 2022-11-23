@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
+import projectClicked from '../atom/projectClicked';
 import Hover from '../components/common/Hover';
 import Modal from '../components/common/Modal';
 import {
@@ -18,7 +20,7 @@ import SimilarProject from '../components/Search/SimilarProject';
 import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
-const Search = () => {
+const Search = (): JSX.Element => {
   const navigate = useNavigate();
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState(0);
@@ -51,6 +53,8 @@ const Search = () => {
     navigate(`/search/${id}`, { state: { id: id } });
   };
 
+  const isProjectClicked = useRecoilValue(projectClicked);
+
   return (
     <StSearchPageWrapper>
       <StHeader>{!isSpread && <WhiteHeader />}</StHeader>
@@ -64,6 +68,8 @@ const Search = () => {
       </StBackground>
 
       <Searchbar />
+
+      {/* {isProjectClicked && <SimilarProject />} */}
       <SimilarProject />
 
       <StContentSection>

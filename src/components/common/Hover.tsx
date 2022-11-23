@@ -1,39 +1,45 @@
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { EyeOff, Folder, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } from '../../asset/icon';
+import modalClicked from '../../atom/projectClicked';
 
 const Hover = () => {
-  const [projectClicked, setprojectClicked] = useState(false);
+  // const [projectClicked, setprojectClicked] = useState(false);
+  const [projectClicked, setprojectClicked] = useRecoilState(modalClicked);
 
   const handleProjectClick = () => {
     setprojectClicked((prev) => !prev);
+    console.log(projectClicked);
   };
 
   return (
-    <StHoverWrapper>
-      <button type="button" className="category">
-        산업디자인
-      </button>
-      <button type="button" className="eyeOffButton">
-        <EyeOff />
-      </button>
-      <p>KID CAM</p>
-      <footer>
-        <button type="button" className="icGlass" onClick={handleProjectClick}>
-          <Glass />
-          <p>유사프로젝트</p>
+    <>
+      <StHoverWrapper>
+        <button type="button" className="category">
+          산업디자인
         </button>
-        <button type="button" className="folder">
-          <Folder />
-          <p>저장</p>
+        <button type="button" className="eyeOffButton">
+          <EyeOff />
         </button>
-        <button type="button" className="thumbsup">
-          <ThumbsUp />
-          <p>추천</p>
-        </button>
-      </footer>
-    </StHoverWrapper>
+        <p>KID CAM</p>
+        <footer>
+          <button type="button" className="icGlass" onClick={handleProjectClick}>
+            <Glass />
+            <p>유사프로젝트</p>
+          </button>
+          <button type="button" className="folder">
+            <Folder />
+            <p>저장</p>
+          </button>
+          <button type="button" className="thumbsup">
+            <ThumbsUp />
+            <p>추천</p>
+          </button>
+        </footer>
+      </StHoverWrapper>
+    </>
   );
 };
 
