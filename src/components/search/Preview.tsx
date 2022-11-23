@@ -6,11 +6,7 @@ import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ContentPreviewProps, PreviewData } from '../../types/common';
 import Hover from '../common/Hover';
 
-interface OnClickProps {
-  onClick(): void;
-}
-
-const Preview = (props: ContentPreviewProps, { onClick }: OnClickProps) => {
+const Preview = (props: ContentPreviewProps) => {
   const { contentPreviewData, isHomePage } = props;
   const { projectId, profileImg, name, recommandCount, visibleCount } = contentPreviewData;
 
@@ -21,7 +17,7 @@ const Preview = (props: ContentPreviewProps, { onClick }: OnClickProps) => {
   };
 
   return (
-    <StContentPreviewWrapper onMouseOver={handleHover} onMouseOut={handleHover} onClick={onClick}>
+    <StContentPreviewWrapper onMouseOver={handleHover} onMouseOut={handleHover}>
       <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
       {isHomePage && isHover && <Hover />}
       <StContentInfoWrapper>

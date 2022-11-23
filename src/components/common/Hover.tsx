@@ -11,31 +11,29 @@ const Hover = () => {
   };
 
   return (
-    <>
-      <StHoverContainer>
-        <button type="button" className="category">
-          산업디자인
+    <StHoverWrapper>
+      <button type="button" className="category">
+        산업디자인
+      </button>
+      <button type="button" className="eyeOffButton">
+        <EyeOff />
+      </button>
+      <p>KID CAM</p>
+      <footer>
+        <button type="button" className="icGlass" onClick={handleProjectClick}>
+          <Glass />
+          <p>유사프로젝트</p>
         </button>
-        <button type="button" className="eyeOffButton">
-          <EyeOff />
+        <button type="button" className="folder">
+          <Folder />
+          <p>저장</p>
         </button>
-        <p>KID CAM</p>
-        <footer>
-          <button type="button" className="icGlass" onClick={handleProjectClick}>
-            <Glass />
-            <p>유사프로젝트</p>
-          </button>
-          <button type="button" className="folder">
-            <Folder />
-            <p>저장</p>
-          </button>
-          <button type="button" className="thumbsup">
-            <ThumbsUp />
-            <p>추천</p>
-          </button>
-        </footer>
-      </StHoverContainer>
-    </>
+        <button type="button" className="thumbsup">
+          <ThumbsUp />
+          <p>추천</p>
+        </button>
+      </footer>
+    </StHoverWrapper>
   );
 };
 
@@ -46,10 +44,10 @@ const Glass = styled(ICGlass)`
   margin-left: -0.25rem;
 `;
 
-const StHoverContainer = styled.section`
+const StHoverWrapper = styled.section`
   width: 21.25rem;
   height: 17.1875rem;
-  margin-top: 2.5rem;
+  margin-top: -2.5rem;
 
   border-radius: 0.3063rem;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.51) 0%, rgba(0, 0, 0, 0.99) 100%);
