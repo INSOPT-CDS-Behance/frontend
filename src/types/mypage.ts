@@ -9,3 +9,16 @@ export interface MoodBoardData {
     image: string;
   }[];
 }
+
+export interface MoodBoardServerData {
+  id: number;
+  is_public: boolean;
+  name: string;
+  profile_count: number;
+  project: {
+    id: number;
+    image: string;
+  }[];
+  subtitle: string;
+  user_id?: number;
+}

@@ -41,10 +41,8 @@ const MoodBoardContent = (props: MoodBoardDataProps) => {
   //이벤트 핸들링
   const handleOnClick = (e: React.MouseEvent) => {
     e.stopPropagation;
-    // const moveBoardId = e.currentTarget.parentElement;
-    // console.log(moveBoardId);
 
-    navigate(`/Edit/${id}`);
+    navigate(`/Edit/${id}`, { state: { title: title, subtitle: category, lock: lock } });
   };
 
   return (

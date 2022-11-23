@@ -1,32 +1,30 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICClose } from '../../asset/icon';
 import MyPage from '../../pages/MyPage';
 
-interface IMoveBoardEdit {
-  title: string;
-  value: string;
-  class: string;
-}
-
 const Edit = () => {
+  const params = useParams();
+  const project_id = params.id;
+
+  const { state } = useLocation();
+  console.log(state);
+
   const navigate = useNavigate();
   const [isLocked, setIsLocked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
 
-  const moveBoardEditList: IMoveBoardEdit[] = [
-    { title: '무드보드 이름', value: 'Furniture Design', class: 'inputName' },
-    { title: '공동 소유자 추가', value: '사용자 이름으로 검색', class: 'inputOwner' },
-    { title: '크리에이티브 분야', value: '산업 디자인', class: 'inputCreative' },
-  ];
-
-  //input 요소들 렌더링
-  const moveBoardEdit: JSX.Element[] = moveBoardEditList.map((obj, index) => (
-    <StInputContainer key={index} className={obj.class}>
-      <StInputTitle>{obj.title}</StInputTitle>
-      <StInput value={obj.value} />
+  // input 요소들 렌더링
+  const moveBoardEdit: JSX.Element[] = [
+    { title: '무드보드 이름', value: state.title },
+    { title: '공동 소유자 추가', value: '사용자 이름으로 검색' },
+    { title: '크리에이티브 분야', value: state.subtitle },
+  ].map((item, index) => (
+    <StInputContainer key={index} className={`input${index}`}>
+      <StInputTitle>{item.title}</StInputTitle>
+      <StInput value={item.value} />
     </StInputContainer>
   ));
 
@@ -160,13 +158,13 @@ const StInputContainer = styled.div`
 
   gap: 1.3125rem;
 
-  &.inputName {
+  &.input0 {
     margin-bottom: 2.125rem;
   }
-  &.inputOwner {
+  &.input1 {
     margin-bottom: 2.875rem;
   }
-  &.inputCreative {
+  &.input2 {
     margin-bottom: 3.375rem;
   }
 `;

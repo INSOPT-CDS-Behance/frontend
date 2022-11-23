@@ -1,21 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { MoodBoardServerData } from '../../types/mypage';
 import { getMoodBoard } from '../../utils/lib/moveboard';
 import MoodBoardContent from './MoodBoardContent';
-
-interface MoodBoardServerData {
-  id: number;
-  is_public: boolean;
-  name: string;
-  profile_count: number;
-  project: {
-    id: number;
-    image: string;
-  }[];
-  subtitle: string;
-  user_id?: number;
-}
 
 const MoodBoard = () => {
   const [hovered, setHovered] = useState<boolean>(false);
