@@ -69,8 +69,7 @@ const Search = (): JSX.Element => {
 
       <Searchbar />
 
-      {/* {isProjectClicked && <SimilarProject />} */}
-      <SimilarProject />
+      {isProjectClicked && <SimilarProject />}
 
       <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (

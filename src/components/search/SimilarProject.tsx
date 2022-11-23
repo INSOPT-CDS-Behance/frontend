@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { ArrowRight, ICClose, ICDropdown, ICOpenLink } from '../../asset/icon';
+import modalClicked from '../../atom/projectClicked';
 import { ProjectData } from '../../types/project';
 import { getProject } from '../../utils/lib/project';
 import Thumbnail from './LeftThumbnail';
 
 const SimilarProject = () => {
-  const [projectClicked, setprojectClicked] = useState<boolean>(true);
+  const [projectClicked, setprojectClicked] = useRecoilState<boolean>(modalClicked);
 
   const handleProjectClick = () => {
     setprojectClicked((prev) => !prev);
+    console.log(projectClicked);
   };
 
   const [contentList, setContentList] = useState<ProjectData[]>([]);

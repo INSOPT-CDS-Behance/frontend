@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { ArrowRight, GlassIcon, ICDropdown } from '../../asset/icon';
@@ -9,6 +10,7 @@ import icLocation from '../../asset/icon/icLocation.svg';
 import icPersonFill24 from '../../asset/icon/icPersonFill24.svg';
 import icSchool from '../../asset/icon/icSchool.svg';
 import icTool from '../../asset/icon/icTool.svg';
+import projectClicked from '../../atom/projectClicked';
 import theme from '../../styles/theme';
 import { DropboxList } from '../../types/common';
 
@@ -71,6 +73,8 @@ const Searchbar = () => {
     setplaceholder(Categorys[id]);
   };
 
+  const isProjectClicked = useRecoilValue(projectClicked);
+
   return (
     <StSearchBarWrapper>
       <StSearchWrapper>
@@ -103,19 +107,21 @@ const Searchbar = () => {
           </section>
         </StDropBoxContainer>
       </StSearchWrapper>
-      <StCategoryWrapper>
-        <section>
-          <StArrow />
-          <StGradient />
-        </section>
-        <StCategory>
-          {Categorys.map((category, i) => (
-            <StCategoryButton type="button" key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
-              {category}
-            </StCategoryButton>
-          ))}
-        </StCategory>
-      </StCategoryWrapper>
+      {!isProjectClicked && (
+        <StCategoryWrapper>
+          <section>
+            <StArrow />
+            <StGradient />
+          </section>
+          <StCategory>
+            {Categorys.map((category, i) => (
+              <StCategoryButton type="button" key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
+                {category}
+              </StCategoryButton>
+            ))}
+          </StCategory>
+        </StCategoryWrapper>
+      )}
     </StSearchBarWrapper>
   );
 };
