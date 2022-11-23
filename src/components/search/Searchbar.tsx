@@ -61,6 +61,8 @@ const Searchbar = () => {
     'digital art',
   ];
 
+  const [defaultValue, setDefaultValue] = useState<string>();
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = Number(e.currentTarget.id);
     // 클릭된 카테고리만 true, 나머지는 false로 바꾸기
@@ -70,7 +72,8 @@ const Searchbar = () => {
     });
     newArr[id] = true;
     setcategoryClicked(newArr);
-    setplaceholder(Categorys[id]);
+    setplaceholder('');
+    setDefaultValue(Categorys[id]);
   };
 
   const isProjectClicked = useRecoilValue(projectClicked);
@@ -81,7 +84,7 @@ const Searchbar = () => {
         <StInputContainer>
           <form>
             <StGlass />
-            <StInput type="text" placeholder={placeholder} categoryIsClicked={true} />
+            <StInput type="text" placeholder={placeholder} categoryIsClicked={true} defaultValue={defaultValue} />
           </form>
           <div>
             {categorys.map((category, index) => (
