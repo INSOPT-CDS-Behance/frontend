@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
 import { ContentPrviewData } from '../../types/common';
-import { LikeStatus } from '../../types/project';
+import { LikeStatus, PostProjectLike } from '../../types/project';
 import { postProjectLike } from '../../utils/lib/project';
 import Hover from '../Home/Hover';
 
@@ -31,7 +31,8 @@ const ContentPreview = (props: ContentPreviewProps) => {
 
   const postLike = async () => {
     try {
-      const { data } = await postProjectLike({ projectId: projectId, userId: 2 });
+      const postBody: PostProjectLike = { projectId, userId: 2 };
+      const { data } = await postProjectLike(postBody);
       const { status, message } = data as LikeStatus;
       if (status) {
         switch (message) {

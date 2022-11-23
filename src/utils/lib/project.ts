@@ -1,6 +1,4 @@
-/* eslint-disable import/order */
-import axios from 'axios';
-
+// eslint-disable-next-line import/order
 import { PostProjectLike } from '../../types/project';
 import { reqAPI } from '.';
 
@@ -13,5 +11,5 @@ export const getProjectId = async (params: string) => {
 };
 
 export const postProjectLike = async (postProjectLikeBody: PostProjectLike) => {
-  return axios.post(`${process.env.REACT_APP_IP}/project/like`, postProjectLikeBody);
+  return reqAPI.post('/project/like', postProjectLikeBody);
 };
