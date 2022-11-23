@@ -4,21 +4,17 @@ import styled from 'styled-components';
 import { HoverButton, ICInformation, ICLink, ICPicture, ICSave } from '../../asset/icon';
 
 const DetailHover = () => {
-  const [isMouseHover, setIsMouseHover] = useState(false);
+  const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
 
   const handleMouseOver = () => {
-    setIsMouseHover(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsMouseHover(false);
+    setIsDetailHover((prev) => !prev);
+    console.log('dasfdasf');
   };
 
   return (
     <StDetailHoverWrapper>
-      {isMouseHover && <HoverButton />}
       <section>
-        <StHoverButton type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <StHoverButton type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver}>
           <ICPicture />
           <p>기타유사항목</p>
         </StHoverButton>
@@ -35,6 +31,7 @@ const DetailHover = () => {
           <p>퍼머링크</p>
         </button>
       </section>
+      {isDetailHover && <HoverButton />}
     </StDetailHoverWrapper>
   );
 };

@@ -14,8 +14,9 @@ import { getProjectId } from '../utils/lib/project';
 
 const Detail = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const userId = state.id;
+  // const { state } = useLocation();
+  // const userId = state.id;
+  const userId = 2;
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState<number>(0);
   const documentRef = useRef(document);
@@ -84,7 +85,8 @@ const Detail = () => {
             <p>다음</p>
           </div>
         </StButtonWrapper>
-        {isHover && <DetailHover />}
+        {/* {isHover && <DetailHover />} */}
+        <DetailHover />
 
         <StImgWrapper>
           <StImg src={scrollImg} alt="메인이미지" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver} />
