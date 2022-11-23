@@ -66,28 +66,30 @@ const StLeft = styled.div`
 `;
 
 const StSearchBar = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
+
+  position: relative;
+
   & > :first-child {
     position: absolute;
-    left: 9.5px;
+    left: 0.5938rem;
 
     color: ${({ theme }) => theme.colors.behance_white};
   }
 `;
 
 const StInput = styled.input`
-  width: 463px;
-  height: 42px;
+  width: 28.9375rem;
+  height: 2.625rem;
 
   background: none;
 
-  border: ${({ theme }) => `solid 1px ${theme.colors.behance_gray400}`};
-  border-radius: 21px;
+  border: ${({ theme }) => `solid 0.0625rem ${theme.colors.behance_gray400}`};
+  border-radius: 1.3125rem;
 
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
-  padding-left: 43px;
+  padding-left: 2.6875rem;
 `;
 
 const StRight = styled.div`

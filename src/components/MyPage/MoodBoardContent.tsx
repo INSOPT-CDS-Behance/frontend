@@ -93,15 +93,15 @@ const StMoveBoard = styled.article`
 const StImgContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
-  width: 430px;
-  height: 338px;
+  width: 26.875rem;
+  height: 21.125rem;
 
   position: absolute;
   z-index: -1;
 
   & > img {
-    width: 215px;
-    height: 169px;
+    width: 13.4375rem;
+    height: 10.5625rem;
   }
 `;
 
