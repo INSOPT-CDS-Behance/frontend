@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ICAlertFill, ICMailFill } from '../../asset/icon';
+import { ICAlertFill, ICMailFill, ICSearchWhite } from '../../asset/icon';
 import { AdobeLogo, BehanceLogo, Profile, ShareButton } from '../../asset/image';
 import PageCategory from './PageCategory';
 
@@ -14,6 +14,11 @@ const Header = () => {
         <BehanceLogo fill="white" />
         <PageCategory />
       </StLeft>
+
+      <StSearchBar>
+        <ICSearchWhite />
+        <StInput placeholder="검색..." disabled />
+      </StSearchBar>
 
       {/* 헤더 우측 */}
       <StRight>
@@ -34,13 +39,12 @@ export default Header;
 const StHeader = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   box-sizing: border-box;
   width: 120rem;
   height: 4.375rem;
   margin: 0 0 2.4375rem;
-
-  color: ${({ theme }) => theme.colors.behance_white};
 `;
 
 const StLeft = styled.div`
@@ -59,6 +63,31 @@ const StLeft = styled.div`
   & > * {
     color: ${({ theme }) => theme.colors.behance_white};
   }
+`;
+
+const StSearchBar = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  & > :first-child {
+    position: absolute;
+    left: 9.5px;
+
+    color: ${({ theme }) => theme.colors.behance_white};
+  }
+`;
+
+const StInput = styled.input`
+  width: 463px;
+  height: 42px;
+
+  background: none;
+
+  border: ${({ theme }) => `solid 1px ${theme.colors.behance_gray400}`};
+  border-radius: 21px;
+
+  ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
+  padding-left: 43px;
 `;
 
 const StRight = styled.div`
