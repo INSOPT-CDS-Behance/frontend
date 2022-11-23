@@ -50,10 +50,9 @@ const MoodBoardContent = (props: MoodBoardDataProps) => {
   return (
     <StMoveBoard onMouseEnter={handleMousehover} onMouseLeave={handleMouseLeave} id={`moveBoard${id}`}>
       <StImgContainer>
-        <img src={project[0].image} className="moveBoard" alt="무브 보드 썸네일" />
-        <img src={project[1].image} className="moveBoard" alt="무브 보드 썸네일" />
-        <img src={project[0].image} className="moveBoard" alt="무브 보드 썸네일" />
-        <img src={project[1].image} className="moveBoard" alt="무브 보드 썸네일" />
+        {[0, 1, 2, 3].map((data) => (
+          <img src={project[data].image} key={data} className="moveBoard" alt="무브 보드 썸네일" />
+        ))}
       </StImgContainer>
       <ImgMoveBoardShadow />
 

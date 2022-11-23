@@ -8,10 +8,12 @@ interface MoodBoardServerData {
   id: number;
   is_public: boolean;
   name: string;
+  profile_count: number;
   project: {
     id: number;
     image: string;
   }[];
+  subtitle: string;
   user_id?: number;
 }
 
@@ -26,7 +28,6 @@ const MoodBoard = () => {
       const data = await getMoodBoard();
       const getMoodBoardData = data.data.data as MoodBoardServerData[];
       setMoodBoardList(getMoodBoardData);
-      console.log(getMoodBoardData);
     };
 
     getContentList();
@@ -46,10 +47,17 @@ const MoodBoard = () => {
     }
   }, [hovered]);
 
-  const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name, project }) => (
+  const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name, project, profile_count, subtitle }) => (
     <MoodBoardContent
       key={id}
-      MoodBoardData={{ id: id, title: name, category: '미정', lock: is_public, profileNum: 3, project: project }}
+      MoodBoardData={{
+        id: id,
+        title: name,
+        category: subtitle,
+        lock: is_public,
+        profileNum: profile_count,
+        project: project,
+      }}
       setHovered={setHovered}
       hoveredLong={hoveredLong}
     />
