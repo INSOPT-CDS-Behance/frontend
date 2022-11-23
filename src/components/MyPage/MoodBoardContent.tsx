@@ -156,14 +156,18 @@ const StImg = styled.img`
 
   &.img0 {
     left: 1rem;
-    z-index: 2;
+    z-index: 3;
   }
   &.img1 {
     left: 2.625rem;
-    z-index: 1;
+    z-index: 2;
   }
   &.img2 {
     left: 4.1875rem;
+    z-index: 1;
+  }
+  &.img3 {
+    left: 5.75rem;
     z-index: 0;
   }
 `;

@@ -1,12 +1,10 @@
-// import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 import * as image from '../asset/image';
 import ImgHeaderBackground from '../asset/image/Rectangle 342.svg';
 import UserInfo from '../asset/image/UserInfo.svg';
-import { Header } from '../components/common';
-import { MoodBoard, Nav } from '../components/MyPage';
+import { Header, MoodBoard, Nav } from '../components/MyPage';
 
 const MyPage = () => {
   return (
@@ -38,6 +36,8 @@ const StContainer = styled.div`
   & > Header {
     position: absolute;
     z-index: 1;
+
+    color: ${({ theme }) => theme.colors.behance_white};
   }
 `;
 
