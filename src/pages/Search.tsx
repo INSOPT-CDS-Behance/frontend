@@ -64,6 +64,7 @@ const Search = () => {
       </StBackground>
 
       <Searchbar />
+      <SimilarProject />
 
       <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
@@ -83,7 +84,6 @@ const Search = () => {
           />
         ))}
       </StContentSection>
-      <SimilarProject />
     </StSearchPageWrapper>
   );
 };

@@ -209,7 +209,7 @@ const StIconWrapper = styled.section`
 `;
 
 const StArrowRight = styled(ArrowRight)`
-  /* padding: 14.0625rem 0 0 0rem; */
+  margin: 7rem 2.8125rem 0 0;
 `;
 
 const StHr = styled.section`
