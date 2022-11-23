@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowRight, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } from '../../asset/icon';
-import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ProjectData } from '../../types/project';
 import { getProject } from '../../utils/lib/project';
 import Thumbnail from './Thumbnail';
