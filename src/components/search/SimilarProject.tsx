@@ -14,12 +14,15 @@ const SimilarProject = () => {
   };
 
   const [contentList, setContentList] = useState<ProjectData[]>([]);
+  const [leftThumbnail, setLeftThumbnail] = useState<string>();
 
   useEffect(() => {
     const getContentList = async () => {
       const { data } = await getProject();
       const getProjectData = data.data as ProjectData[];
+      const getImgSrc = data.data[0].image;
       setContentList(getProjectData);
+      setLeftThumbnail(getImgSrc);
     };
 
     getContentList();
@@ -37,7 +40,7 @@ const SimilarProject = () => {
                 <ICClose />
               </button>
             </div>
-            {/* <img src={contentList[0].image} alt="썸네일 이미지" /> */}
+            <img src={leftThumbnail} alt="썸네일 이미지" />
             <div>
               <p>여러 소유자</p>
               <ICDropdown fill="white" />
