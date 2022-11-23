@@ -47,7 +47,7 @@ const Search = () => {
     getContentList();
   }, []);
 
-  const handleDetail = (id: number) => {
+  const handleDetail = (e: React.MouseEvent, id: number): void => {
     navigate(`/search/${id}`, { state: { id: id } });
   };
 
@@ -68,6 +68,9 @@ const Search = () => {
       <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
           <Preview
+            // onClick={() => {
+            //   handleDetail(e, id);
+            // }}
             key={idx}
             isHomePage={true}
             contentPreviewData={{
@@ -77,9 +80,6 @@ const Search = () => {
               recommandCount: likeCount,
               visibleCount: viewCount,
             }}
-            // onClick={() => {
-            //   handleDetail(id);
-            // }}
           />
         ))}
       </StContentSection>
