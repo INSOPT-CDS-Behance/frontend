@@ -5,7 +5,7 @@ import { ArrowRight, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } from '
 import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ProjectData } from '../../types/project';
 import { getProject } from '../../utils/lib/project';
-import Thumbnail from '../Search/Thumbnail';
+import Thumbnail from './Thumbnail';
 
 const SimilarProject = () => {
   const [projectClicked, setprojectClicked] = useState<boolean>(true);

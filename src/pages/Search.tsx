@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import background from '../asset/image/searchHomeBackground.svg';
 import Hover from '../components/common/Hover';
 import Modal from '../components/common/Modal';
-import SimilarProject from '../components/common/SimilarProject';
 import {
   CategoryButton,
   HrContainer,
@@ -14,6 +13,7 @@ import {
   TransparentHeader,
   WhiteHeader,
 } from '../components/Search';
+import SimilarProject from '../components/Search/SimilarProject';
 import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
