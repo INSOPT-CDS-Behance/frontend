@@ -52,7 +52,7 @@ const Search = () => {
   };
 
   return (
-    <>
+    <StSearchPageWrapper>
       <StHeader>{!isSpread && <WhiteHeader />}</StHeader>
       <StBackground>
         <StHeader>{isSpread && <TransparentHeader />}</StHeader>
@@ -84,13 +84,17 @@ const Search = () => {
         ))}
       </StContentSection>
       <SimilarProject />
-    </>
+    </StSearchPageWrapper>
   );
 };
 
 export default Search;
 
-const StBackground = styled.section`
+const StSearchPageWrapper = styled.section`
+  width: 120rem;
+`;
+
+const StBackground = styled.div`
   height: 35rem;
 
   overflow: hidden;

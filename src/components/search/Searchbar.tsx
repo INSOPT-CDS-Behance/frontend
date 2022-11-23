@@ -72,7 +72,7 @@ const Searchbar = () => {
   };
 
   return (
-    <>
+    <StSearchBarWrapper>
       <StSearchWrapper>
         <StInputContainer>
           <form>
@@ -116,24 +116,30 @@ const Searchbar = () => {
           ))}
         </StCategory>
       </StCategoryWrapper>
-    </>
+    </StSearchBarWrapper>
   );
 };
 
 export default Searchbar;
 
-const StSearchWrapper = styled.section`
+const StSearchBarWrapper = styled.section`
+  width: 120rem;
+`;
+
+const StSearchWrapper = styled.div`
   height: 14.625rem;
   padding-top: 2.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.behance_gray300};
 `;
 
 const StDropBoxContainer = styled.article`
+  display: flex;
+  justify-content: space-between;
+
+  width: 116.25rem;
   margin-top: 2.5rem;
   margin-left: 1.875rem;
-  display: flex;
-  width: 116.25rem;
-  justify-content: space-between;
+
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
 
   & > section {
@@ -179,6 +185,8 @@ const StInputContainer = styled.article`
 
   & > div {
     align-items: center;
+
+    padding-top: 0.75rem;
     padding-left: 1.4375rem;
 
     width: 37.4375rem;
