@@ -14,10 +14,9 @@ import { getProjectId } from '../utils/lib/project';
 
 const Detail = () => {
   const navigate = useNavigate();
-  const [userId, setUserId] = useState(2);
-  // const { state } = useLocation();
-  // const userId = state.id;
-  // const userId = 2;
+  const { state } = useLocation();
+  const [userId, setUserId] = useState(state.id);
+
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState<number>(0);
   const documentRef = useRef(document);
