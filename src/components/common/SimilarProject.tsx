@@ -38,7 +38,7 @@ const SimilarProject = () => {
                 <ICClose />
               </button>
             </div>
-            <img src={ImgHomePreview} alt="썸네일 이미지" />
+            <img src={contentList[0].image} alt="썸네일 이미지" />
             <div>
               <p>여러 소유자</p>
               <ICDropdown fill="white" />
