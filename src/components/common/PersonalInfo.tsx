@@ -1,16 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICAdobe, ICAlertFill, ICBtnShare, ICMailFill } from '../../asset/icon';
 import ImgProfile from '../../asset/image/profileImg.png';
 
 const PersonalInfo = () => {
+  const navigate = useNavigate();
   return (
     <>
       <ICBtnShare />
       <StIcons>
         <ICMailFill />
         <ICAlertFill />
-        <img src={ImgProfile} alt="profile" />
+        <img role="presentation" src={ImgProfile} alt="profile" onClick={() => navigate('/mypage')} />
       </StIcons>
       <ICAdobe />
     </>

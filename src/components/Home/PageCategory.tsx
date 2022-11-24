@@ -16,7 +16,7 @@ const PageCategory = (props: PageCategoryProps) => {
   const [clicked, setClicked] = useState<boolean[]>([false, false, false, false, false]);
 
   const categoryList: string[] = ['당신을 위한', '탐색', '라이브스트림', '채용', '직업'];
-  const categoryLinkList: string[] = ['/', '/Search', '', '', '']; //이동 Url
+  const categoryLinkList: string[] = ['/', '/search', '', '', '']; //이동 Url
 
   useEffect(() => {
     const newClicked = [...clicked];

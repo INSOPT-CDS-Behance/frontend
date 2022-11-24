@@ -26,6 +26,15 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    const getContentList = async () => {
+      const data = await getProject();
+      console.log(data);
+    };
+
+    getContentList();
+  }, []);
+
+  useEffect(() => {
     documentRef.current.addEventListener('scroll', handleScroll);
     return () => documentRef.current.removeEventListener('scroll', handleScroll);
   }, [pageY]);
