@@ -4,7 +4,6 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
-import projectClicked from '../atom/projectClicked';
 import Hover from '../components/common/Hover';
 import Modal from '../components/common/Modal';
 import {
@@ -18,6 +17,8 @@ import {
 } from '../components/Search';
 import SimilarProject from '../components/Search/SimilarProject';
 import { ProjectData } from '../types/project';
+// import projectClicked from '../atom/projectClicked';
+import { projectClicked } from '../utils/atoms';
 import { getProject } from '../utils/lib/project';
 
 const Search = () => {

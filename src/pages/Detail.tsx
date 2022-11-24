@@ -10,9 +10,9 @@ import DetailBlackHeader from '../components/Detail/DetailBlackHeader';
 import DetailHover from '../components/Detail/DetailHover';
 import DetailWhiteHeader from '../components/Detail/DetailWhiteHeader';
 import RightIcon from '../components/Detail/RightIcon';
-import { DetailData } from '../types/project';
+import { DetailData, ProjectData } from '../types/project';
 import { detailhover1Clicked, detailhover2Clicked } from '../utils/atoms';
-import { getProjectId } from '../utils/lib/project';
+import { getProject, getProjectId } from '../utils/lib/project';
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -40,8 +40,15 @@ const Detail = () => {
   const [isHover, setIsHover] = useRecoilState<boolean>(detailhover1Clicked);
   const isDetailHover = useRecoilValue(detailhover2Clicked);
 
-  const handleMouseOver = () => {
-    setIsHover((prev) => !prev);
+  const handleMouseOver = (e: React.MouseEvent<HTMLElement>) => {
+    // setIsHover((prev) => !prev);
+    e.stopPropagation();
+
+    setIsHover(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHover(false);
   };
 
   const [scrollImg, setscrollImg] = useState<string>();
@@ -51,6 +58,19 @@ const Detail = () => {
       const { data } = await getProjectId(`${userId}`);
       const getImgData = data.data.image;
       setscrollImg(getImgData);
+    };
+
+    getContentList();
+  }, []);
+
+  const [contentList, setContentList] = useState<ProjectData[]>([]);
+
+  useEffect(() => {
+    const getContentList = async () => {
+      const { data } = await getProject();
+      const getProjectData = data.data as ProjectData[];
+      setContentList(getProjectData);
+      console.log(contentList[0]);
     };
 
     getContentList();
@@ -94,8 +114,12 @@ const Detail = () => {
         </StButtonWrapper>
         {isHover && <DetailHover />}
 
-        <StImgWrapper>
-          <StImg src={scrollImg} alt="메인이미지" onMouseOver={handleMouseOver} onMouseOut={handleMouseOver} />
+        <StImgWrapper onMouseOver={handleMouseOut}>
+          <StImg
+            src={scrollImg}
+            alt="메인이미지"
+            onMouseOver={(e: React.MouseEvent<HTMLElement>) => handleMouseOver(e)}
+          />
         </StImgWrapper>
       </StBody>
     </StDetailWrapper>
