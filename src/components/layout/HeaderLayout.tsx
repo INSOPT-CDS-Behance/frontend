@@ -41,6 +41,7 @@ const StHeader = styled.header<{ isWhite: boolean }>`
   margin: 0 0 2.4375rem;
 
   background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.behance_white : theme.colors.behance_black)};
+  z-index: 3;
 
   & > form {
     width: 68rem;
@@ -51,6 +52,7 @@ const StLeft = styled.div`
   display: flex;
   align-items: center;
 
+  min-width: 16.5rem;
   margin-left: 1.9rem;
   padding: 0;
 
@@ -66,6 +68,7 @@ const StRight = styled.div`
   align-items: center;
 
   margin-right: 1.8813rem;
+  margin-left: 3.25rem;
   padding: 0;
 
   gap: 2rem;
