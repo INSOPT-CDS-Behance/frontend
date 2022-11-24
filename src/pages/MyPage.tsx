@@ -1,20 +1,22 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ImgDropDown } from '../asset/image';
+import * as image from '../asset/image';
+import ImgHeaderBackground from '../asset/image/Rectangle 342.svg';
 import UserInfo from '../asset/image/UserInfo.svg';
-import { Header, MoveBoard, Nav } from '../components/MyPage';
+import { Header, MoodBoard, Nav } from '../components/MyPage';
 
 const MyPage = () => {
   return (
     <StContainer>
       <Header />
-      <img src={UserInfo} alt="유저 정보" /> {/* svg로 불러왔을 때 다른 이미지로 대체되는 문제 생겨서 img로 해결 */}
+      <img src={ImgHeaderBackground} alt="헤더 배경 이미지" />
+      <img className="userInfo" src={UserInfo} alt="유저 정보" />
       <Nav />
       <StDropDown type="button">
-        저장일 순<ImgDropDown id="dropDown" />
+        저장일 순<image.ImgDropDown id="dropDown" />
       </StDropDown>
-      <MoveBoard />
+      <MoodBoard />
       <Outlet />
     </StContainer>
   );
@@ -25,10 +27,17 @@ export default MyPage;
 const StContainer = styled.div`
   width: 120rem;
 
-  & > img {
+  & > .userInfo {
     position: absolute;
     top: 9.375rem;
     left: 3.125rem;
+  }
+
+  & > Header {
+    position: absolute;
+    z-index: 1;
+
+    color: ${({ theme }) => theme.colors.behance_white};
   }
 `;
 
