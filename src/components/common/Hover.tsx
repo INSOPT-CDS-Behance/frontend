@@ -6,7 +6,6 @@ import { EyeOff, Folder, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } fr
 import modalClicked from '../../atom/projectClicked';
 
 const Hover = () => {
-  // const [projectClicked, setprojectClicked] = useState(false);
   const [projectClicked, setprojectClicked] = useRecoilState<boolean>(modalClicked);
 
   const handleProjectClick = () => {

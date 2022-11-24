@@ -22,6 +22,8 @@ const Detail = () => {
   const documentRef = useRef(document);
   const [progress, setProgress] = useState<number>(0);
 
+  const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
+
   useEffect(() => {
     documentRef.current.addEventListener('scroll', handleScroll);
     return () => documentRef.current.removeEventListener('scroll', handleScroll);
@@ -38,6 +40,10 @@ const Detail = () => {
 
   const handleMouseOver = () => {
     setIsHover((prev) => !prev);
+  };
+
+  const hadleButtonMouseOver = () => {
+    setIsDetailHover((prev) => !prev);
   };
 
   const [scrollImg, setscrollImg] = useState<string>();

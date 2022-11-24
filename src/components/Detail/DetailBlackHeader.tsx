@@ -20,7 +20,7 @@ const DetailBlackHeader = () => {
         <StBadgeBehance />
         <StBtnClose
           onClick={() => {
-            navigate(-1);
+            navigate('/search');
           }}
         />
       </section>
@@ -72,4 +72,6 @@ const StBadgeBehance = styled(BadgeBehance)`
 
 const StBtnClose = styled(BtnClose)`
   margin-left: 10.25rem;
+
+  cursor: pointer;
 `;

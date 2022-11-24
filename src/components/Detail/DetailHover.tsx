@@ -6,8 +6,11 @@ import { HoverButton, ICInformation, ICLink, ICPicture, ICSave } from '../../ass
 const DetailHover = () => {
   const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
 
+  // const newHoverButton: Element = document.querySelector('.hovericon');
+
   const handleMouseOver = () => {
     setIsDetailHover(true);
+    // newHoverButton.style.visibility = 'visible';
   };
 
   return (
@@ -30,7 +33,8 @@ const DetailHover = () => {
           <p>퍼머링크</p>
         </button>
       </section>
-      {isDetailHover && <HoverButton />}
+      {/* {isDetailHover && <HoverButton />} */}
+      <StHoverIcon className="hovericon" />
     </StDetailHoverWrapper>
   );
 };
@@ -95,4 +99,8 @@ const StHoverButton = styled.button`
 
   background: rgba(52, 52, 52, 0.7);
   color: white;
+`;
+
+const StHoverIcon = styled(HoverButton)`
+  visibility: hidden;
 `;
