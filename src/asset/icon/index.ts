@@ -36,6 +36,7 @@ export { ReactComponent as ICPicture } from './ic_picture.svg';
 export { ReactComponent as ICRecommand } from './ic_recommend.svg';
 export { ReactComponent as ICSave } from './ic_save.svg';
 export { ReactComponent as ICSearch } from './ic_search.svg';
+export { ReactComponent as ICSearchWhite } from './ic_search_white.svg';
 export { ReactComponent as ICSearchBarHover } from './ic_searchHover.svg';
 export { ReactComponent as ICStar } from './ic_star_fill_24.svg';
 export { ReactComponent as ICThumbsUp } from './ic_Tumbsup.svg';

@@ -49,13 +49,13 @@ const StContainer = styled.section`
     left: 0;
     top: 5.1875rem;
 
-    z-index: 3;
+    z-index: 4;
   }
   & > .profile {
     position: absolute;
     top: 15.5625rem;
 
-    z-index: 3;
+    z-index: 4;
   }
 `;
 
@@ -67,7 +67,7 @@ const StBackContainer = styled.div`
   position: absolute;
   top: 6.5625rem;
 
-  z-index: 3;
+  z-index: 4;
 
   padding: 0 1rem;
 `;
@@ -75,7 +75,7 @@ const StBackContainer = styled.div`
 const StName = styled.h1`
   position: absolute;
   top: 22.9375rem;
-  z-index: 3;
+  z-index: 4;
 
   color: ${({ theme }) => theme.colors.behance_black};
   ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_20};
@@ -87,7 +87,7 @@ const StContent = styled.h2`
   &.moveBoardProvided {
     position: absolute;
     top: 25.1875rem;
-    z-index: 3;
+    z-index: 4;
 
     color: #707070;
   }
@@ -115,7 +115,7 @@ const StInfo = styled.div`
 
   gap: 0.25rem;
 
-  z-index: 3;
+  z-index: 4;
 `;
 
 const StNumber = styled.p`
@@ -126,7 +126,7 @@ const StNumber = styled.p`
 `;
 
 const StContour = styled.span`
-  z-index: 3;
+  z-index: 4;
 
   width: 0.0625rem;
   height: 2.3438rem;

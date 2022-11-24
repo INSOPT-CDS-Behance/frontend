@@ -18,3 +18,9 @@ export interface DropboxList {
   title: string;
   src: string;
 }
+
+export interface LikeStatus {
+  status: number;
+  success: boolean;
+  message: string;
+}

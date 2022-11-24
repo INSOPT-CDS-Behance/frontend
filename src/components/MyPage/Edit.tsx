@@ -1,39 +1,60 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICClose } from '../../asset/icon';
 import MyPage from '../../pages/MyPage';
-
-interface IMoveBoardEdit {
-  title: string;
-  value: string;
-  class: string;
-}
+import { LikeStatus } from '../../types/common';
+import { patchMoodBoard } from '../../utils/lib/moodboard';
 
 const Edit = () => {
   const navigate = useNavigate();
-  const [isLocked, setIsLocked] = useState(false);
+
+  const params = useParams();
+  const project_id = Number(params.id);
+
+  const { state } = useLocation();
   const [isDisabled, setIsDisabled] = useState(true);
-
-  const moveBoardEditList: IMoveBoardEdit[] = [
-    { title: '무드보드 이름', value: 'Furniture Design', class: 'inputName' },
-    { title: '공동 소유자 추가', value: '사용자 이름으로 검색', class: 'inputOwner' },
-    { title: '크리에이티브 분야', value: '산업 디자인', class: 'inputCreative' },
-  ];
-
-  //input 요소들 렌더링
-  const moveBoardEdit: JSX.Element[] = moveBoardEditList.map((obj, index) => (
-    <StInputContainer key={index} className={obj.class}>
-      <StInputTitle>{obj.title}</StInputTitle>
-      <StInput value={obj.value} />
-    </StInputContainer>
-  ));
+  const [isLocked, setIsLocked] = useState<boolean>(state.lock);
 
   const handleClickToggle = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsDisabled(!isDisabled);
     setIsLocked(!isLocked);
+  };
+
+  // input 요소들 렌더링
+  const moveBoardEdit: JSX.Element[] = [
+    { title: '무드보드 이름', value: state.title },
+    { title: '공동 소유자 추가', value: '사용자 이름으로 검색' },
+    { title: '크리에이티브 분야', value: state.subtitle },
+  ].map(({ title, value }, index) => (
+    <StInputContainer key={index} className={`input${index}`}>
+      <StInputTitle>{title}</StInputTitle>
+      <StInput value={value} />
+    </StInputContainer>
+  ));
+
+  const handleOnClick = async () => {
+    try {
+      console.log(project_id, isLocked);
+      const { data } = await patchMoodBoard({ id: project_id, is_public: isLocked });
+      const { status, message } = data as LikeStatus;
+      if (status) {
+        console.log(message);
+        switch (message) {
+          case '무드보드 편집 성공':
+            navigate('/mypage');
+            break;
+          case '무드보드 편집을 실패':
+          case '필요한 값이 없습니다':
+            setIsLocked(!isLocked);
+            break;
+        }
+      }
+    } catch (e) {
+      console.log('오류');
+    }
   };
 
   return (
@@ -44,7 +65,7 @@ const Edit = () => {
       <StEditContainer>
         <StEditBoard>
           <StCloseBt>
-            <ICClose className="closeBt" onClick={() => navigate('/MyPage')} />
+            <ICClose className="closeBt" fill="black" onClick={() => navigate('/MyPage')} />
           </StCloseBt>
 
           <StEditHeader>이 무드보드 편집</StEditHeader>
@@ -62,7 +83,7 @@ const Edit = () => {
 
           <StBottom>
             <StDeleteBt>무드보드 삭제</StDeleteBt>
-            <StSaveBt disabled={isDisabled} className={isDisabled ? 'disabled' : ''}>
+            <StSaveBt disabled={isDisabled} className={isDisabled ? 'disabled' : ''} onClick={handleOnClick}>
               저장
             </StSaveBt>
           </StBottom>
@@ -78,7 +99,7 @@ export default Edit;
 const StShadow = styled.div`
   position: absolute;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 
   width: 120rem;
   height: 67.5rem;
@@ -94,7 +115,7 @@ const StEditContainer = styled.section`
 
   position: absolute;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 
   width: 120rem;
   height: 67.5rem;
@@ -160,13 +181,13 @@ const StInputContainer = styled.div`
 
   gap: 1.3125rem;
 
-  &.inputName {
+  &.input0 {
     margin-bottom: 2.125rem;
   }
-  &.inputOwner {
+  &.input1 {
     margin-bottom: 2.875rem;
   }
-  &.inputCreative {
+  &.input2 {
     margin-bottom: 3.375rem;
   }
 `;
@@ -201,17 +222,18 @@ const StInput = styled.input`
 const StToggleBt = styled.button`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   width: 5.125rem;
   height: 2.4375rem;
 
   border: none;
   border-radius: 1.2188rem;
-  background-color: ${({ theme }) => theme.colors.behance_blue};
+
+  background-color: #e8e8e8;
   &.lock {
-    justify-content: flex-start;
-    background-color: #e8e8e8;
+    justify-content: flex-end;
+    background-color: ${({ theme }) => theme.colors.behance_blue};
   }
   cursor: pointer;
 `;
