@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { ArrowRight, GlassIcon, ICDropdown } from '../../asset/icon';
@@ -9,6 +10,7 @@ import icLocation from '../../asset/icon/icLocation.svg';
 import icPersonFill24 from '../../asset/icon/icPersonFill24.svg';
 import icSchool from '../../asset/icon/icSchool.svg';
 import icTool from '../../asset/icon/icTool.svg';
+import projectClicked from '../../atom/projectClicked';
 import theme from '../../styles/theme';
 import { DropboxList } from '../../types/common';
 
@@ -59,6 +61,8 @@ const Searchbar = () => {
     'digital art',
   ];
 
+  const [defaultValue, setDefaultValue] = useState<string>();
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = Number(e.currentTarget.id);
     // 클릭된 카테고리만 true, 나머지는 false로 바꾸기
@@ -68,16 +72,19 @@ const Searchbar = () => {
     });
     newArr[id] = true;
     setcategoryClicked(newArr);
-    setplaceholder(Categorys[id]);
+    setplaceholder('');
+    setDefaultValue(Categorys[id]);
   };
 
+  const isProjectClicked = useRecoilValue(projectClicked);
+
   return (
-    <>
+    <StSearchBarWrapper>
       <StSearchWrapper>
         <StInputContainer>
           <form>
             <StGlass />
-            <StInput type="text" placeholder={placeholder} categoryIsClicked={true} />
+            <StInput type="text" placeholder={placeholder} categoryIsClicked={true} defaultValue={defaultValue} />
           </form>
           <div>
             {categorys.map((category, index) => (
@@ -103,37 +110,45 @@ const Searchbar = () => {
           </section>
         </StDropBoxContainer>
       </StSearchWrapper>
-      <StCategoryWrapper>
-        <section>
-          <StArrow />
-          <StGradient />
-        </section>
-        <StCategory>
-          {Categorys.map((category, i) => (
-            <StCategoryButton type="button" key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
-              {category}
-            </StCategoryButton>
-          ))}
-        </StCategory>
-      </StCategoryWrapper>
-    </>
+      {!isProjectClicked && (
+        <StCategoryWrapper>
+          <section>
+            <StArrow />
+            <StGradient />
+          </section>
+          <StCategory>
+            {Categorys.map((category, i) => (
+              <StCategoryButton type="button" key={i} onClick={handleClick} categoryIsClicked={categoryclicked[i]}>
+                {category}
+              </StCategoryButton>
+            ))}
+          </StCategory>
+        </StCategoryWrapper>
+      )}
+    </StSearchBarWrapper>
   );
 };
 
 export default Searchbar;
 
-const StSearchWrapper = styled.section`
+const StSearchBarWrapper = styled.section`
+  width: 120rem;
+`;
+
+const StSearchWrapper = styled.div`
   height: 14.625rem;
   padding-top: 2.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.behance_gray300};
 `;
 
 const StDropBoxContainer = styled.article`
+  display: flex;
+  justify-content: space-between;
+
+  width: 116.25rem;
   margin-top: 2.5rem;
   margin-left: 1.875rem;
-  display: flex;
-  width: 116.25rem;
-  justify-content: space-between;
+
   ${({ theme }) => theme.fonts.behance_acumin_pro_regular_16};
 
   & > section {
@@ -179,6 +194,8 @@ const StInputContainer = styled.article`
 
   & > div {
     align-items: center;
+
+    padding-top: 0.75rem;
     padding-left: 1.4375rem;
 
     width: 37.4375rem;
@@ -226,16 +243,13 @@ const StCategoryWrapper = styled.section`
 `;
 
 const StCategory = styled.article`
-  position: relative;
-
   margin-left: 2.0625rem;
-  margin-right: 4.375rem;
 `;
 
 const StCategoryButton = styled.button<{ categoryIsClicked: boolean }>`
   width: 7.8125rem;
   height: 3rem;
-  padding: 1rem 1.5rem 0.75rem 1.5rem;
+  padding: 1rem 0 1.5rem 0;
 
   border: 1px solid transparent;
   border-radius: 6.25rem;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import categoryImg from '../../asset/image/categoryImg.png';
 import { CategoryList } from '../../types/common';
 
-const Modal = () => {
+const ButtonModal = () => {
   const categorylist: CategoryList[] = [
     { id: 1, title: '최고의 Behance', color: '#2456f7', imgSrc: '#' },
     { id: 2, title: '그래픽 디자인', color: 'transparent', imgSrc: categoryImg },
@@ -29,7 +29,11 @@ const Modal = () => {
       <StModal>
         <p>최고의 크리에이티브 분야로 이루어진 갤러리</p>
         <div>
+<<<<<<< HEAD
           {categorylist.map(({ id, title, color, imgSrc }) => (
+=======
+          {categorylist.map(({ id, color, imgSrc, title }) => (
+>>>>>>> a61ffe0ab532044c73cfe89c480be3d79e363808
             <button type="button" key={id} style={{ backgroundColor: color, backgroundImage: `url(${imgSrc})` }}>
               {title}
             </button>
@@ -40,7 +44,7 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default ButtonModal;
 
 const StModalWrapper = styled.section`
   display: flex;

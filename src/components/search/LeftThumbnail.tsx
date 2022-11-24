@@ -1,18 +1,26 @@
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
+<<<<<<< HEAD:src/components/search/Thumbnail.tsx
 import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ContentPrviewData } from '../../types/common';
 
 const Thumbnail = (props: ContentPrviewData) => {
   const { projectId, profileImg, name, recommandCount, visibleCount } = props;
+=======
+import { ThumbnailProps } from '../../types/common';
+
+const Thumbnail = (props: ThumbnailProps) => {
+  const { previewData } = props;
+  const { profileImg, name, recommandCount, visibleCount } = previewData;
+>>>>>>> a61ffe0ab532044c73cfe89c480be3d79e363808:src/components/search/LeftThumbnail.tsx
 
   return (
     <StContentPreviewWrapper>
-      <img src={ImgHomePreview} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
       <StContentInfoWrapper>
         <p className="info_user">
-          <img src={ImgHomePreview} alt="user_profile" />
+          <img src={profileImg} alt="user_profile" />
           <span>{name}</span>
         </p>
         <div className="reaction">
@@ -38,7 +46,7 @@ const StContentPreviewWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  width: 21.25rem;
+  /* width: 21.25rem; */
   margin-top: 2.5rem;
   margin-right: 1.5rem;
 
