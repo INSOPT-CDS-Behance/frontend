@@ -9,3 +9,18 @@ export interface PostProjectLike {
   projectId: number;
   userId: number;
 }
+export interface LikeStatus {
+  status: number;
+  success: boolean;
+  message: string;
+}
+export interface DetailData {
+  id: number;
+  writer: string;
+  image: string;
+  isLiked: true;
+}
+
+export interface Img {
+  image: string;
+}

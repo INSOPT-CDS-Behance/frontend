@@ -1,4 +1,4 @@
-export interface ContentPrviewData {
+export interface PreviewData {
   projectId: number;
   profileImg: string;
   name: string;
@@ -6,6 +6,14 @@ export interface ContentPrviewData {
   visibleCount: number;
 }
 
+export interface ContentPreviewProps {
+  contentPreviewData: PreviewData;
+  isHomePage: boolean;
+}
+
+export interface ThumbnailProps {
+  previewData: PreviewData;
+}
 export interface CategoryList {
   id: number;
   title: string;
@@ -23,4 +31,10 @@ export interface LikeStatus {
   status: number;
   success: boolean;
   message: string;
+}
+export interface ContentPrviewData {
+  profileImg: string;
+  name: string;
+  recommandCount: number;
+  visibleCount: number;
 }
