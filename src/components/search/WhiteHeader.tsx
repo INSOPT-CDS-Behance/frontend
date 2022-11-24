@@ -1,16 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ICAlertFill, ICDropdown, ICMailFill } from '../../asset/icon';
 import { AdobeLogo, BehanceLogo, Profile, ShareButton } from '../../asset/image';
-import ButtonModal from './ButtonModal';
+import ButtonModal from '../Search/ButtonModal';
 
 const WhiteHeader = () => {
   const [isbuttonClicked, setisbuttonClicked] = useState<boolean>(false);
 
   const handlebuttonClick = () => {
     setisbuttonClicked((prev) => !prev);
+    console.log(isbuttonClicked);
   };
 
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const WhiteHeader = () => {
           </div>
         </StLeft>
 
-        <StMiddle onClick={handlebuttonClick}>
+        <StMiddle onClick={handlebuttonClick} isbuttonClicked={isbuttonClicked}>
           <p>최고의 Behance</p>
           <ICDropdown fill="white" />
         </StMiddle>
@@ -86,7 +87,7 @@ const StLeft = styled.nav`
   }
 `;
 
-const StMiddle = styled.nav<{ isbuttonClicked?: boolean }>`
+const StMiddle = styled.nav<{ isbuttonClicked: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

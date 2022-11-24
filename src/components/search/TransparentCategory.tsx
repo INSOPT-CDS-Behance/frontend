@@ -56,7 +56,7 @@ const StCategory = styled.button<{ isClicked: boolean }>`
   padding: 0;
   background: none;
 
-  background-color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_white}; // 기본 글자색
+  border-color: ${({ isClicked, theme }) => isClicked && theme.colors.behance_white}; // 기본 글자색
   color: ${({ isClicked, theme }) =>
     isClicked ? theme.colors.behance_white : theme.colors.behance_gray500}; // 기본 글자색
   ${({ theme }) => theme.fonts.behance_acumin_pro_semibold_20}

@@ -17,7 +17,7 @@ const StHeaderWrapper = styled.header`
   display: flex;
 
   width: 120rem;
-  height: 4.1875rem;
+  height: 4.5625rem;
 
   padding-top: 1.5625rem;
 

@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { BadgeBehance, BtnClose, ICDropdown, Profile } from '../../asset/icon';
 
 const DetailBlackHeader = () => {
+  const navigate = useNavigate();
   return (
     <StHeaderWrapper>
       <section>
@@ -16,7 +18,11 @@ const DetailBlackHeader = () => {
           </div>
         </div>
         <StBadgeBehance />
-        <StBtnClose />
+        <StBtnClose
+          onClick={() => {
+            navigate('/search');
+          }}
+        />
       </section>
     </StHeaderWrapper>
   );
@@ -66,4 +72,6 @@ const StBadgeBehance = styled(BadgeBehance)`
 
 const StBtnClose = styled(BtnClose)`
   margin-left: 10.25rem;
+
+  cursor: pointer;
 `;
