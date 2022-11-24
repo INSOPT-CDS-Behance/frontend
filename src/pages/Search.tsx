@@ -21,6 +21,8 @@ import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
 const Search = () => {
+  console.log(projectClicked);
+
   const navigate = useNavigate();
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState(0);

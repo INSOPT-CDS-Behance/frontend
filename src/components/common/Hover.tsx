@@ -8,7 +8,8 @@ import modalClicked from '../../atom/projectClicked';
 const Hover = () => {
   const [projectClicked, setprojectClicked] = useRecoilState<boolean>(modalClicked);
 
-  const handleProjectClick = () => {
+  const handleProjectClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     setprojectClicked((prev) => !prev);
     console.log(projectClicked);
   };
@@ -24,7 +25,10 @@ const Hover = () => {
         </button>
         <p>KID CAM</p>
         <footer>
-          <button type="button" className="icGlass" onClick={handleProjectClick}>
+          <button
+            type="button"
+            className="icGlass"
+            onClick={(e: React.MouseEvent<HTMLElement>) => handleProjectClick(e)}>
             <Glass />
             <p>유사프로젝트</p>
           </button>
