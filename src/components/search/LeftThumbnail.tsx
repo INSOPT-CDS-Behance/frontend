@@ -1,19 +1,11 @@
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
-<<<<<<< HEAD:src/components/search/Thumbnail.tsx
-import ImgHomePreview from '../../asset/image/previewImg.png';
-import { ContentPrviewData } from '../../types/common';
-
-const Thumbnail = (props: ContentPrviewData) => {
-  const { projectId, profileImg, name, recommandCount, visibleCount } = props;
-=======
 import { ThumbnailProps } from '../../types/common';
 
 const Thumbnail = (props: ThumbnailProps) => {
   const { previewData } = props;
   const { profileImg, name, recommandCount, visibleCount } = previewData;
->>>>>>> a61ffe0ab532044c73cfe89c480be3d79e363808:src/components/search/LeftThumbnail.tsx
 
   return (
     <StContentPreviewWrapper>
