@@ -20,7 +20,7 @@ import SimilarProject from '../components/Search/SimilarProject';
 import { ProjectData } from '../types/project';
 import { getProject } from '../utils/lib/project';
 
-const Search = (): JSX.Element => {
+const Search = () => {
   const navigate = useNavigate();
   const [isSpread, setIsSpread] = useState<boolean>(true);
   const [pageY, setPageY] = useState(0);
@@ -49,7 +49,7 @@ const Search = (): JSX.Element => {
     getContentList();
   }, []);
 
-  const handleDetail = (e: React.MouseEvent, id: number): void => {
+  const handleDetail = (e: React.MouseEvent, id: number) => {
     navigate(`/search/${id}`, { state: { id: id } });
   };
 
@@ -74,18 +74,18 @@ const Search = (): JSX.Element => {
       <StContentSection>
         {contentList.map(({ id, writer, image, likeCount, viewCount }, idx) => (
           <Preview
-            // onClick={() => {
-            //   handleDetail(e, id);
-            // }}
             key={idx}
-            isHomePage={true}
-            contentPreviewData={{
-              projectId: id,
-              profileImg: image,
-              name: writer,
-              recommandCount: likeCount,
-              visibleCount: viewCount,
+            contentPreview={{
+              isHomePage: true,
+              contentPreviewData: {
+                projectId: id,
+                profileImg: image,
+                name: writer,
+                recommandCount: likeCount,
+                visibleCount: viewCount,
+              },
             }}
+            handleClick={(e: React.MouseEvent<HTMLElement>) => handleDetail(e, id)}
           />
         ))}
       </StContentSection>
