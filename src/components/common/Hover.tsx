@@ -6,7 +6,7 @@ import { EyeOff, Folder, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } fr
 import { projectClicked } from '../../utils/atoms';
 
 const Hover = () => {
-  const [searchHoverClicked, setsearchHoverClicked] = useRecoilState(projectClicked);
+  const [searchHoverClicked, setsearchHoverClicked] = useRecoilState<boolean>(projectClicked);
 
   const handleProjectClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();

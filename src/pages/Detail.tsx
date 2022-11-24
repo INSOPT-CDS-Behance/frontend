@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { BtnNext, BtnPrev, HoverButton } from '../asset/icon';
@@ -10,6 +11,7 @@ import DetailHover from '../components/Detail/DetailHover';
 import DetailWhiteHeader from '../components/Detail/DetailWhiteHeader';
 import RightIcon from '../components/Detail/RightIcon';
 import { DetailData } from '../types/project';
+import { detailhover1Clicked, detailhover2Clicked } from '../utils/atoms';
 import { getProjectId } from '../utils/lib/project';
 
 const Detail = () => {
@@ -21,8 +23,6 @@ const Detail = () => {
   const [pageY, setPageY] = useState<number>(0);
   const documentRef = useRef(document);
   const [progress, setProgress] = useState<number>(0);
-
-  const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
 
   useEffect(() => {
     documentRef.current.addEventListener('scroll', handleScroll);
@@ -36,14 +36,12 @@ const Detail = () => {
     setIsSpread(pageYOffset <= 350);
   };
 
-  const [isHover, setIsHover] = useState(false);
+  // const [isHover, setIsHover] = useState(false);
+  const [isHover, setIsHover] = useRecoilState<boolean>(detailhover1Clicked);
+  const isDetailHover = useRecoilValue(detailhover2Clicked);
 
   const handleMouseOver = () => {
     setIsHover((prev) => !prev);
-  };
-
-  const hadleButtonMouseOver = () => {
-    setIsDetailHover((prev) => !prev);
   };
 
   const [scrollImg, setscrollImg] = useState<string>();

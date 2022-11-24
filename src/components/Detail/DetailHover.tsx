@@ -1,16 +1,17 @@
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { HoverButton, ICInformation, ICLink, ICPicture, ICSave } from '../../asset/icon';
+import { detailhover2Clicked } from '../../utils/atoms';
 
 const DetailHover = () => {
-  const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
-
-  // const newHoverButton: Element = document.querySelector('.hovericon');
+  // const [isDetailHover, setIsDetailHover] = useState<boolean>(false);
+  const [isDetailHover, setIsDetailHover] = useRecoilState<boolean>(detailhover2Clicked);
 
   const handleMouseOver = () => {
-    setIsDetailHover(true);
-    // newHoverButton.style.visibility = 'visible';
+    setIsDetailHover((prev) => !prev);
+    console.log('second ' + isDetailHover);
   };
 
   return (
@@ -33,7 +34,7 @@ const DetailHover = () => {
           <p>퍼머링크</p>
         </button>
       </section>
-      {/* {isDetailHover && <HoverButton />} */}
+      {isDetailHover && <HoverButton />}
       <StHoverIcon className="hovericon" />
     </StDetailHoverWrapper>
   );
