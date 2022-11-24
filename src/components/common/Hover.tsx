@@ -3,15 +3,14 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { EyeOff, Folder, ICClose, ICDropdown, ICGlass, ICOpenLink, ThumbsUp } from '../../asset/icon';
-import modalClicked from '../../atom/projectClicked';
+import { projectClicked } from '../../utils/atoms';
 
 const Hover = () => {
-  const [projectClicked, setprojectClicked] = useRecoilState<boolean>(modalClicked);
+  const [searchHoverClicked, setsearchHoverClicked] = useRecoilState(projectClicked);
 
   const handleProjectClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    setprojectClicked((prev) => !prev);
-    console.log(projectClicked);
+    setsearchHoverClicked((prev) => !prev);
   };
 
   return (

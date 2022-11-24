@@ -3,17 +3,16 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { ArrowRight, ICClose, ICDropdown, ICOpenLink } from '../../asset/icon';
-import modalClicked from '../../atom/projectClicked';
 import { ProjectData } from '../../types/project';
+import { projectClicked } from '../../utils/atoms';
 import { getProject } from '../../utils/lib/project';
 import Thumbnail from './LeftThumbnail';
 
 const SimilarProject = () => {
-  const [projectClicked, setprojectClicked] = useRecoilState<boolean>(modalClicked);
+  const [searchHoverClicked, setsearchHoverClicked] = useRecoilState<boolean>(projectClicked);
 
   const handleProjectClick = () => {
-    setprojectClicked((prev) => !prev);
-    console.log(projectClicked);
+    setsearchHoverClicked((prev) => !prev);
   };
 
   const [contentList, setContentList] = useState<ProjectData[]>([]);
@@ -33,7 +32,7 @@ const SimilarProject = () => {
 
   return (
     <>
-      {projectClicked && (
+      {searchHoverClicked && (
         <StSimilarProjectWrapper>
           <StLeft>
             <div>
