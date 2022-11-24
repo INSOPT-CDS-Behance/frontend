@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
-import ImgHomePreview from '../../asset/image/previewImg.png';
-import { ContentPrivewData } from '../../types/common';
+import { ThumbnailProps } from '../../types/common';
 
-const Thumbnail = (props: ContentPrivewData) => {
-  const { profileImg, name, recommandCount, visibleCount } = props;
+const Thumbnail = (props: ThumbnailProps) => {
+  const { previewData } = props;
+  const { profileImg, name, recommandCount, visibleCount } = previewData;
 
   return (
     <StContentPreviewWrapper>
-      <img src={ImgHomePreview} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
       <StContentInfoWrapper>
         <p className="info_user">
-          <img src={ImgHomePreview} alt="user_profile" />
+          <img src={profileImg} alt="user_profile" />
           <span>{name}</span>
         </p>
         <div className="reaction">
@@ -38,7 +38,7 @@ const StContentPreviewWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  width: 21.25rem;
+  /* width: 21.25rem; */
   margin-top: 2.5rem;
   margin-right: 1.5rem;
 

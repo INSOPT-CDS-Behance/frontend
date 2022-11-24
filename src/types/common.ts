@@ -1,4 +1,5 @@
-export interface ContentPrviewData {
+export interface PreviewData {
+  projectId: number;
   profileImg: string;
   name: string;
   recommandCount: number;
@@ -16,4 +17,20 @@ export interface DropboxList {
   id: number;
   title: string;
   src: string;
+}
+
+export interface ContentPrviewData {
+  profileImg: string;
+  name: string;
+  recommandCount: number;
+  visibleCount: number;
+}
+
+export interface ContentPreviewProps {
+  contentPreviewData: PreviewData;
+  isHomePage: boolean;
+}
+
+export interface ThumbnailProps {
+  previewData: PreviewData;
 }

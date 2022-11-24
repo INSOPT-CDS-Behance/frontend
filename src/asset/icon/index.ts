@@ -3,6 +3,7 @@ export { ReactComponent as ICArrow } from './Arrow_down.svg';
 export { ReactComponent as ArrowLeft } from './arrowLeft.svg';
 export { ReactComponent as ArrowRight } from './arrowRight.svg';
 export { ReactComponent as BadgeBehance } from './badge_behance.svg';
+export { ReactComponent as BlueHamburgerButton } from './blueHamburger.svg';
 export { ReactComponent as ICBtnAdd } from './btn_add_big.svg';
 export { ReactComponent as BtnClose } from './btn_close.svg';
 export { ReactComponent as BtnNext } from './btn_next.svg';

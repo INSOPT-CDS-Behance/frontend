@@ -1,18 +1,33 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
 import ImgHomePreview from '../../asset/image/previewImg.png';
-import { ContentPrivewData } from '../../types/common';
+import { ContentPreviewProps, PreviewData } from '../../types/common';
+import Hover from '../common/Hover';
 
-const Preview = (props: ContentPrivewData) => {
-  const { profileImg, name, recommandCount, visibleCount } = props;
+interface PreviewProps {
+  contentPreview: ContentPreviewProps;
+  handleClick: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const Preview = ({ contentPreview, handleClick }: PreviewProps) => {
+  const { isHomePage, contentPreviewData } = contentPreview;
+  const { projectId, profileImg, name, recommandCount, visibleCount } = contentPreviewData;
+
+  const [isHover, setIsHover] = useState(false);
+
+  const handleHover = () => {
+    setIsHover((prev) => !prev);
+  };
 
   return (
-    <StContentPreviewWrapper>
-      <img src={ImgHomePreview} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+    <StContentPreviewWrapper onMouseOver={handleHover} onMouseOut={handleHover} onClick={handleClick}>
+      <img src={profileImg} alt="thumbnail" width={'21.25rem'} height={'17.1875rem'} />
+      {isHomePage && isHover && <Hover />}
       <StContentInfoWrapper>
         <p className="info_user">
-          <img src={ImgHomePreview} alt="user_profile" />
+          <img src={profileImg} alt="user_profile" />
           <span>{name}</span>
         </p>
         <div className="reaction">
