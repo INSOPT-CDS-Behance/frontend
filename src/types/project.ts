@@ -9,8 +9,3 @@ export interface PostProjectLike {
   projectId: number;
   userId: number;
 }
-export interface LikeStatus {
-  status: number;
-  success: boolean;
-  message: string;
-}

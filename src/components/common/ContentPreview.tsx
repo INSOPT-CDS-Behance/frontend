@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
-import { ContentPrviewData } from '../../types/common';
-import { LikeStatus, PostProjectLike } from '../../types/project';
+import { ContentPrviewData, LikeStatus } from '../../types/common';
+import { PostProjectLike } from '../../types/project';
 import { postProjectLike } from '../../utils/lib/project';
 import Hover from '../Home/Hover';
 
