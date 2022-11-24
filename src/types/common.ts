@@ -1,4 +1,5 @@
 export interface ContentPrviewData {
+  projectId: number;
   profileImg: string;
   name: string;
   recommandCount: number;
@@ -16,4 +17,10 @@ export interface DropboxList {
   id: number;
   title: string;
   src: string;
+}
+
+export interface LikeStatus {
+  status: number;
+  success: boolean;
+  message: string;
 }

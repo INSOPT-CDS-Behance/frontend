@@ -9,13 +9,11 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <StHeader>
-      {/* 헤더 좌측 */}
       <StLeft>
         <BehanceLogo />
         <PageCategory />
       </StLeft>
 
-      {/* 헤더 우측 */}
       <StRight>
         <ShareButton />
         <StIcons>

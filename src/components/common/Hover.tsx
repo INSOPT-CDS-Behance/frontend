@@ -38,7 +38,14 @@ const Hover = () => {
           <StRight>
             <div></div>
             {[1, 2, 3, 4, 5].map((_, idx) => (
-              <Thumbnail key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
+              <Thumbnail
+                key={idx}
+                projectId={1}
+                profileImg=""
+                name="Wedge Studio"
+                recommandCount={129}
+                visibleCount={129}
+              />
             ))}
           </StRight>
           <StHr>

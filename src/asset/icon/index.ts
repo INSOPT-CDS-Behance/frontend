@@ -36,17 +36,25 @@ export { ReactComponent as ICPicture } from './ic_picture.svg';
 export { ReactComponent as ICRecommand } from './ic_recommend.svg';
 export { ReactComponent as ICSave } from './ic_save.svg';
 export { ReactComponent as ICSearch } from './ic_search.svg';
+export { ReactComponent as ICSearchWhite } from './ic_search_white.svg';
 export { ReactComponent as ICSearchBarHover } from './ic_searchHover.svg';
 export { ReactComponent as ICStar } from './ic_star_fill_24.svg';
 export { ReactComponent as ICThumbsUp } from './ic_Tumbsup.svg';
 export { ReactComponent as ICVisible } from './ic_visible_fill.svg';
+export { ReactComponent as ICDropdown } from './ic-dropdown.svg';
 export { ReactComponent as ICAlertFill } from './IcAlertFill.svg';
+<<<<<<< HEAD
 export { ReactComponent as ICDropdown } from './icDropdown.svg';
+=======
+>>>>>>> main
 export { ReactComponent as ICMailFill } from './IcMailFill.svg';
 export { ReactComponent as ICLineCol } from './Line 5.svg';
 export { ReactComponent as ICLockOn } from './Lock on.svg';
 export { ReactComponent as Logo } from './logo.svg';
 export { ReactComponent as ICBtnNext } from './Next button.svg';
+<<<<<<< HEAD
 export { ReactComponent as ICNoriLogo } from './noriLogoIcon.svg';
+=======
+>>>>>>> main
 export { ReactComponent as Profile } from './profile.svg';
 export { ReactComponent as ThumbsUp } from './thumbs-up.svg';

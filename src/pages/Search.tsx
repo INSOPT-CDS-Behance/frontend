@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import background from '../asset/image/searchHomeBackground.svg';
-import Hover from '../components/common/Hover';
-import Modal from '../components/common/Modal';
+import { Hover } from '../components/common';
 import {
   CategoryButton,
   HrContainer,
@@ -54,7 +53,7 @@ const Search = () => {
 
       <StContentSection onMouseOver={handleHover} onMouseOut={handleHoverOut}>
         {[1, 2, 3, 4, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 2, 2, 2, , 2, , 2, 2, , 2].map((_, idx) => (
-          <Preview key={idx} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
+          <Preview key={idx} projectId={2} profileImg="" name="Wedge Studio" recommandCount={129} visibleCount={129} />
         ))}
         {isHover && <Hover />}
       </StContentSection>

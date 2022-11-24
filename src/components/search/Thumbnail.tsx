@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 import { ICRecommand, ICVisible } from '../../asset/icon';
 import ImgHomePreview from '../../asset/image/previewImg.png';
-import { ContentPrivewData } from '../../types/common';
+import { ContentPrviewData } from '../../types/common';
 
-const Thumbnail = (props: ContentPrivewData) => {
-  const { profileImg, name, recommandCount, visibleCount } = props;
+const Thumbnail = (props: ContentPrviewData) => {
+  const { projectId, profileImg, name, recommandCount, visibleCount } = props;
 
   return (
     <StContentPreviewWrapper>
