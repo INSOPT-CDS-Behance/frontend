@@ -13,8 +13,8 @@ const MoodBoard = () => {
 
   useEffect(() => {
     const getContentList = async () => {
-      const data = await getMoodBoard();
-      const getMoodBoardData = data.data.data as MoodBoardServerData[];
+      const { data } = await getMoodBoard();
+      const getMoodBoardData = data.data as MoodBoardServerData[];
       setMoodBoardList(getMoodBoardData);
     };
 
@@ -35,20 +35,18 @@ const MoodBoard = () => {
     }
   }, [hovered]);
 
-  moodBoardList.sort((a: MoodBoardServerData, b: MoodBoardServerData): number => {
-    return a.id - b.id;
-  });
+  moodBoardList.sort((a: MoodBoardServerData, b: MoodBoardServerData): number => a.id - b.id);
 
   const moveBoard: JSX.Element[] = moodBoardList.map(({ id, is_public, name, project, profile_count, subtitle }) => (
     <MoodBoardContent
       key={id}
       MoodBoardData={{
-        id: id,
+        id,
         title: name,
         category: subtitle,
         lock: is_public,
         profileNum: profile_count,
-        project: project,
+        project,
       }}
       setHovered={setHovered}
       hoveredLong={hoveredLong}

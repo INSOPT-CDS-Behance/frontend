@@ -42,7 +42,7 @@ const MoodBoardContent = (props: MoodBoardDataProps) => {
   const handleOnClick = (e: React.MouseEvent) => {
     e.stopPropagation;
 
-    navigate(`/Edit/${id}`, { state: { title: title, subtitle: category, lock: lock } });
+    navigate(`/Edit/${id}`, { state: { title, subtitle: category, lock } });
   };
 
   return (

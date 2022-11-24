@@ -28,10 +28,10 @@ const Edit = () => {
     { title: '무드보드 이름', value: state.title },
     { title: '공동 소유자 추가', value: '사용자 이름으로 검색' },
     { title: '크리에이티브 분야', value: state.subtitle },
-  ].map((item, index) => (
+  ].map(({ title, value }, index) => (
     <StInputContainer key={index} className={`input${index}`}>
-      <StInputTitle>{item.title}</StInputTitle>
-      <StInput value={item.value} />
+      <StInputTitle>{title}</StInputTitle>
+      <StInput value={value} />
     </StInputContainer>
   ));
 
@@ -47,8 +47,6 @@ const Edit = () => {
             navigate('/mypage');
             break;
           case '무드보드 편집을 실패':
-            setIsLocked(!isLocked);
-            break;
           case '필요한 값이 없습니다':
             setIsLocked(!isLocked);
             break;
