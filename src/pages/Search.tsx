@@ -11,13 +11,12 @@ import {
   HrContainer,
   Preview,
   Searchbar,
+  SimilarProject,
   TitleBoard,
   TransparentHeader,
   WhiteHeader,
 } from '../components/Search';
-import SimilarProject from '../components/Search/SimilarProject';
 import { ProjectData } from '../types/project';
-// import projectClicked from '../atom/projectClicked';
 import { projectClicked } from '../utils/atoms';
 import { getProject } from '../utils/lib/project';
 
@@ -51,7 +50,7 @@ const Search = () => {
   }, []);
 
   const handleDetail = (e: React.MouseEvent, id: number) => {
-    navigate(`/search/${id}`, { state: { id: id } });
+    navigate(`/search/${id}`, { state: { id } });
   };
 
   const isProjectClicked = useRecoilValue(projectClicked);

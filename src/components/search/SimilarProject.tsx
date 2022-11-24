@@ -22,7 +22,7 @@ const SimilarProject = () => {
     const getContentList = async () => {
       const { data } = await getProject();
       const getProjectData = data.data as ProjectData[];
-      const getImgSrc = data.data[0].image;
+      const getImgSrc = getProjectData[0].image;
       setContentList(getProjectData);
       setLeftThumbnail(getImgSrc);
     };

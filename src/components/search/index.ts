@@ -6,6 +6,7 @@ export { default as HrContainer } from '../Search/HrContainer';
 export { default as Thumbnail } from '../Search/LeftThumbnail';
 export { default as Preview } from '../Search/Preview';
 export { default as Searchbar } from '../Search/Searchbar';
+export { default as SimilarProject } from '../Search/SimilarProject';
 export { default as TitleBoard } from '../Search/TitleBoard';
 export { default as TransparentCategory } from '../Search/TransparentCategory';
 export { default as TransparentHeader } from '../Search/TransparentHeader';

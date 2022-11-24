@@ -36,12 +36,9 @@ const Detail = () => {
     setIsSpread(pageYOffset <= 350);
   };
 
-  // const [isHover, setIsHover] = useState(false);
   const [isHover, setIsHover] = useRecoilState<boolean>(detailhover1Clicked);
-  const isDetailHover = useRecoilValue(detailhover2Clicked);
 
   const handleMouseOver = (e: React.MouseEvent<HTMLElement>) => {
-    // setIsHover((prev) => !prev);
     e.stopPropagation();
 
     setIsHover(true);
