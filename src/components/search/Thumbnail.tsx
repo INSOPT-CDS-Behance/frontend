@@ -5,7 +5,7 @@ import ImgHomePreview from '../../asset/image/previewImg.png';
 import { ContentPrviewData } from '../../types/common';
 
 const Thumbnail = (props: ContentPrviewData) => {
-  const { profileImg, name, recommandCount, visibleCount } = props;
+  const { projectId, profileImg, name, recommandCount, visibleCount } = props;
 
   return (
     <StContentPreviewWrapper>
