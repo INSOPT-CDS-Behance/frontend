@@ -6,7 +6,7 @@ import illustrate from '../../asset/image/illustrate.png';
 import photoshop from '../../asset/image/photoshop.png';
 import theme from '../../styles/theme';
 import { CategoryList } from '../../types/common';
-import HamburgerModal from './HamBurgerModal';
+import HamburgerModal from '../HamBurgerModal';
 
 const CategoryButton = (): JSX.Element => {
   const categorys: CategoryList[] = [
